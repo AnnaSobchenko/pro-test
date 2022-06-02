@@ -1,6 +1,6 @@
 import "./App.css";
 import { Suspense } from "react";
-import { Switch } from "react-router-dom";
+// import { Switch } from "react-router-dom";
 import PublicRoute from "./components/_routs/PublicRoute";
 import PrivateRoute from "./components/_routs/PrivatRoute";
 import TestPage from "./pages/TestPage/TestPage";
@@ -20,7 +20,7 @@ function App() {
       <header className="App-header"></header>
       <AppBar />
       <Suspense fallback={<Loader />}>
-        <Switch>
+        {/* <Switch> */}
           <PublicRoute path="/auth" redirectTo="/" restricted>
             <AuthPage />
           </PublicRoute>
@@ -42,7 +42,7 @@ function App() {
           </PrivateRoute>
 
           <RedirectNew />
-        </Switch>
+        {/* </Switch> */}
       </Suspense>
       <Footer />
     </div>
