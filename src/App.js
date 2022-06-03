@@ -13,6 +13,7 @@ import MaterialsPage from "./pages/MaterialsPage/MaterialsPage";
 import ContactsPage from "./pages/Contacts/ContactsPage";
 import AppBar from "./components/_navigation/AppBar";
 import Footer from "./components/_navigation/Footer";
+import ChooseTestingPage from "./pages/ChooseTestingPage/ChooseTestingPage";
 
 function App() {
   return (
@@ -24,14 +25,16 @@ function App() {
             <Route element={<PublicRoute />}>
               <Route path="auth" element={<AuthPage />} />
             </Route>
-            <Route element={<PrivateRoute />}>
-              <Route path="test" element={<TestPage />} />
-              <Route path="result" element={<ResultPage />} />
-              <Route path="materials" element={<MaterialsPage />} />
-              <Route path="contacts" element={<ContactsPage />} />
-            </Route>
-            <Route path="*" element={<RedirectNew to="/" replace />} />
+            {/* <Route element={<PrivateRoute />}> */}
+            <Route path="test" element={<ChooseTestingPage />} />
+            <Route path="test/:qa" element={<TestPage />} />
+            <Route path="test/:theory" element={<TestPage />} />
+            <Route path="result" element={<ResultPage />} />
+            <Route path="materials" element={<MaterialsPage />} />
+            <Route path="contacts" element={<ContactsPage />} />
           </Route>
+          <Route path="*" element={<RedirectNew to="/" replace />} />
+          {/* </Route> */}
         </Routes>
         <Footer />
       </Suspense>
