@@ -1,6 +1,6 @@
 import "./App.css";
 import { Suspense } from "react";
-// import { Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import PublicRoute from "./components/_routs/PublicRoute";
 import PrivateRoute from "./components/_routs/PrivatRoute";
 import TestPage from "./pages/TestPage/TestPage";
@@ -17,34 +17,24 @@ import Footer from "./components/_navigation/Footer";
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
-      <AppBar />
       <Suspense fallback={<Loader />}>
-        {/* <Switch> */}
-          <PublicRoute path="/auth" redirectTo="/" restricted>
-            <AuthPage />
-          </PublicRoute>
-
-          <PrivateRoute path="/" redirectTo="/auth">
-            <MainPage />
-          </PrivateRoute>
-          <PrivateRoute path="/test" redirectTo="/auth">
-            <TestPage />
-          </PrivateRoute>
-          <PrivateRoute path="/result" redirectTo="/auth">
-            <ResultPage />
-          </PrivateRoute>
-          <PrivateRoute path="/materials" redirectTo="/auth">
-            <MaterialsPage />
-          </PrivateRoute>
-          <PrivateRoute path="/contacts" redirectTo="/auth">
-            <ContactsPage />
-          </PrivateRoute>
-
-          <RedirectNew />
-        {/* </Switch> */}
+        <Routes>
+          <Route path="/" element={<AppBar />}>
+            <Route index element={<MainPage />} />
+            <Route element={<PublicRoute />}>
+              <Route path="auth" element={<AuthPage />} />
+            </Route>
+            <Route element={<PrivateRoute />}>
+              <Route path="test" element={<TestPage />} />
+              <Route path="result" element={<ResultPage />} />
+              <Route path="materials" element={<MaterialsPage />} />
+              <Route path="contacts" element={<ContactsPage />} />
+            </Route>
+            <Route path="*" element={<RedirectNew to="/" replace />} />
+          </Route>
+        </Routes>
+        <Footer />
       </Suspense>
-      <Footer />
     </div>
   );
 }

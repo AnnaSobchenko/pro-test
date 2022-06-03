@@ -12,22 +12,35 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/authSlice";
+import questionsReducer from "./questions/questionsSlice";
 
 const authPersistConfig = {
   key: "auth",
   storage,
   whitelist: ["accessToken", "refreshToken"],
 };
+
+const questionsPersistConfig = {
+  key: "questions",
+  storage,
+  whitelist: ["accessToken", "refreshToken"],
+};
+
 const authPersistedReducer = persistReducer(authPersistConfig, authReducer);
+const questionsPersistedReducer = persistReducer(
+  questionsPersistConfig,
+  questionsReducer
+);
 
 const rootPersistConfig = {
   key: "root",
   storage,
-  whitelist: ["theme", "lang"],
+  whitelist: ["theme"],
 };
 
-const rootReducer = combineReducers({ 
-  auth: authPersistedReducer,  
+const rootReducer = combineReducers({
+  auth: authPersistedReducer,
+  questions: questionsPersistedReducer,
 });
 
 const rootPersistedReducer = persistReducer(rootPersistConfig, rootReducer);
