@@ -1,5 +1,5 @@
 const MaterialsPage = () => {
-  return MaterialsPage;
+  return "MaterialsPage"
 };
 
 export default MaterialsPage;

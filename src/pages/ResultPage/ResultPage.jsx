@@ -1,6 +1,6 @@
 const ResultPage = () => {
     return ( 
-        ResultPage
+        "ResultPage"
      );
 }
  

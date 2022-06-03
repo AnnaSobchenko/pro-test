@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import PublicRoute from "./components/_routs/PublicRoute";
