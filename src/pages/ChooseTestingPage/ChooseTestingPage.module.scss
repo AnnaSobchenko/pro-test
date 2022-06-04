@@ -20,7 +20,7 @@
             }
 }
 
-.test-description {
+.test__description {
     font-family: 'Montserrat';
     margin-bottom: 32px;
     font-weight: 700;
@@ -44,7 +44,7 @@
 //             }
 }
 
-.test-line {
+.test__line {
     display: block;
     width: 130px;
     margin: 0 auto 12px;
@@ -59,7 +59,7 @@
     
 }
 
-.test-author {
+.test__author {
     margin-bottom: 8px;
 
     font-family: 'Montserrat';
@@ -80,7 +80,7 @@
   
 }
 
-.test-author__description {
+.test__authorDescription {
     font-family: 'Montserrat';
     font-weight: 500;
     font-size: 10px;
@@ -106,7 +106,7 @@
     
 }
 
-.btn-QA {
+.btn__QA {
     display: block;
     width: 280px;
     // margin-bottom: 20px;
@@ -129,7 +129,7 @@
 
 }
 
-.btn-QA-description {
+.btn__QaDescription {
     font-family: 'Montserrat';
     font-weight: 800;
     font-size: 24px;
@@ -155,7 +155,7 @@
 
 }
 
-.btn-test {
+.btn__test {
     display: block;
     width: 280px;
     text-decoration: none;
@@ -176,7 +176,7 @@
         }
 }
 
-.btn-test__description {
+.btn__testDescription {
     font-family: 'Montserrat';
     font-weight: 800;
     font-size: 24px;
@@ -201,7 +201,7 @@
             }
 }
 
-.btn-icon {
+.btn__icon {
     display: block;
     margin: 32px auto 0;
 
@@ -210,7 +210,7 @@
             }
 }
 
-.btn-wrapper {
+.btn__wrapper{
     @media screen and (min-width: 1286px) {
            display: flex;
         justify-content: center;
