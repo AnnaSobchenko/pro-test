@@ -1,4 +1,5 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
+import s from "./TestPage.module.scss";
 
 const TestPage = () => {
   //   let { questions } = useParams();
@@ -9,9 +10,9 @@ const TestPage = () => {
   return (
     <section>
       <p>Testing theory</p>
-      <btn>Finish test</btn>
+      <button>Finish test</button>
 
-      <div>
+      <div className={s.wrapper}>
         {/* <p>{`Question ${questions} / 12`}</p> */}
         <p></p>
       </div>
