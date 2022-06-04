@@ -18,7 +18,7 @@ import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<AppBar />}>
@@ -28,7 +28,6 @@ function App() {
             </Route>
             {/* <Route element={<PrivateRoute />}> */}
             <Route path="test" element={<ChooseTestingPage />} />
-            <Route path="test/:questions" element={<TestPage />} />
             <Route path="result" element={<ResultPage />} />
             <Route path="materials" element={<MaterialsPage />} />
             <Route path="contacts" element={<ContactsPage />} />
