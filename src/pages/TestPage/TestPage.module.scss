@@ -11,9 +11,8 @@
   width: 280px;
   height: 456px;
   margin: 0 auto;
+
   padding: 40px 20px 75px;
-  //   padding-top: 40px;
-  //   padding-bottom: 75px;
 
   background: #ffffff;
   box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
@@ -29,6 +28,20 @@
   letter-spacing: 0.02em;
 
   color: #000000;
+}
+.btn__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.btn__left {
+  width: 55px;
+  height: 34px;
+
+  background: #ffffff;
+}
+.btn__icon {
+  border: none;
 }
 .finish__btn {
   width: 130px;
@@ -71,28 +84,28 @@
   opacity: 0.15;
   border: 1px solid #00122f;
 }
-.question__list {
-}
 .question__item {
   margin-bottom: 14px;
+  margin-left: 20px;
 }
 .question__text {
   position: relative;
 
-  margin-left: 20px;
   width: 202px;
   display: inline-block;
+  margin-left: 20px;
 
   &::before {
     content: "";
     display: block;
     width: 18px;
     height: 18px;
-    border: 1px solid black;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -40px;
     border-radius: 50%;
+
+    border: 1px solid black;
   }
   &::after {
     content: "";
@@ -100,13 +113,15 @@
     display: block;
     width: 15px;
     height: 15px;
-    background-color: red;
-    border-radius: 50%;
+
     top: 10px;
-    left: 10px;
+    left: -30px;
     opacity: 0;
     transition: 0.2s;
     transform: translate(-50%, -50%);
+
+    background-color: red;
+    border-radius: 50%;
   }
 }
 .question__itemLabel {

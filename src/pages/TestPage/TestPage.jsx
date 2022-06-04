@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import s from "./TestPage.module.scss";
+import Icons from "../../images/symbol-defs.svg";
 
 const TestPage = () => {
   return (
@@ -40,6 +41,19 @@ const TestPage = () => {
             </label>
           </li>
         </ul>
+      </div>
+
+      <div className={s.btn__wrapper}>
+        <button className={s.btn__left}>
+          <svg className={s.btn__icon} width="24px" height="16px">
+            <use xlinkHref={`${Icons}#icon-left-black`} />
+          </svg>
+        </button>
+        <button>
+          <svg className={s.btn__icon} width="24px" height="16px">
+            <use xlinkHref={`${Icons}#icon-right-black`} />
+          </svg>
+        </button>
       </div>
     </section>
   );
