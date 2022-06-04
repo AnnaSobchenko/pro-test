@@ -13,7 +13,6 @@ import MaterialsPage from "./pages/MaterialsPage/MaterialsPage";
 import ContactsPage from "./pages/Contacts/ContactsPage";
 import AppBar from "./components/_navigation/AppBar";
 import Footer from "./components/_navigation/Footer";
-import ChooseTestingPage from "./pages/ChooseTestingPage/ChooseTestingPage";
 import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
@@ -27,7 +26,7 @@ function App() {
               <Route path="auth" element={<AuthPage />} />
             </Route>
             {/* <Route element={<PrivateRoute />}> */}
-            <Route path="test" element={<ChooseTestingPage />} />
+            <Route path="test" element={<TestPage />} />
             <Route path="result" element={<ResultPage />} />
             <Route path="materials" element={<MaterialsPage />} />
             <Route path="contacts" element={<ContactsPage />} />

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Icons from "../../images/symbol-defs.svg";
 import s from "./MainPage.module.scss";
-import style from "../../index.scss";
 
 const MainPage = () => {
   return (
