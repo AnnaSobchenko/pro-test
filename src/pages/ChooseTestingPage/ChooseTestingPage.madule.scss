@@ -1,11 +1,22 @@
 .test {
-    padding: 35px 20px 40px;
+    // margin: 0 auto;
+        padding-top: 35px;
+        padding-bottom: 40px;
+
+    // padding: 35px 20px 40px;
         @media screen and (min-width: 768px) {
-            padding: 80px 60px 125px 60px;
+            // margin: 0 auto;
+                padding-top: 80px;
+                padding-bottom: 125px;
+
+            // padding: 80px 60px 125px 60px;
         }
 
             @media screen and (min-width: 1286px) {
-                padding: 120px 204px 135px 204px;
+                // margin:  0 auto;
+                padding-top: 120px;
+                padding-bottom: 135px;
+                // padding: 120px 204px 135px 204px;
             }
 }
 
@@ -98,13 +109,12 @@
 .btn-QA {
     display: block;
     width: 280px;
-    height: 212px;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     text-decoration: none;
     margin: 0 auto 20px;
 
     padding-top: 60px;
-    padding-bottom: 94px;
+    padding-bottom: 45px;
 
     background: #02172A;
 
@@ -113,26 +123,10 @@
             padding-top: 60px;
             padding-bottom: 45px;
         }
+        @media screen and (min-width: 1268px) {
+            margin: 0 32px 0 0;
+        }
 
-}
-
-.btn-test {
-    display: block;
-    width: 280px;
-    height: 212px;
-    text-decoration: none;
-    margin: 0 auto;
-
-    padding-top: 60px;
-    padding-bottom: 94px;
-
-    background: #FF6B01;
-
-        @media screen and (min-width: 768px) {
-                width: 400px;
-                padding-top: 60px;
-                padding-bottom: 45px;
-            }
 }
 
 .btn-QA-description {
@@ -145,23 +139,44 @@
 
     display: block;
     width: 177px;
+    height: 59px;
 
     color: #FFFFFF;
 
+    @media screen and (min-width: 768px) {
+        width: 376px;
+        height: 79px;
+        font-size: 32px;
+        line-height: 1;
+
+        text-align: center;
+    }
+
+
+}
+
+.btn-test {
+    display: block;
+    width: 280px;
+    text-decoration: none;
+    margin: 0 auto;
+
+    padding-top: 60px;
+    padding-bottom: 45px;
+
+    background: #FF6B01;
+
         @media screen and (min-width: 768px) {
-            width: 376px;
-            font-size: 32px;
-            line-height:1;
-
-            text-align: center;
+                width: 400px;
+                padding-top: 60px;
+                padding-bottom: 45px;
         }
-
-   
+        @media screen and (min-width: 1268px) {
+            margin: 0;
+        }
 }
 
 .btn-test__description {
-    width: 105px;
-   
     font-family: 'Montserrat';
     font-weight: 800;
     font-size: 24px;
@@ -171,6 +186,7 @@
 
     display: block;
     width: 105px;
+    height: 59px;
     margin: 0 auto;
 
     color: #FFFFFF;
@@ -180,9 +196,11 @@
             line-height: 1;
 
             width: 132px;
+            height: 79px;
             text-align: center;
             }
 }
+
 .btn-icon {
     display: block;
     margin: 32px auto 0;
@@ -195,5 +213,6 @@
 .btn-wrapper {
     @media screen and (min-width: 1286px) {
            display: flex;
+        justify-content: center;
         }
 }
