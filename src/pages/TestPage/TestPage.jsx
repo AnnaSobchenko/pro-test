@@ -23,7 +23,8 @@ const TestPage = () => {
 
           <li className={s.question__item}>
             <label className={s.question__itemLabel}>
-              <input type="checkbox"></input>
+              <input type="radio" className={s.radio} name="answer"></input>
+
               <span className={s.question__text}>
                 This is testing of the main functionality of the application
               </span>
@@ -31,7 +32,8 @@ const TestPage = () => {
           </li>
           <li className={s.question__item}>
             <label className={s.question__itemLabel}>
-              <input type="checkbox"></input>
+              <input type="radio" className={s.radio} name="answer"></input>
+
               <span className={s.question__text}>
                 This is testing of the main functionality of the application
               </span>
