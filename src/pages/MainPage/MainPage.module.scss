@@ -21,7 +21,7 @@
     text-align: center;
     letter-spacing: 0.02em;
 
-    color: #000000;
+    color: var(--primary-text-color);
 
     @media screen and (min-width: 768px) {
       width: 650px;
@@ -55,7 +55,7 @@
     text-align: center;
     letter-spacing: 0.02em;
 
-    color: #000000;
+    color: var(--primary-text-color);
 
     @media screen and (min-width: 768px) {
       font-size: 18px;
@@ -73,7 +73,7 @@
     text-align: center;
     letter-spacing: 0.02em;
 
-    color: #555555;
+    color: var(--secondary-text-color);
 
     @media screen and (min-width: 768px) {
       font-size: 14px;
@@ -96,7 +96,7 @@
   padding-top: 60px;
   padding-bottom: 45px;
 
-  background: #02172a;
+  background: var(--second-button-color);
 
   @media screen and (min-width: 768px) {
     width: 400px;
@@ -121,7 +121,7 @@
   width: 177px;
   height: 59px;
 
-  color: #ffffff;
+  color: var(--third-text-color);
 
   @media screen and (min-width: 768px) {
     width: 376px;
@@ -142,7 +142,7 @@
   padding-top: 60px;
   padding-bottom: 45px;
 
-  background: #ff6b01;
+  background: var(--accent-button-color);
 
   @media screen and (min-width: 768px) {
     width: 400px;
@@ -168,7 +168,7 @@
   height: 59px;
   margin: 0 auto;
 
-  color: #ffffff;
+  color: var(--third-text-color);
 
   @media screen and (min-width: 768px) {
     font-size: 30px;

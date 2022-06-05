@@ -24,9 +24,6 @@
   @media screen and (min-width: 768px) {
     margin-bottom: 30px;
   }
-  //   @media screen and (min-width: 1268px) {
-  //     margin-bottom: 20px;
-  //   }
 }
 
 .heading {
@@ -39,7 +36,7 @@
   line-height: 1.2;
   letter-spacing: 0.02em;
 
-  color: #000000;
+  color: var(--primary-text-color);
 
   @media screen and (min-width: 768px) {
     width: 170px;
@@ -62,8 +59,8 @@
   line-height: 1.2;
   letter-spacing: 0.02em;
 
-  color: #ffffff;
-  background: #ff6b09;
+  color: var(--third-text-color);
+  background: var(--accent-button-color);
 
   @media screen and (min-width: 768px) {
     width: 181px;
@@ -80,7 +77,7 @@
 
   padding: 40px 20px 75px;
 
-  background: #ffffff;
+  background: var(--third-text-color);
   box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
 
   @media screen and (min-width: 768px) {
@@ -104,7 +101,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: #555555;
+  color: var(--secondary-text-color);
 
   @media screen and (min-width: 768px) {
     width: 400px;
@@ -125,7 +122,7 @@
 
   margin-bottom: 32px;
 
-  color: #000000;
+  color: var(--primary-text-color);
 
   @media screen and (min-width: 768px) {
     font-size: 22px;
@@ -175,7 +172,7 @@
   line-height: 1.2;
   letter-spacing: 0.02em;
 
-  color: #000000;
+  color: var(--primary-text-color);
 
   &::before {
     content: "";
@@ -228,7 +225,7 @@
 
   &:hover,
   &:focus {
-    background: #ff6b09;
+    background: var(--accent-button-color);
   }
   &:hover .btn__leftIcon,
   &:focus .btn__leftIcon {
@@ -266,7 +263,7 @@
 
   &:hover,
   &:focus {
-    background: #ff6b09;
+    background: var(--accent-button-color);
   }
 
   &:hover .btn__rightIcon,
@@ -288,7 +285,7 @@
       font-size: 12px;
       line-height: 14px;
       letter-spacing: 0.02em;
-      color: #000000;
+      color: var(--primary-text-color);
     }
 
     &:hover::before,
