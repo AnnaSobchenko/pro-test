@@ -38,7 +38,6 @@ function App() {
           <Route path="*" element={<RedirectNew to="/" replace />} />
           </Route>
         </Routes>
-        <Footer />
       </Suspense>
     </div>
   );
