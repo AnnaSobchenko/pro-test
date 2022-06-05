@@ -1,16 +1,14 @@
-import PropTypes from "prop-types";
-import { Route } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
-export default function PublicRoute({ children, redirectTo, ...routeProps }) {
-    
-    return (
-      <Route {...routeProps}>       
-          children       
-      </Route>
-    );
-  }
-  
-  PublicRoute.propTypes = {
-    // redirectTo: PropTypes.string.isRequired,
-    routeProps: PropTypes.object,
-  };
+import useAuth from "../_shared/hooks/useAuth";
+
+const PublicRoute = ()=> {
+    const isLogin = useAuth();
+
+    if(isLogin) {
+        return <Navigate to="/" />
+    }
+    return <Outlet />
+};
+
+export default PublicRoute;

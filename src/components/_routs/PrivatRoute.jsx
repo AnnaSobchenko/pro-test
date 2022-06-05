@@ -1,23 +1,16 @@
-import PropTypes from "prop-types";
-import { Route } from "react-router-dom";
+import { useLocation, Navigate, Outlet } from "react-router-dom";
 
-export default function PrivateRoute({
-  children,
-  isAuthenticated,
-  redirectTo,
-  ...routeProps
-}) {
-  
-  // const isLoggedIn = true;  
+import useAuth from "../_shared/hooks/useAuth";
 
-  return (
-    <Route {...routeProps}>
-      {/* {isLoggedIn ? children : <Redirect to={redirectTo} />} */}
-    </Route>
-  );
-}
+const PrivateRoute = ()=> {
+    const isLogin = useAuth();
 
-PrivateRoute.propTypes = {
-  // redirectTo: PropTypes.string.isRequired,
-  routeProps: PropTypes.object,
+    const location = useLocation();
+
+    if(!isLogin) {
+        return <Navigate to="/auth" state={{from: location}} />
+    }
+    return <Outlet />
 };
+
+export default PrivateRoute;
