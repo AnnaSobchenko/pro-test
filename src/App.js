@@ -18,8 +18,8 @@ import { useSelector } from "react-redux";
 
 function App() {
   // const isLoggedIn = useSelector(state=> state.auth.isLoggedIn)
-  const isLoggedIn = false
-  console.log('isLoggedIn', isLoggedIn)
+  const isLoggedIn = true
+  
   return (
     <div className="container">
       <Suspense fallback={<Loader />}>

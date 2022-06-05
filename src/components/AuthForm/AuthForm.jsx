@@ -61,10 +61,10 @@ const AuthForm = () => {
             />
 
             <div className={s.btn} >
-              <button className={`${s.btnSubmit} ${s.btnSubmitSignin}`} type="submit" value="signin" >
+              <button className={`${s.btnSubmit} ${s.btnSubmitSignin} `} type="submit" value="signin" >
               sign in
             </button>
-            <button className={s.btnSubmit} value="signup"  type="submit" >
+            <button className={s.btnSubmit } value="signup"  type="submit" >
               sign up
             </button></div>
             
