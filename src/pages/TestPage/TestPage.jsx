@@ -5,6 +5,7 @@ import Icons from "../../images/symbol-defs.svg";
 const TestPage = () => {
   return (
     <section className={s.test}>
+      {/* <div> */}
       <div className={s.wrapper}>
         <p className={s.heading}>{`[${"Testing theory"}]`}</p>
         <Link className={s.finish__btn} to={"/"}>
@@ -13,7 +14,9 @@ const TestPage = () => {
       </div>
 
       <div className={s.question__wrapper}>
-        <p className={s.question__current}>{`Question ${"5"} / 12`}</p>
+        <p className={s.question__current}>
+          Question <span className={s.question__list}> {`${"5"}`}</span> / 12
+        </p>
         <p className={s.question}>What is regression testing?</p>
         <span className={s.line}></span>
 
@@ -45,16 +48,17 @@ const TestPage = () => {
 
       <div className={s.btn__wrapper}>
         <button className={s.btn__left}>
-          <svg className={s.btn__icon} width="24px" height="16px">
+          <svg className={s.btn__leftIcon} width="24px" height="16px">
             <use xlinkHref={`${Icons}#icon-left-black`} />
           </svg>
         </button>
-        <button>
-          <svg className={s.btn__icon} width="24px" height="16px">
+        <button className={s.btn__right}>
+          <svg className={s.btn__rightIcon} width="24px" height="16px">
             <use xlinkHref={`${Icons}#icon-right-black`} />
           </svg>
         </button>
       </div>
+      {/* </div> */}
     </section>
   );
 };
