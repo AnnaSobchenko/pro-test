@@ -22,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<AppBar />}>
             <Route index element={<MainPage />} />
+            <Route path="contacts" element={<ContactsPage />} />
             <Route element={<PublicRoute />}>
               <Route path="auth" element={<AuthPage />} />
             </Route>
@@ -29,7 +30,7 @@ function App() {
             <Route path="test" element={<TestPage />} />
             <Route path="result" element={<ResultPage />} />
             <Route path="materials" element={<MaterialsPage />} />
-            <Route path="contacts" element={<ContactsPage />} />
+            {/* <Route path="contacts" element={<ContactsPage />} /> */}
           </Route>
           <Route path="*" element={<RedirectNew to="/" replace />} />
           </Route>
