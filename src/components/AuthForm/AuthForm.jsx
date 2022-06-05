@@ -5,6 +5,7 @@ import { signin } from "../../redux/auth/authOperations";
 import { authValidationSchema } from "../../utils/validation/AuthValid";
 import LabelForm from "../_shared/LabelForm/LabelForm";
 import s from "./AuthForm.module.scss";
+import symbol from "./../../images/Google@2x.png"
 
 const AuthForm = () => {
 
@@ -37,9 +38,16 @@ const AuthForm = () => {
       }) => (
         <div className={s.authForm}>
           <h2>You can use your Google Account to authorize:</h2>
-      <button>Google</button>
+      <button className={s.btnGoogle}> 
+                  <img
+                    src={symbol}
+                    alt="googleSymbol"
+                    width="18px"
+                    height="18px"
+                    className={s.img}
+                  />Google</button>
        <h2>Or login to our app using e-mail and password:</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={s.authFormInput}>
             <LabelForm type="email"
               handleChange={handleChange}
               handleBlur={handleBlur}
@@ -53,7 +61,7 @@ const AuthForm = () => {
             />
 
             <div className={s.btn} >
-              <button className={s.btnSubmit} type="submit" value="signin" >
+              <button className={`${s.btnSubmit} ${s.btnSubmitSignin}`} type="submit" value="signin" >
               sign in
             </button>
             <button className={s.btnSubmit} value="signup"  type="submit" >

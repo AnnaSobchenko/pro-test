@@ -1,9 +1,12 @@
 .authPage {
 display: flex;
 justify-content: center;
+align-items: center;
+background: var(--primary-bg-color);
 
 }
 .authPageLeft{
+    margin-right: 112px;
     width: 420px;
     height: 187px;
 }
@@ -16,5 +19,14 @@ line-height: 41px;
 letter-spacing: 0.02em;
 
 color: #000000;
+}
+.authtext{
+    
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2;
+    /* or 200% */
+    
+    letter-spacing: 0.02em;
 }
 
