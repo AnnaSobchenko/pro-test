@@ -12,7 +12,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import MaterialsPage from "./pages/MaterialsPage/MaterialsPage";
 import ContactsPage from "./pages/Contacts/ContactsPage";
 import AppBar from "./components/_navigation/AppBar";
-import Footer from "./components/_navigation/Footer";
+
 // import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
@@ -34,7 +34,6 @@ function App() {
           <Route path="*" element={<RedirectNew to="/" replace />} />
           </Route>
         </Routes>
-        <Footer />
       </Suspense>
     </div>
   );
