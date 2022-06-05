@@ -11,6 +11,6 @@ export default function PublicRoute({ children, redirectTo, ...routeProps }) {
   }
   
   PublicRoute.propTypes = {
-    redirectTo: PropTypes.string.isRequired,
+    // redirectTo: PropTypes.string.isRequired,
     routeProps: PropTypes.object,
   };

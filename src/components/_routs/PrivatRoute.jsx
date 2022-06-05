@@ -7,7 +7,9 @@ export default function PrivateRoute({
   redirectTo,
   ...routeProps
 }) {
-   
+  
+  // const isLoggedIn = true;  
+
   return (
     <Route {...routeProps}>
       {/* {isLoggedIn ? children : <Redirect to={redirectTo} />} */}
@@ -16,6 +18,6 @@ export default function PrivateRoute({
 }
 
 PrivateRoute.propTypes = {
-  redirectTo: PropTypes.string.isRequired,
+  // redirectTo: PropTypes.string.isRequired,
   routeProps: PropTypes.object,
 };

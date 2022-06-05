@@ -1,7 +1,5 @@
 const TestPage = () => {
-    return ( 
-        TestPage
-     );
-}
- 
+	return <>TestPage</>;
+};
+
 export default TestPage;
