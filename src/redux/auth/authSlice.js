@@ -4,7 +4,7 @@ import { logout, signin, signup } from "./authOperations";
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: { name: null, email: null },
+    user: { email: null },
     accessToken: null,
     refreshToken: null,
     _id: null,
@@ -14,7 +14,7 @@ const authSlice = createSlice({
   },
   reducers: {
     logoutUser(state) {
-      state.user = { name: null, email: null };
+      state.user = {  email: null };
       state.accessToken = null;
       state.refreshToken = null;
       state._id = null;
@@ -45,12 +45,11 @@ const authSlice = createSlice({
       state.isLoading = true;
       state.error = null;
     },
-    [signin.fulfilled](state, { payload }) {
-      state.user.name = payload.userData.name;
-      state.user.email = payload.userData.email;
+    [signin.fulfilled](state, { payload }) {          
+      state.user.email = payload.ResponseBody.user.email;
       state.accessToken = payload.accessToken;
       state.refreshToken = payload.refreshToken;
-      state._id = payload.sid;
+      state._id = payload._id;
       state.isLoggedIn = true;
       state.isLoading = false;
     },
@@ -64,7 +63,7 @@ const authSlice = createSlice({
       state.error = null;
     },
     [logout.fulfilled](state) {
-      state.user = { name: null, email: null };
+      state.user = { email: null };
       state.accessToken = null;
       state.refreshToken = null;
       state._id = null;
