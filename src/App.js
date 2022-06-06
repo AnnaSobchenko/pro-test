@@ -18,27 +18,29 @@ import { useSelector } from "react-redux";
 
 function App() {
   // const isLoggedIn = useSelector(state=> state.auth.isLoggedIn)
-  const isLoggedIn = true
-  
+  const isLoggedIn = true;
+
   return (
-    <div className="container">
+    <div>
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<AppBar />}>
-
-            <Route index element={isLoggedIn ? <MainPage /> :<Navigate to="auth"/> } />
-            <Route path="contacts" element={<ContactsPage />} />
+            <Route
+              index
+              element={isLoggedIn ? <MainPage /> : <Navigate to="auth" />}
+            />
+<Route path="contacts" element={<ContactsPage />} />
             <Route element={<PublicRoute />}>
               <Route path="auth" element={<AuthPage />} />
             </Route>
-            <Route element={<PrivateRoute />}>
+            {/* <Route element={<PrivateRoute />}> */}
             <Route path="test" element={<TestPage />} />
             <Route path="result" element={<ResultPage />} />
             <Route path="materials" element={<MaterialsPage />} />
             {/* <Route path="contacts" element={<ContactsPage />} /> */}
           </Route>
           <Route path="*" element={<RedirectNew to="/" replace />} />
-          </Route>
+          {/* </Route> */}
         </Routes>
       </Suspense>
     </div>
