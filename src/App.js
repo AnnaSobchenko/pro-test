@@ -25,12 +25,9 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<AppBar />}>
-<<<<<<< HEAD
-            <Route index element={<MainPage />} />
-            <Route path="contacts" element={<ContactsPage />} />
-=======
+
             <Route index element={isLoggedIn ? <MainPage /> :<Navigate to="auth"/> } />
->>>>>>> 4f38835cb55131e63b78c5867d77e4920d33bfbb
+            <Route path="contacts" element={<ContactsPage />} />
             <Route element={<PublicRoute />}>
               <Route path="auth" element={<AuthPage />} />
             </Route>

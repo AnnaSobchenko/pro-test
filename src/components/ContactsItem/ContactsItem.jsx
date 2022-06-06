@@ -1,4 +1,5 @@
-import contacts from "../../pages/Contacts/contacts.json";
+import contacts from "../../utils/contacts/contacts.json";
+import s from './ContactsItem.module.scss'
 
 const ContactsItem = () => {
     return (<>
