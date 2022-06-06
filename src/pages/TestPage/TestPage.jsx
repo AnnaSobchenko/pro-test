@@ -179,29 +179,19 @@ const test = [
     rightAnswer: "All options are incorrect",
   },
 ];
-// const Answer = {
-//   userAnswer: "",
-//   questionId: "",
-//   rightAnswer: "",
-// };
+
 const TestPage = () => {
   const [counter, setCounter] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
   const [questionInfo, setQuestionInfo] = useState([]);
-  // const [counter, setCounter] = useState(0);
 
-  const prevQuestion = (e) => {
+  const prevQuestion = () => {
     return setCounter((prev) => prev - 1);
   };
   const nextQuestion = (info) => {
     const { questionId, rightAnswer } = info;
+    setCounter((prev) => prev + 1);
 
-    // const answerInfo = setQuestionInfo({
-    //   userAnswer: userAnswer,
-    //   questionId: questionId,
-    //   rightAnswer: rightAnswer,
-    // });
-    // if (questionInfo)
     setQuestionInfo([
       ...questionInfo,
       {
@@ -210,16 +200,19 @@ const TestPage = () => {
         rightAnswer,
       },
     ]);
-
-    console.log("answerInfo :>> ", questionInfo);
-
-    return setCounter((prev) => prev + 1);
   };
 
   const onInputChange = (e) => {
     const userAnswer = e.target.value;
     return setUserAnswer(userAnswer);
   };
+
+  const onFinishTest = (e) => {
+    const test = questionInfo;
+    console.log("test :>> ", test);
+    return test;
+  };
+
   const onFormSubmit = (e) => {
     e.preventDefault();
   };
@@ -230,7 +223,7 @@ const TestPage = () => {
     <form className={s.test} onSubmit={onFormSubmit}>
       <div className={s.wrapper}>
         <p className={s.heading}>{`[${"Testing theory"}]`}</p>
-        <Link className={s.finish__btn} to={"/results"}>
+        <Link className={s.finish__btn} to={"/results"} onClick={onFinishTest}>
           Finish test
         </Link>
       </div>
@@ -247,13 +240,13 @@ const TestPage = () => {
           {test[counter].answers.map((el) => {
             return (
               <div className={s.question__item} key={uuid.v4()}>
-                <label className={s.question__itemLabel}>
+                <label className={s.question__itemLabel} key={uuid.v4()}>
                   <input
                     type="radio"
-                    // checked={
-                    //   questionInfo[counter] &&
-                    //   questionInfo[counter].userAnswer === `${el}`
-                    // }
+                    checked={
+                      questionInfo[counter] &&
+                      questionInfo[counter].userAnswer === `${el}`
+                    }
                     className={s.radio}
                     name="answer"
                     value={el}
