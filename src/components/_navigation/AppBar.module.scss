@@ -1,0 +1,170 @@
+.header {
+  // margin-left: auto;
+  // margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  border-bottom: 1px solid rgba(0, 18, 47, 0.15);
+ 
+
+  // border: 1px solid #E2E3E5;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  line-height: 27px;
+
+
+  @media screen and (min-width: 320px) {
+
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  @media screen and (min-width: 480px) {
+  
+  }
+  @media screen and (min-width: 768px) {
+ 
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  @media screen and (min-width: 1280px) {
+
+  }
+}
+.navIconMenu {
+  border-left: 1px solid;
+}
+.link {
+  text-decoration: none;
+  color: #000000;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  line-height: 27px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+}
+.active {
+  text-decoration: none;
+  color: #242a37;
+  font-family: "Abril Fatface";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+}
+.name_wrapper {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+.letter_wrapper {
+  @media screen and (min-width: 320px) {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // position: absolute;
+    // right: 62px;
+    top: 15px;
+  }
+  @media screen and (min-width: 480px) {
+    right: 75px;
+  }
+  @media screen and (min-width: 768px) {
+    position: sticky;
+    display: flex;
+  }
+}
+.letter_wrapper {
+  @media screen and (min-width: 320px) {
+  //   height: 33px;
+  //   border-radius: 50%;
+  //   background: #ffffff;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   // position: absolute;
+  //   // right: 62px;
+  //   top: 15px;
+  }
+  @media screen and (min-width: 480px) {
+    // right: 75px;
+  }
+  @media screen and (min-width: 768px) {
+    // position: sticky;
+    // display: flex;
+  }
+}
+.circle-wrapper {
+  @media screen and (min-width: 320px) {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // position: absolute;
+    // right: 62px;
+    top: 15px;
+  }
+  @media screen and (min-width: 480px) {
+    right: 75px;
+  }
+  @media screen and (min-width: 768px) {
+    position: sticky;
+    display: flex;
+  }
+}
+.firs_letter {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 38px;
+  color: #242a37;
+  margin-left: 0;
+}
+.name {
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 38px;
+    color: #242a37;
+    margin-left: 10px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+.flex {
+  width: calc(100vw - 50%);
+  display: flex;
+  justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+  }
+}
+.header_bottom_line{
+  height: 1px;
+  width: 100vw;
+  background-color: #ffffff;
+}
