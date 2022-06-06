@@ -1,5 +1,12 @@
 import s from "./ResultPage.module.scss";
 
+import catMob from "../../images/cat@1x-mob-min.png";
+import catMob2x from "../../images/cat@2x-mob-min.png";
+import catTabl from "../../images/cat@1x-tabl-min.png";
+import catTabl2x from "../../images/cat@2x-tabl-min.png";
+import catDesk from "../../images/cat@1x-desk-min.png";
+import catDesk2x from "../../images/cat@2x-desk-min.png";
+
 const ResultPage = () => {
 	return (
 		<div className={s.result__body}>
@@ -15,11 +22,25 @@ const ResultPage = () => {
 				</span>
 			</div>
 			<div className={s.result__imageBox}>
-				<img
-					className={s.result__image}
-					src={require("../../images/cat@1x-mob-min.png")}
-					alt="A cat with a balloon"
-				/>
+				<picture>
+					<source
+						srcSet={`${catMob} 1x, ${catMob2x} 2x`}
+						media="(max-width: 767px)"
+					/>
+					<source
+						srcSet={`${catTabl} 1x, ${catTabl2x} 2x`}
+						media="(max-width: 1279px)"
+					/>
+					<source
+						srcSet={`${catDesk} 1x, ${catDesk2x} 2x`}
+						media="(min-width: 1280px)"
+					/>
+					<img
+						className={s.result__image}
+						src={`${catMob}`}
+						alt="A cat with a balloon"
+					/>
+				</picture>
 			</div>
 			<div className={s.result__feedback}>Not bad!</div>
 			<div className={s.result__feedbackDetails}>
