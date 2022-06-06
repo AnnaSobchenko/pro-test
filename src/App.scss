@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
+    background-color: var(--primary-bg-color);
 
     @media screen and (min-width: 320px) {
         width: 100%;

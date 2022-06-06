@@ -1,0 +1,147 @@
+.header {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  line-height: 27px;
+  border-bottom: 1px solid rgba(0, 18, 47, 0.15);
+
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+.logo {
+  margin-right: 127px;
+  @media screen and (min-width: 1280px) {
+    margin-right: 548px;
+  }
+}
+.header_navLink {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.link {
+  // text-decoration: none;
+  color: #000000;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1, 14;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 60px;
+    &:last-child {
+      margin-right: 40px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: 80px;
+  }
+}
+.active {
+  // text-decoration: none;
+  color: #ffffff;
+  cursor: default;
+  // text-decoration-skip-ink: auto;
+
+  // @media screen and (min-width: 768px) {
+  //   margin: 0;
+  // }
+}
+.name_wrapper {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+.letter_wrapper {
+  @media screen and (min-width: 320px) {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 15px;
+  }
+  // @media screen and (min-width: 480px) {
+  //   right: 75px;
+  // }
+  @media screen and (min-width: 768px) {
+    // position: sticky;
+    display: flex;
+  }
+}
+.firs_letter {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 38px;
+  color: #242a37;
+  margin-left: 0;
+}
+.name {
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 38px;
+    color: #242a37;
+    margin-left: 10px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+.flex {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  @media screen and (min-width: 480px) {
+    margin-left: 40px;
+  }
+  @media screen and (min-width: 768px) {
+  }
+}
+.header_bottom_line {
+  width: 100vw;
+  max-width: 100%;
+  border-bottom: 1px solid rgba(0, 18, 47, 0.15);
+  // right: -30px;
+  margin-left: -30px;
+}
+.navIconMenu_wrapper {
+  width: 50px;
+  height: 70px;
+  border-left: 1px solid rgba(0, 18, 47, 0.15);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.navIcon_signOut {
+  display: block;
+  @media screen and (min-width: 480px) {
+  }
+  @media screen and (min-width: 768px) {
+  }
+}
