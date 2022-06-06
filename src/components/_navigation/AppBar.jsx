@@ -8,7 +8,7 @@ import MediaQuery from "react-responsive";
 const AppBar = () => {
   return (
     <>
-      <header className={`${s.header} ${s.container}`}>
+      <header className={s.header}>
         <div className={s.logo}>
           <NavLink to="/">
             <svg className={s.navIcon} width="129px" height="28px">
@@ -17,13 +17,13 @@ const AppBar = () => {
           </NavLink>
         </div>
         <div className={s.header_navLink}>
-        <NavLink to="/" className={s.link} >
+        <NavLink to="/" className={s.link}>
           Home
         </NavLink>
-        <NavLink to="material" className={s.link} activeClassName={s.activLink}>
+        <NavLink to="material" className={s.link} active={s.active}>
           Materials
         </NavLink>
-        <NavLink to="contacts" className={s.link} activeClassName={s.activLink}>
+        <NavLink to="contacts" className={s.link} activeClassName={s.active}>
           Contacts
         </NavLink>
         </div>
@@ -66,8 +66,8 @@ const AppBar = () => {
       
         </>
       </header>
-      <Outlet />
-      <div className={s.header_bottom_line}></div>
+      {/* <div className={s.header_bottom_line}></div> */}
+      <Outlet  className="container" />
     </> 
   );
 };

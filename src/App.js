@@ -17,7 +17,7 @@ import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<AppBar />}>
