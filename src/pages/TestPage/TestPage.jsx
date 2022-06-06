@@ -179,73 +179,119 @@ const test = [
     rightAnswer: "All options are incorrect",
   },
 ];
-
+// const Answer = {
+//   userAnswer: "",
+//   questionId: "",
+//   rightAnswer: "",
+// };
 const TestPage = () => {
   const [counter, setCounter] = useState(0);
+  const [userAnswer, setUserAnswer] = useState("");
+  const [questionInfo, setQuestionInfo] = useState([]);
+  // const [counter, setCounter] = useState(0);
 
-  const prevQuestion = () => {
+  const prevQuestion = (e) => {
     return setCounter((prev) => prev - 1);
   };
-  const nextQuestion = () => {
+  const nextQuestion = (info) => {
+    const { questionId, rightAnswer } = info;
+
+    // const answerInfo = setQuestionInfo({
+    //   userAnswer: userAnswer,
+    //   questionId: questionId,
+    //   rightAnswer: rightAnswer,
+    // });
+    // if (questionInfo)
+    setQuestionInfo([
+      ...questionInfo,
+      {
+        userAnswer,
+        questionId,
+        rightAnswer,
+      },
+    ]);
+
+    console.log("answerInfo :>> ", questionInfo);
+
     return setCounter((prev) => prev + 1);
+  };
+
+  const onInputChange = (e) => {
+    const userAnswer = e.target.value;
+    return setUserAnswer(userAnswer);
+  };
+  const onFormSubmit = (e) => {
+    e.preventDefault();
   };
 
   useEffect(() => {}, [counter]);
 
   return (
-    <section className={s.test}>
+    <form className={s.test} onSubmit={onFormSubmit}>
       <div className={s.wrapper}>
         <p className={s.heading}>{`[${"Testing theory"}]`}</p>
-        <Link className={s.finish__btn} to={"/"}>
+        <Link className={s.finish__btn} to={"/results"}>
           Finish test
         </Link>
       </div>
 
       <div className={s.question__wrapper}>
-        <ul className={s.question__list}>
-          <>
-            <p className={s.question__current}>
-              Question
-              <span className={s.question__list}> {`${counter + 1}`}</span> / 12
-            </p>
-            <p className={s.question}>{`${test[counter].question}`}</p>
-            <span className={s.line}></span>
+        <div className={s.question__list}>
+          <p className={s.question__current}>
+            Question
+            <span className={s.question__list}> {`${counter + 1}`}</span> / 12
+          </p>
+          <p className={s.question}>{`${test[counter].question}`}</p>
+          <span className={s.line}></span>
 
-            {test[counter].answers.map((el) => {
-              return (
-                <li className={s.question__item} key={uuid.v4()}>
-                  <label className={s.question__itemLabel}>
-                    <input
-                      type="radio"
-                      className={s.radio}
-                      name="answer"
-                    ></input>
-                    <span className={s.question__text}>{`${el}`}</span>
-                  </label>
-                </li>
-              );
-            })}
-          </>
-        </ul>
+          {test[counter].answers.map((el) => {
+            return (
+              <div className={s.question__item} key={uuid.v4()}>
+                <label className={s.question__itemLabel}>
+                  <input
+                    type="radio"
+                    // checked={
+                    //   questionInfo[counter] &&
+                    //   questionInfo[counter].userAnswer === `${el}`
+                    // }
+                    className={s.radio}
+                    name="answer"
+                    value={el}
+                    onChange={onInputChange}
+                  ></input>
+                  <span className={s.question__text}>{`${el}`}</span>
+                </label>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       <div className={s.btn__wrapper}>
         {counter !== 0 && (
-          <button className={s.btn__left} onClick={prevQuestion}>
+          <button className={s.btn__left} type="submit" onClick={prevQuestion}>
             <svg className={s.btn__leftIcon} width="24px" height="16px">
               <use xlinkHref={`${Icons}#icon-left-black`} />
             </svg>
           </button>
         )}
         {counter !== 11 && (
-          <button className={s.btn__right} onClick={nextQuestion}>
+          <button
+            className={s.btn__right}
+            type="submit"
+            onClick={() => {
+              const questionId = test[counter].questionId;
+              const rightAnswer = test[counter].rightAnswer;
+              return nextQuestion({ questionId, rightAnswer });
+            }}
+          >
             <svg className={s.btn__rightIcon} width="24px" height="16px">
               <use xlinkHref={`${Icons}#icon-right-black`} />
             </svg>
           </button>
         )}
       </div>
-    </section>
+    </form>
   );
 };
 
