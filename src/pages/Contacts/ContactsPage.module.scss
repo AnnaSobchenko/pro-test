@@ -1,0 +1,32 @@
+.bg {
+    background-color: #E5E5E5;
+    padding-top: 42px;
+    padding-bottom: 40px;
+}
+
+.title {
+    width: auto;
+    height: 28px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+.vector {
+    width: 321.5px;
+    height: 1px;
+    background-color: #00122F;
+    opacity: 0.15;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.conatctList {
+    display: flex;
+    flex-wrap: wrap;
+}

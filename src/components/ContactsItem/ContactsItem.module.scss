@@ -1,0 +1,67 @@
+.contactItem {
+    width: 288px;
+    height: 370px;
+    background-color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.contactItem:nth-child(9) {
+    margin-right: 16px;
+
+}
+
+.contactItem:nth-child(10) {
+    margin-left: 16px;
+    
+}
+
+.avatar {
+    width: 288px;
+    height: 244px;
+    object-fit: cover;
+    
+}
+
+.conatcInf {
+    padding-top: 20px;
+    padding-left: 28px;
+    padding-right: 23px;
+}
+
+
+.name {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+
+
+.jodTitle {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.02em;
+    color: #555555;
+    margin-bottom: 8px;
+}
+
+.comment {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    color: #000000;
+}
