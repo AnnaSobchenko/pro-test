@@ -5,23 +5,40 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
+
+    @media screen and (max-width: 1279px) {
+       width: 336px;
+    }
+    @media screen and (max-width: 767px)  {
+        width: 280px;
+    }
 }
 
 .contactItem:nth-child(9) {
     margin-right: 16px;
-
+    @media screen and (max-width: 1279px) {
+        margin-right: auto;
+     }
 }
 
 .contactItem:nth-child(10) {
     margin-left: 16px;
-    
+    @media screen and (max-width: 1279px) {
+        margin-left: auto;
+     }
 }
 
 .avatar {
     width: 288px;
     height: 244px;
     object-fit: cover;
-    
+    @media screen and (max-width: 1279px) {
+        width: 336px;
+     }
+     @media screen and (max-width: 767px)  {
+        width: 280px;
+    }
+     
 }
 
 .conatcInf {

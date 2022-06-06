@@ -1,37 +1,37 @@
 [
     {
         "id": "1",
-        "name": "name",
-        "job_title": "Front-End Developer ",
+        "name": "Roman Zeno",
+        "job_title": "Scrum master",
         "comment": "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century.",
         "avatar": "roman_zeno.jpg"
     },
     {
         "id": "2",
-        "name": "name",
+        "name": "Anna Sobchenko",
         "job_title": "Front-End Developer ",
-        "comment": "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century.",
-        "avatar": "roman_zeno.jpg"
+        "comment": "Your future is created what you do today not tomorrow",
+        "avatar": "anna_sobchenko.jpg"
     },
     {
         "id": "3",
-        "name": "name",
+        "name": "Vladyslav Filin",
         "job_title": "Front-End Developer ",
-        "comment": "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century.",
-        "avatar": "roman_zeno.jpg"
+        "comment": "There is no nature in man, because there is no ugliness in nature ...",
+        "avatar": "vlad_filin.jpg"
     },
     {
         "id": "4",
-        "name": "name",
+        "name": "Andrii Vinikov",
         "job_title": "Front-End Developer ",
-        "comment": "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century.",
-        "avatar": "roman_zeno.jpg"
+        "comment": "'Success is the ability to go from one failure to another with no loss of enthusiasm.'  Winston Churchill.",
+        "avatar": "andrii_vinikov.jpg"
     },
     {
         "id": "5",
         "name": "name",
         "job_title": "Front-End Developer ",
-        "comment": "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century.",
+        "comment": "The complexity of the program grows until it exceeds the ability of the programmer.",
         "avatar": "roman_zeno.jpg"
     },
     {
