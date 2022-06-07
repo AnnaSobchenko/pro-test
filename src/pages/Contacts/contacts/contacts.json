@@ -3,7 +3,7 @@
         "id": "1",
         "name": "Roman Zeno",
         "job_title": "Scrum master",
-        "comment": "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century.",
+        "comment": "The complexity of the program grows until it exceeds the ability of the programmer.",
         "avatar": "roman_zeno.jpg"
     },
     {
@@ -29,17 +29,17 @@
     },
     {
         "id": "5",
-        "name": "Max Parunov",
-        "job_title": "Front-End Developer",
-        "comment": "Work it, Make it, Do itMakes us Harder, Better, Faster, Stronger.",
-        "avatar": "max_parunov.jpg"
-    },
-    {
-        "id": "6",
         "name": "Ivan Loboda",
         "job_title": "Front-End Developer",
         "comment": "♂BOSS OF THIS GYM♂",
         "avatar": "ivan_loboda.JPG"
+    },
+    {
+        "id": "6",
+        "name": "Max Parunov",
+        "job_title": "Front-End Developer",
+        "comment": "Work it, Make it, Do itMakes us Harder, Better, Faster, Stronger.",
+        "avatar": "max_parunov.jpg"
     },
     {
         "id": "7",
@@ -50,10 +50,10 @@
     },
     {
         "id": "8",
-        "name": "name",
-        "job_title": "Front-End Developer",
-        "comment": "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century.",
-        "avatar": "roman_zeno.jpg"
+        "name": "Tatiana Tarasovich",
+        "job_title": "FullStack Developer",
+        "comment": "'Screw it, Let's Do It'",
+        "avatar": "tatiana_tarasovich.jpg"
     },
     {
         "id": "9",
