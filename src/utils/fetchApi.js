@@ -12,9 +12,9 @@ const token = {
 };
 
 export async function signinUserApi(userData) {
-  const { data } = await axios.post("/auth/signin", userData);
+  const { data } = await axios.post("/auth/login", userData);
   token.set(data.accessToken);
-  // console.log("loginUserApi :>> ", data);
+  console.log("loginUserApi :>> ", data);
   return data;
 }
 
@@ -25,7 +25,7 @@ export async function signupUserApi(userData) {
     email,
     password,
   });
-  // console.log("loginUserApi_data :>> ", data);
+  console.log("loginUserApi_data :>> ", data);
   return data;
 }
 
