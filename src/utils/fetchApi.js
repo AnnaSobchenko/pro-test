@@ -12,10 +12,10 @@ const token = {
 };
 
 export async function signinUserApi(userData) {
-  const { data } = await axios.post("/auth/signin", userData);
-  token.set(data.accessToken);
-  // console.log("loginUserApi :>> ", data);
-  return data;
+  const { data } = await axios.post("/auth/login", userData);
+  token.set(data.ResponseBody.accessToken);
+  // console.log("loginUserApi :>> ", data.ResponseBody);
+  return data.ResponseBody;
 }
 
 export async function signupUserApi(userData) {
@@ -25,7 +25,7 @@ export async function signupUserApi(userData) {
     email,
     password,
   });
-  // console.log("loginUserApi_data :>> ", data);
+  // console.log("signupUserApi_data :>> ", data);
   return data;
 }
 
@@ -37,9 +37,14 @@ export async function logoutUserApi(persistedToken) {
   return data;
 }
 
-// export async function refreshUserTokenApi({ refreshToken, _id }) {
-//   token.set(refreshToken);
-//   const { data } = await axios.get("/auth/refresh", { _id });
-//   // console.log("refreshUserTokenApi_data :>> ", data);
-//   return data;
-// }
+export async function getUserInfo(accessToken) {
+
+  if (accessToken) {
+    axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem(
+      'accessToken'
+    )}`;
+  }
+  const userInfo = await axios.get('auth/current');
+  // console.log(userInfo)
+  return { email: userInfo.email }
+}

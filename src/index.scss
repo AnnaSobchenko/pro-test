@@ -1,14 +1,14 @@
-:root { 
---primary-bg-color: #E5E5E5;
---second-bg-color:#F5F6FB;
---footer-bg-color: #b1b5c2;
---modal-bg-color: #ffffff;
---second-button-color: #02172A;
---accent-button-color: #FF6B09;
---primary-text-color: #000000;
---secondary-text-color:#555555;
---third-text-color: #ffffff;
---border-color:#CED2D1;
+:root {
+  --primary-bg-color: #e5e5e5;
+  --second-bg-color: #f5f6fb;
+  --footer-bg-color: #b1b5c2;
+  --modal-bg-color: #ffffff;
+  --second-button-color: #02172a;
+  --accent-button-color: #ff6b09;
+  --primary-text-color: #000000;
+  --secondary-text-color: #555555;
+  --third-text-color: #ffffff;
+  --border-color: #ced2d1;
 }
 
 p,
@@ -113,4 +113,3 @@ h6 {
   clip-path: inset(50%);
   margin: -1px;
 }
-
