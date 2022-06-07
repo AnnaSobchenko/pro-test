@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import s from "./TestPage.module.scss";
 import Icons from "../../images/symbol-defs.svg";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { gatCurrentTesting } from "../../redux/questions/questionsSelector";
 const uuid = require("uuid");
 
 const test = [
@@ -185,6 +187,8 @@ const TestPage = () => {
   const [userAnswer, setUserAnswer] = useState("");
   const [questionInfo, setQuestionInfo] = useState([]);
 
+  const testName = useSelector(gatCurrentTesting);
+
   const prevQuestion = () => {
     return setCounter((prev) => prev - 1);
   };
@@ -222,7 +226,7 @@ const TestPage = () => {
   return (
     <form className={s.test} onSubmit={onFormSubmit}>
       <div className={s.wrapper}>
-        <p className={s.heading}>{`[${"Testing theory"}]`}</p>
+        <p className={s.heading}>{`[ ${testName}_]`}</p>
         <Link className={s.finish__btn} to={"/results"} onClick={onFinishTest}>
           Finish test
         </Link>
@@ -243,10 +247,10 @@ const TestPage = () => {
                 <label className={s.question__itemLabel} key={uuid.v4()}>
                   <input
                     type="radio"
-                    checked={
-                      questionInfo[counter] &&
-                      questionInfo[counter].userAnswer === `${el}`
-                    }
+                    // checked={
+                    //   questionInfo[counter] &&
+                    //   questionInfo[counter].userAnswer === `${el}`
+                    // }
                     className={s.radio}
                     name="answer"
                     value={el}

@@ -43,3 +43,12 @@ export async function logoutUserApi(persistedToken) {
 //   // console.log("refreshUserTokenApi_data :>> ", data);
 //   return data;
 // }
+
+export async function theoryQuestionsApi() {
+  const { data } = await axios.get("/test/theory");
+  return data;
+}
+export async function technicalQuestionsApi() {
+  const { data } = await axios.get("/test/technical");
+  return data;
+}
