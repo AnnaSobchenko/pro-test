@@ -33,11 +33,11 @@ export const signin = createAsyncThunk(
 );
 
 export const getInfo = createAsyncThunk(
-  'user/info',
+  "auth/user",
   async (_, thunkAPI) => {
     try {
       const { data } = await getUserInfo();
-      return data.email;
+      return data.user.email;
     } catch (error) {
       return thunkAPI.rejectWithValue('No user data :(');
     }
