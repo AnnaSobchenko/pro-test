@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import s from "./TestPage.module.scss";
 import Icons from "../../images/symbol-defs.svg";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { gatCurrentTesting } from "../../redux/questions/questionsSelector";
+import { getUserAnswer } from "../../redux/questions/questionsSlice";
 const uuid = require("uuid");
 
 const test = [
@@ -184,11 +185,13 @@ const test = [
 
 const TestPage = () => {
   const [counter, setCounter] = useState(0);
-  const [disableValue, setDisableValue] = useState(true);
+  const [btnDisable, setBtnDisable] = useState(true);
+  const [showResult, setShowResult] = useState(false);
   const [userAnswer, setUserAnswer] = useState("");
   const [questionInfo, setQuestionInfo] = useState([]);
 
   const testName = useSelector(gatCurrentTesting);
+  const dispatch = useDispatch();
 
   const prevQuestion = () => {
     setUserAnswer(questionInfo[counter - 1].userAnswer);
@@ -203,7 +206,9 @@ const TestPage = () => {
       newInfo[counter] = { questionId, userAnswer };
       return newInfo;
     });
+
     setCounter((prev) => prev + 1);
+    // setUserAnswer(questionInfo[counter + 1].userAnswer);
   };
 
   const onInputChange = (e) => {
@@ -216,9 +221,10 @@ const TestPage = () => {
     return test;
   };
 
-  const answerObj = () => {
+  const getAnswerObj = () => {
     const questionId = test[counter]._id;
     const rightAnswer = test[counter].rightAnswer;
+
     return nextQuestion({ questionId, rightAnswer });
   };
 
@@ -227,9 +233,13 @@ const TestPage = () => {
   };
 
   useEffect(() => {
-    counter !== 0 ? setDisableValue(false) : setDisableValue(true);
-  }, [counter]);
+    counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
 
+    if (counter === 11) {
+      setShowResult(true);
+      dispatch(getUserAnswer(questionInfo));
+    }
+  }, [counter]);
   return (
     <form className={s.test} onSubmit={onFormSubmit}>
       <div className={s.wrapper}>
@@ -273,18 +283,31 @@ const TestPage = () => {
           className={s.btn__left}
           type="submit"
           onClick={prevQuestion}
-          disabled={disableValue}
+          disabled={btnDisable}
         >
           <svg className={s.btn__leftIcon} width="24px" height="16px">
             <use xlinkHref={`${Icons}#icon-left-black`} />
           </svg>
         </button>
 
-        <button className={s.btn__right} type="submit" onClick={answerObj}>
-          <svg className={s.btn__rightIcon} width="24px" height="16px">
-            <use xlinkHref={`${Icons}#icon-right-black`} />
-          </svg>
-        </button>
+        {!showResult ? (
+          <button className={s.btn__right} type="submit" onClick={getAnswerObj}>
+            <svg className={s.btn__rightIcon} width="24px" height="16px">
+              <use xlinkHref={`${Icons}#icon-right-black`} />
+            </svg>
+          </button>
+        ) : (
+          <Link
+            className={s.finishBtn__right}
+            to={"/results"}
+            onClick={getAnswerObj}
+          >
+            Test
+            <svg className={s.btn__rightIcon} width="24px" height="16px">
+              <use xlinkHref={`${Icons}#icon-right-black`} />
+            </svg>
+          </Link>
+        )}
       </div>
     </form>
   );

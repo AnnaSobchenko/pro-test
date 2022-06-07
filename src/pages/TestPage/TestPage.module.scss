@@ -293,6 +293,45 @@
     }
   }
 }
+.finishBtn__right {
+  width: 55px;
+  height: 34px;
+
+  background: #ffffff;
+
+  &:hover,
+  &:focus {
+    background: var(--accent-button-color);
+  }
+
+  &:hover .finishBtn__right,
+  &:focus .finishBtn__right {
+    fill: #ffffff;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 210px;
+    height: 34px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &::before {
+      content: "Show result";
+      font-family: "Montserrat Medium";
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 0.02em;
+      color: var(--primary-text-color);
+    }
+
+    &:hover::before,
+    &:focus::before {
+      color: #ffffff;
+    }
+  }
+}
 
 .btn__leftIcon {
   border: none;
