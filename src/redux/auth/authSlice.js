@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { logout, signin, signup, getInfo } from "./authOperations";
-// import { getUserInfo } from "../../utils/fetchApi";
 
 const getFromLS = key => {
   const valueFromLS = localStorage.getItem(key);
@@ -37,9 +36,9 @@ const authSlice = createSlice({
       state.error = null;
     },
     [signup.fulfilled](state, { payload }) {
-      state.user = payload.user;
-      state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
+      state.user.email = payload.user.email;
+      state.accessToken = payload.token;
+      state.refreshToken = payload.verificationToken;
       state._id = payload._id;
       state.isLoggedIn = true;
       state.isLoading = false;
@@ -54,9 +53,9 @@ const authSlice = createSlice({
       state.error = null;
     },
     [signin.fulfilled](state, { payload }) {
-      state.user.email = payload.ResponseBody.user.email;
-      state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
+      state.user.email = payload.user.email;
+      state.accessToken = payload.token;
+      state.refreshToken = payload.verificationToken;
       state._id = payload._id;
       state.isLoggedIn = true;
       state.isLoading = false;
@@ -73,7 +72,7 @@ const authSlice = createSlice({
     [getInfo.fulfilled](state, { payload }) {
       state.user.email = payload.email;
       state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
+      state.refreshToken = payload.verificationToken;
       state.isLoggedIn = true;
       state.isLoading = false;
     },

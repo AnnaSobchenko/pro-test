@@ -3,14 +3,17 @@ import { NavLink, Outlet } from "react-router-dom";
 import Icons from "../../images/symbol-defs.svg";
 import s from "./AppBar.module.scss";
 import MediaQuery from "react-responsive";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/auth/authOperations";
 // import { getInfo } from "../../redux/auth/authOperations";
 // import { getUserInfo } from "../../utils/fetchApi";
 
 const AppBar = () => {
   const userInfo = useSelector((state) => state.auth.user.email);
-  console.log(userInfo);
-  const letterInfo = userInfo.slice(0, 1);
+  const isLoggedIn = useSelector(state=> state.auth.isLoggedIn)
+  // console.log(userInfo);
+  // const letterInfo = userInfo.slice(0, 1);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -23,18 +26,18 @@ const AppBar = () => {
           </NavLink>
         </div>
         <div className={s.header_navLink}>
-          <NavLink
+         {isLoggedIn&& <NavLink
             to="/"
             className={({ isActive }) => (isActive ? s.activeStyle : s.link)}
           >
             Home
-          </NavLink>
-          <NavLink
+          </NavLink>}
+         {isLoggedIn &&<NavLink
             to="/materials"
             className={({ isActive }) => (isActive ? s.activeStyle : s.link)}
           >
             Materials
-          </NavLink>
+          </NavLink>}
           <NavLink
             to="/contacts"
             className={({ isActive }) => (isActive ? s.activeStyle : s.link)}
@@ -42,12 +45,12 @@ const AppBar = () => {
             Contacts
           </NavLink>
         </div>
-        <>
+       {isLoggedIn&& <>
           <div className={s.flex}>
             <div className={s.name_wrapper}>
               <div className={s.letter_wrapper}>
-                {letterInfo && (
-                  <span className={s.firs_letter}>{letterInfo}</span>
+                {userInfo.slice(0, 1) && (
+                  <span className={s.firs_letter}>{userInfo.slice(0, 1)}</span>
                 )}
               </div>
               {userInfo && <span className={s.name}>{userInfo}</span>}
@@ -55,7 +58,7 @@ const AppBar = () => {
           </div>
 
           <MediaQuery maxWidth={767}>
-            <NavLink to="*">
+            <NavLink onClick={()=>dispatch(logout())} to="auth">
               <div className={s.navIconMenu_wrapper}>
                 <svg className={s.navIconMenu} width="20px" height="20px">
                   <use xlinkHref={`${Icons}#icon-menu`} />
@@ -65,7 +68,7 @@ const AppBar = () => {
           </MediaQuery>
 
           <MediaQuery minWidth={768}>
-            <NavLink to="*">
+            <NavLink to="auth" onClick={()=>{dispatch(logout())}}>
               <div className={s.navIconMenu_wrapper}>
                 <svg className={s.navIcon_signOut} width="16px" height="16px">
                   <use xlinkHref={`${Icons}#icon-sign-out`} />
@@ -73,7 +76,7 @@ const AppBar = () => {
               </div>
             </NavLink>
           </MediaQuery>
-        </>
+        </>}
       </header>
       <Outlet className="container" />
     </>
