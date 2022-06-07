@@ -1,0 +1,27 @@
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.20;
+    letter-spacing: 0.03em;
+    background-color: #02172A;
+    color: rgba(255, 255, 255, 0.4);;
+  
+    @media screen and (min-width: 768px) {
+      justify-content: center;
+      flex-direction: row;
+      padding-bottom: 19px;
+      padding-top: 19px;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+}
+
+.footerHeart {
+    color: #FF6B09;
+  }
