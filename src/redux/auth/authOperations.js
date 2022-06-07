@@ -34,9 +34,9 @@ export const signin = createAsyncThunk(
 
 export const getInfo = createAsyncThunk(
   "auth/user",
-  async (_, thunkAPI) => {
+  async (userInfo, thunkAPI) => {
     try {
-      const { data } = await getUserInfo();
+      const { data } = await getUserInfo(userInfo);
       return data.user.email;
     } catch (error) {
       return thunkAPI.rejectWithValue('No user data :(');

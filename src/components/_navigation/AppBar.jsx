@@ -4,13 +4,13 @@ import Icons from "../../images/symbol-defs.svg";
 import s from "./AppBar.module.scss";
 import MediaQuery from "react-responsive";
 // import { useSelector, useDispatch } from "react-redux";
-// import { getInfo } from "../../redux/auth/authOperations";
-import { getUserInfo } from "../../utils/fetchApi";
+import { getInfo } from "../../redux/auth/authOperations";
+// import { getUserInfo } from "../../utils/fetchApi";
 
 const AppBar = () => {
   // const [info, setInfo] = useState({});
   // const userInfo = useSelector((state) => state.auth.user.email);
-  const userInfo = getUserInfo();
+  const userInfo = getInfo();
   const letterInfo = userInfo.slice(0, 1);
 
   // const dispatch = useDispatch();
