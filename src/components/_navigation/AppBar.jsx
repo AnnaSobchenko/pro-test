@@ -4,6 +4,8 @@ import Icons from "../../images/symbol-defs.svg";
 import s from "./AppBar.module.scss";
 import MediaQuery from "react-responsive";
 
+
+
 const AppBar = () => {
   return (
     <>
@@ -16,13 +18,22 @@ const AppBar = () => {
           </NavLink>
         </div>
         <div className={s.header_navLink}>
-          <NavLink to="/" className={s.link}>
+          <NavLink to="/"    className={({ isActive }) =>
+            isActive ? s.activeStyle : s.link
+          }>
             Home
           </NavLink>
-          <NavLink to="material" className={s.link} active={s.active}>
+          <NavLink
+            to="/materials"
+            className={({ isActive }) =>
+            isActive ? s.activeStyle : s.link
+          }
+          >
             Materials
           </NavLink>
-          <NavLink to="contacts" className={s.link} activeClassName={s.active}>
+          <NavLink to="/contacts"    className={({ isActive }) =>
+            isActive ? s.activeStyle : s.link
+          }>
             Contacts
           </NavLink>
         </div>
@@ -36,7 +47,7 @@ const AppBar = () => {
             </div>
           </div>
 
-          <MediaQuery maxWidth={766}>
+          <MediaQuery maxWidth={767}>
             <NavLink to="*">
               <div className={s.navIconMenu_wrapper}>
                 <svg className={s.navIconMenu} width="20px" height="20px">
@@ -57,7 +68,6 @@ const AppBar = () => {
           </MediaQuery>
         </>
       </header>
-      {/* <div className={s.header_bottom_line}></div> */}
       <Outlet className="container" />
     </>
   );
