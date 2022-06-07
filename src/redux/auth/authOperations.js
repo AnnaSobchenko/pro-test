@@ -32,17 +32,18 @@ export const signin = createAsyncThunk(
   }
 );
 
-// export const getInfo = createAsyncThunk(
-//   "auth/user",
-//   async (userInfo, thunkApi) => {
-//     try {
-//       const data = await getUserInfo(userInfo);
-//       return data.user.email;
-//     } catch (error) {
-//       return thunkApi.rejectWithValue('No user data :(');
-//     }
-//   },
-// );
+export const getInfo = createAsyncThunk(
+  "auth/current",
+  async (userInfo, thunkApi) => {
+    try {
+      const data = await getUserInfo(userInfo);
+      console.log(data)
+      return data.user.email;
+    } catch (error) {
+      return thunkApi.rejectWithValue('No user data :(');
+    }
+  },
+);
 
 export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
   const state = thunkApi.getState();

@@ -5,12 +5,12 @@ import s from "./AppBar.module.scss";
 import MediaQuery from "react-responsive";
 import { useSelector } from "react-redux";
 // import { getInfo } from "../../redux/auth/authOperations";
-import { getUserInfo } from "../../utils/fetchApi";
+// import { getUserInfo } from "../../utils/fetchApi";
 
 const AppBar = () => {
-  // const userInfo = useSelector((state) => state.auth.user.email);
-  // console.log(userInfo);
-  // const letterInfo = userInfo.slice(0, 1);
+  const userInfo = useSelector((state) => state.auth.user.email);
+  console.log(userInfo);
+  const letterInfo = userInfo.slice(0, 1);
 
   return (
     <>
@@ -46,11 +46,11 @@ const AppBar = () => {
           <div className={s.flex}>
             <div className={s.name_wrapper}>
               <div className={s.letter_wrapper}>
-                {/* {letterInfo && (
+                {letterInfo && (
                   <span className={s.firs_letter}>{letterInfo}</span>
-                )} */}
+                )}
               </div>
-              {/* {userInfo && <span className={s.name}>{userInfo}</span>} */}
+              {userInfo && <span className={s.name}>{userInfo}</span>}
             </div>
           </div>
 
