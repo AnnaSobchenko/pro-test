@@ -34,12 +34,12 @@ export const signin = createAsyncThunk(
 
 export const getInfo = createAsyncThunk(
   "auth/user",
-  async (userInfo, thunkAPI) => {
+  async (userInfo, thunkApi) => {
     try {
-      const { data } = await getUserInfo(userInfo);
+      const data = await getUserInfo(userInfo);
       return data.user.email;
     } catch (error) {
-      return thunkAPI.rejectWithValue('No user data :(');
+      return thunkApi.rejectWithValue('No user data :(');
     }
   },
 );

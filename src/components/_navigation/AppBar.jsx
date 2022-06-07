@@ -1,24 +1,15 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import Icons from "../../images/symbol-defs.svg";
 import s from "./AppBar.module.scss";
 import MediaQuery from "react-responsive";
-// import { useSelector, useDispatch } from "react-redux";
-import { getInfo } from "../../redux/auth/authOperations";
-// import { getUserInfo } from "../../utils/fetchApi";
+import { useSelector } from "react-redux";
+// import { getInfo } from "../../redux/auth/authOperations";
+import { getUserInfo } from "../../utils/fetchApi";
 
 const AppBar = () => {
-  // const [info, setInfo] = useState({});
-  // const userInfo = useSelector((state) => state.auth.user.email);
-  const userInfo = getInfo();
+  const userInfo = useSelector((state) => state.auth.user.email);
   const letterInfo = userInfo.slice(0, 1);
-
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getInfo());
-  //   setInfo(userInfo);
-  // }, []);
 
   return (
     <>
