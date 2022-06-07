@@ -1,24 +1,32 @@
 .header {
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   height: 68px;
   font-family: Montserrat;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  line-height: 27px;
   border-bottom: 1px solid rgba(0, 18, 47, 0.15);
-
+  background-color: var(--primary-bg-color);
+ padding-left: 20px;
   @media screen and (min-width: 768px) {
+padding-left: 32px;
+justify-content: space-between;
   }
   @media screen and (min-width: 1280px) {
+padding-left: 16px;
+justify-content: space-between;
   }
+
 }
 .logo {
-  margin-right: 127px;
+  margin-right: 61px;
+  @media screen and (min-width: 768px) {
+    margin-right: 127px;
+  }
   @media screen and (min-width: 1280px) {
     margin-right: 548px;
   }
@@ -33,12 +41,11 @@
 }
 
 .link {
-  // text-decoration: none;
-  color: #000000;
+  color: var(--primary-text-color);
   font-family: Montserrat;
   font-weight: 500;
   font-size: 14px;
-  line-height: 1, 14;
+ line-height: 1.14;
 
   @media screen and (min-width: 768px) {
     margin-right: 60px;
@@ -46,23 +53,36 @@
       margin-right: 40px;
     }
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     margin-right: 80px;
   }
 }
-.active {
-  // text-decoration: none;
-  color: #ffffff;
+.activeStyle {
+  color: var(--primary-text-color);
   cursor: default;
-  // text-decoration-skip-ink: auto;
+  border-bottom: 1px solid var(--accent-button-color);
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
 
-  // @media screen and (min-width: 768px) {
-  //   margin: 0;
-  // }
+  @media screen and (min-width: 768px) {
+    margin-right: 60px;
+    &:last-child {
+      margin-right: 40px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 80px;
+  }
+  
 }
+
 .name_wrapper {
   @media screen and (min-width: 768px) {
     display: flex;
+    align-items: center;
+    padding-right: 20px;
   }
 }
 .letter_wrapper {
@@ -70,17 +90,14 @@
     width: 33px;
     height: 33px;
     border-radius: 50%;
-    background: #ffffff;
+    background-color:  var(--modal-bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
     top: 15px;
   }
-  // @media screen and (min-width: 480px) {
-  //   right: 75px;
-  // }
+
   @media screen and (min-width: 768px) {
-    // position: sticky;
     display: flex;
   }
 }
@@ -90,58 +107,48 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 38px;
-  color: #242a37;
+  color:  var(--primary-text-color);
   margin-left: 0;
 }
 .name {
-  @media screen and (min-width: 320px) {
     display: none;
-  }
   @media screen and (min-width: 768px) {
+    width: 41px;
     display: inline-block;
     font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 38px;
-    color: #242a37;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
     margin-left: 10px;
   }
   @media screen and (min-width: 1280px) {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+   
   }
 }
 .flex {
-  width: 100vw;
   display: flex;
-  justify-content: flex-end;
-  margin-right: 20px;
-  @media screen and (min-width: 480px) {
-    margin-left: 40px;
-  }
-  @media screen and (min-width: 768px) {
-  }
-}
-.header_bottom_line {
-  width: 100vw;
-  max-width: 100%;
-  border-bottom: 1px solid rgba(0, 18, 47, 0.15);
-  // right: -30px;
-  margin-left: -30px;
-}
+ }
+
 .navIconMenu_wrapper {
-  width: 50px;
-  height: 70px;
-  border-left: 1px solid rgba(0, 18, 47, 0.15);
   display: flex;
+  width: 50px;
+  height: 69px;
+  background-color: var(--primary-bg-color);
+  border-left: 1px solid rgba(0, 18, 47, 0.15);
+  border-bottom: 1px solid rgba(0, 18, 47, 0.15);
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
+  margin-left: 20px;
+  @media screen and (min-width: 768px) {
+   margin-left: 0;
+  }
 }
 
 .navIcon_signOut {
-  display: block;
-  @media screen and (min-width: 480px) {
-  }
-  @media screen and (min-width: 768px) {
-  }
+  display: flex;
+
 }
