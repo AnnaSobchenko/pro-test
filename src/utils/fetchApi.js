@@ -37,6 +37,11 @@ export async function logoutUserApi(persistedToken) {
   return data;
 }
 
+export async function getUserInfo(data) {
+  const { userData } = await axios.get('/user', data);
+  return userData
+}
+
 // export async function refreshUserTokenApi({ refreshToken, _id }) {
 //   token.set(refreshToken);
 //   const { data } = await axios.get("/auth/refresh", { _id });
