@@ -12,14 +12,15 @@ const questionsSlice = createSlice({
     questions: [],
     isLoading: false,
     error: null,
+    userAnswer: [],
   },
   reducers: {
-    technicalTesting(state, { payload }) {
+    testingType(state, { payload }) {
       state.typeOfTesting = payload;
     },
-    // theoryTesting(state) {
-    //   state.typeOfTesting = "Testing theory";
-    // },
+    getUserAnswer(state, { payload }) {
+      state.userAnswer = [...payload];
+    },
   },
   extraReducers: {
     [theoryQuestions.pending](state, { payload }) {
@@ -49,5 +50,5 @@ const questionsSlice = createSlice({
     },
   },
 });
-export const { theoryTesting, technicalTesting } = questionsSlice.actions;
+export const { getUserAnswer, testingType } = questionsSlice.actions;
 export default questionsSlice.reducer;

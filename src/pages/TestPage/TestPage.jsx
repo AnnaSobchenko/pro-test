@@ -25,7 +25,7 @@ const test = [
   {
     _id: "629d17061ca8c1a61c52a5b5",
     question: "The correct sequence of Scrum elements",
-    questionId: "9",
+    // questionId: "9",
     answers: [
       "Sprint Planning and Sprint Backlog Creation - Working on the sprint. Scrum meetings - Product testing and demonstration - Retrospective. Planning the next sprint",
       "Creating a product backlog - Working on a sprint. Scrum meetings - Product testing and demonstration - Retrospective. Planning the next sprint",
@@ -34,7 +34,7 @@ const test = [
       "Creating a Product Backlog - Planning a Sprint and creating a Sprint Backlog - Working on a Sprint. Scrum meetings - Product testing and demonstration",
       "All options are incorrect",
     ],
-    rightAnswer: "All options are incorrect",
+    // rightAnswer: "All options are incorrect",
   },
   {
     _id: "629d17061ca8c1a61c52a5b7",
@@ -184,26 +184,26 @@ const test = [
 
 const TestPage = () => {
   const [counter, setCounter] = useState(0);
+  const [disableValue, setDisableValue] = useState(true);
   const [userAnswer, setUserAnswer] = useState("");
   const [questionInfo, setQuestionInfo] = useState([]);
 
   const testName = useSelector(gatCurrentTesting);
 
   const prevQuestion = () => {
-    return setCounter((prev) => prev - 1);
+    setUserAnswer(questionInfo[counter - 1].userAnswer);
+    setCounter((prev) => prev - 1);
   };
-  const nextQuestion = (info) => {
-    const { questionId, rightAnswer } = info;
-    setCounter((prev) => prev + 1);
 
-    setQuestionInfo([
-      ...questionInfo,
-      {
-        userAnswer,
-        questionId,
-        rightAnswer,
-      },
-    ]);
+  const nextQuestion = (info) => {
+    const { questionId } = info;
+
+    setQuestionInfo((prev) => {
+      const newInfo = [...prev];
+      newInfo[counter] = { questionId, userAnswer };
+      return newInfo;
+    });
+    setCounter((prev) => prev + 1);
   };
 
   const onInputChange = (e) => {
@@ -213,15 +213,22 @@ const TestPage = () => {
 
   const onFinishTest = (e) => {
     const test = questionInfo;
-    console.log("test :>> ", test);
     return test;
+  };
+
+  const answerObj = () => {
+    const questionId = test[counter]._id;
+    const rightAnswer = test[counter].rightAnswer;
+    return nextQuestion({ questionId, rightAnswer });
   };
 
   const onFormSubmit = (e) => {
     e.preventDefault();
   };
 
-  useEffect(() => {}, [counter]);
+  useEffect(() => {
+    counter !== 0 ? setDisableValue(false) : setDisableValue(true);
+  }, [counter]);
 
   return (
     <form className={s.test} onSubmit={onFormSubmit}>
@@ -247,10 +254,7 @@ const TestPage = () => {
                 <label className={s.question__itemLabel} key={uuid.v4()}>
                   <input
                     type="radio"
-                    // checked={
-                    //   questionInfo[counter] &&
-                    //   questionInfo[counter].userAnswer === `${el}`
-                    // }
+                    checked={userAnswer === `${el}`}
                     className={s.radio}
                     name="answer"
                     value={el}
@@ -265,28 +269,22 @@ const TestPage = () => {
       </div>
 
       <div className={s.btn__wrapper}>
-        {counter !== 0 && (
-          <button className={s.btn__left} type="submit" onClick={prevQuestion}>
-            <svg className={s.btn__leftIcon} width="24px" height="16px">
-              <use xlinkHref={`${Icons}#icon-left-black`} />
-            </svg>
-          </button>
-        )}
-        {counter !== 11 && (
-          <button
-            className={s.btn__right}
-            type="submit"
-            onClick={() => {
-              const questionId = test[counter].questionId;
-              const rightAnswer = test[counter].rightAnswer;
-              return nextQuestion({ questionId, rightAnswer });
-            }}
-          >
-            <svg className={s.btn__rightIcon} width="24px" height="16px">
-              <use xlinkHref={`${Icons}#icon-right-black`} />
-            </svg>
-          </button>
-        )}
+        <button
+          className={s.btn__left}
+          type="submit"
+          onClick={prevQuestion}
+          disabled={disableValue}
+        >
+          <svg className={s.btn__leftIcon} width="24px" height="16px">
+            <use xlinkHref={`${Icons}#icon-left-black`} />
+          </svg>
+        </button>
+
+        <button className={s.btn__right} type="submit" onClick={answerObj}>
+          <svg className={s.btn__rightIcon} width="24px" height="16px">
+            <use xlinkHref={`${Icons}#icon-right-black`} />
+          </svg>
+        </button>
       </div>
     </form>
   );

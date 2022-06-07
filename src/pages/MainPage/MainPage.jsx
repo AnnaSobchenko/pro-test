@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Icons from "../../images/symbol-defs.svg";
-import { technicalTesting } from "../../redux/questions/questionsSlice";
+import { testingType } from "../../redux/questions/questionsSlice";
 import s from "./MainPage.module.scss";
 
 const MainPage = () => {
@@ -11,10 +11,10 @@ const MainPage = () => {
     const btnValue = e.target.innerText;
 
     if (btnValue === "QA technical training") {
-      return dispatch(technicalTesting(btnValue));
+      return dispatch(testingType(btnValue));
     }
     if (btnValue === "Testing theory") {
-      return dispatch(technicalTesting(btnValue));
+      return dispatch(testingType(btnValue));
     }
   };
 
