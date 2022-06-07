@@ -37,15 +37,15 @@ export async function logoutUserApi(persistedToken) {
   return data;
 }
 
-export async function getUserInfo(accessToken) {
-  if (accessToken) {
-    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
-  }
-  const userInfo = await axios.get('auth/user');
-  return {
-    email: userInfo.email,
-  }
-}
+// export async function getUserInfo(accessToken) {
+//   if (accessToken) {
+//     axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+//   }
+//   const userInfo = await axios.get('auth/user');
+//   return {
+//     email: userInfo.email,
+//   }
+// }
 
 // export async function refreshUserTokenApi({ refreshToken, _id }) {
 //   token.set(refreshToken);

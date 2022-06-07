@@ -5,7 +5,7 @@ import { getUserInfo } from "../../utils/fetchApi";
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: { name: null, email: getUserInfo('email') || '' },
+    user: { email: null },
     accessToken: null,
     refreshToken: null,
     _id: null,
@@ -60,22 +60,22 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.error = payload;
     },
-    [getInfo.pending](state) {
-      state.isLoading = true;
-      state.error = null;
-    },
-    [getInfo.fulfilled](state, { payload }) {
-      state.user.email = payload.userData.email;
-      state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
-      state.isLoggedIn = true;
-      state.isLoading = false;
-    },
-    [getInfo.rejected](state, { payload }) {
-      state.isLoading = false;
-      state.isLoggedIn = false;
-      state.error = payload;
-    },
+    // [getInfo.pending](state) {
+    //   state.isLoading = true;
+    //   state.error = null;
+    // },
+    // [getInfo.fulfilled](state, { payload }) {
+    //   state.user.email = payload.userData.email;
+    //   state.accessToken = payload.accessToken;
+    //   state.refreshToken = payload.refreshToken;
+    //   state.isLoggedIn = true;
+    //   state.isLoading = false;
+    // },
+    // [getInfo.rejected](state, { payload }) {
+    //   state.isLoading = false;
+    //   state.isLoggedIn = false;
+    //   state.error = payload;
+    // },
     [logout.pending](state) {
       state.isLoading = true;
       state.error = null;

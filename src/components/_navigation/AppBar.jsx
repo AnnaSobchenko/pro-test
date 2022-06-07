@@ -8,8 +8,9 @@ import { useSelector } from "react-redux";
 import { getUserInfo } from "../../utils/fetchApi";
 
 const AppBar = () => {
-  const userInfo = useSelector((state) => state.auth.user.email);
-  const letterInfo = userInfo.slice(0, 1);
+  // const userInfo = useSelector((state) => state.auth.user.email);
+  // console.log(userInfo);
+  // const letterInfo = userInfo.slice(0, 1);
 
   return (
     <>
@@ -45,9 +46,11 @@ const AppBar = () => {
           <div className={s.flex}>
             <div className={s.name_wrapper}>
               <div className={s.letter_wrapper}>
-                <span className={s.firs_letter}>{letterInfo}</span>
+                {/* {letterInfo && (
+                  <span className={s.firs_letter}>{letterInfo}</span>
+                )} */}
               </div>
-              <span className={s.name}>{userInfo}</span>
+              {/* {userInfo && <span className={s.name}>{userInfo}</span>} */}
             </div>
           </div>
 
