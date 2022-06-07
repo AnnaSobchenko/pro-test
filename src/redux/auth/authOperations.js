@@ -24,6 +24,7 @@ import {
     async (userData, thunkApi) => {
       try {
         const data = await signinUserApi(userData);
+        console.log('data', data)
         return data;
       } catch (error) {
         return thunkApi.rejectWithValue(error.message);
