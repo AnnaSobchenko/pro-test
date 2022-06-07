@@ -1,16 +1,20 @@
 .authForm {
   display: block;
-  width: 100%;
-  margin: 0 ;
+  padding: 60px 32px 48px 32px;
+  margin-bottom: 100px;
+  margin-top: 100px;
+ 
+  // margin: 0 ;
   background-color: white;
-  form {
-    box-sizing: border-box;
-    width: calc( 100%);
-    height: 200px;
-    padding: 0 20px;
-    border: 1px;
-    border-color: var(--border-color);
-  }
+  box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
+  // form {
+  //   box-sizing: border-box;
+  //   width: calc( 100%);
+  //   height: 200px;
+  //   padding: 0 20px;
+  //   border: 1px;
+  //   border-color: var(--border-color);
+  // }
   // &__inputLabel{
   //     display: block;
   //     margin: 0 auto 20px;
@@ -28,4 +32,38 @@
   //     }
 
   // }
+}
+.btn {
+  display: flex;
+  justify-content: space-between;
+}
+.btnSubmit{
+  width: 210px;
+  height: 60px;
+}
+
+.btnSubmit:hover {
+  background-color: var(--accent-button-color);
+}
+.btnGoogle{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+  width: 159px;
+  height: 51px;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+letter-spacing: 0.02em;
+}
+.authFormInput{
+  margin-top: 32px;
+}
+.img{
+  margin-right: 10px;
+}
+.btnSubmitSignin {
+  margin-right: 10px;
 }

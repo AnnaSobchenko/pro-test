@@ -1,6 +1,6 @@
 import "./App.scss";
 import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import PublicRoute from "./components/_routs/PublicRoute";
 import PrivateRoute from "./components/_routs/PrivatRoute";
 import TestPage from "./pages/TestPage/TestPage";
@@ -13,28 +13,34 @@ import MaterialsPage from "./pages/MaterialsPage/MaterialsPage";
 import ContactsPage from "./pages/Contacts/ContactsPage";
 import AppBar from "./components/_navigation/AppBar";
 import Footer from "./components/_navigation/Footer";
+import { useSelector } from "react-redux";
 // import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
+  // const isLoggedIn = useSelector(state=> state.auth.isLoggedIn)
+  const isLoggedIn = true;
+
   return (
-    <div className="container">
+    <div>
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<AppBar />}>
-            <Route index element={<MainPage />} />
+            <Route
+              index
+              element={isLoggedIn ? <MainPage /> : <Navigate to="auth" />}
+            />
             <Route element={<PublicRoute />}>
               <Route path="auth" element={<AuthPage />} />
             </Route>
-            <Route element={<PrivateRoute />}>
+            {/* <Route element={<PrivateRoute />}> */}
             <Route path="test" element={<TestPage />} />
             <Route path="result" element={<ResultPage />} />
             <Route path="materials" element={<MaterialsPage />} />
             <Route path="contacts" element={<ContactsPage />} />
           </Route>
           <Route path="*" element={<RedirectNew to="/" replace />} />
-          </Route>
+          {/* </Route> */}
         </Routes>
-        <Footer />
       </Suspense>
     </div>
   );
