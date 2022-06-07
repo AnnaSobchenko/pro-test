@@ -43,7 +43,8 @@ const AppBar = () => {
               <div className={s.letter_wrapper}>
                 <span className={s.firs_letter}>{/*firsLetter*/ "Q"}</span>
               </div>
-              <span className={s.name}>{"Qwerty"}</span>
+             <div className={s.text_transform}> <span className ={`${s.name} ${s.animation__scss}`}
+>{"Qwertyuiopas"}</span></div>
             </div>
           </div>
 

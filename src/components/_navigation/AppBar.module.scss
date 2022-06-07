@@ -111,20 +111,29 @@ justify-content: space-between;
   margin-left: 0;
 }
 .name {
-    display: none;
+display: none;
+
   @media screen and (min-width: 768px) {
     width: 41px;
     display: inline-block;
+    white-space: nowrap;
+
+    animation: text 8s infinite linear; 
+    padding-left: 100%;
+   
+    // overflow: hidden;
+    text-overflow: ellipsis;
     font-family: "Montserrat";
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
     margin-left: 10px;
+  
   }
   @media screen and (min-width: 1280px) {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
-    line-height: 1.14;
+    line-height: 2;
    
   }
 }
@@ -152,3 +161,32 @@ justify-content: space-between;
   display: flex;
 
 }
+
+// .animation__scss {
+  // -webkit-transition: 2.3s;
+  // -moz-transition: 2.3s;
+  // transition: 2.3s;
+  // transition-timing-function: linear;
+  // -moz-transition-timing-function: linear;
+  // transition-timing-function: cubic-bezier(.06,.09,1,.99);
+
+  // &:hover {
+  //   margin-left: -550px;
+  // }
+// }
+.text_transform{
+    text-align: center;
+    width: 43px;
+    overflow: hidden;
+}
+
+
+@keyframes text {
+  0%{
+     transform: translate(0, 0); 
+   }
+  
+  100%{
+    transform: translate(-160%, 0);
+  }
+} 
