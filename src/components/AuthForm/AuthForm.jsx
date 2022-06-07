@@ -13,14 +13,7 @@ const AuthForm = () => {
     <div>
       <Formik
         initialValues={{ email: "", password: "" }}
-        validationSchema={authValidationSchema}
-        // onSubmit={(values, { resetForm }) => {
-
-        //   dispatch({operation}(values));
-        //   resetForm();
-        //   console.log("values", values);
-
-        // }}
+        validationSchema={authValidationSchema}        
       >
         {({
           values,

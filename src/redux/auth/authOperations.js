@@ -10,9 +10,10 @@ export const signup = createAsyncThunk(
   "auth/signup",
   async (userData, thunkApi) => {
     const { confirmPassword, ...rest } = userData;
+    console.log('rest', rest)
     try {
       const data = await signupUserApi(rest);
-      // console.log("data", data);
+      // console.log("datasignupUserApi", data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -25,6 +26,7 @@ export const signin = createAsyncThunk(
   async (userData, thunkApi) => {
     try {
       const data = await signinUserApi(userData);
+      // console.log('data.ResponseBody', data)
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -37,7 +39,7 @@ export const getInfo = createAsyncThunk(
   async (userInfo, thunkApi) => {
     try {
       const data = await getUserInfo(userInfo);
-      console.log(data)
+      // console.log(data)
       return data.user.email;
     } catch (error) {
       return thunkApi.rejectWithValue('No user data :(');
@@ -47,9 +49,10 @@ export const getInfo = createAsyncThunk(
 
 export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
   const state = thunkApi.getState();
+  console.log('state', state.auth.accessToken)
   const persistedToken = state.auth.accessToken;
   try {
-    await logoutUserApi(persistedToken);
+   return await logoutUserApi(persistedToken);
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
