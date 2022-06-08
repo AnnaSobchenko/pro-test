@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import s from "./TestPage.module.scss";
 import Icons from "../../images/symbol-defs.svg";
 import { useEffect, useState } from "react";
@@ -186,9 +186,17 @@ const test = [
 const TestPage = () => {
   const [counter, setCounter] = useState(0);
   const [btnDisable, setBtnDisable] = useState(true);
-  const [showResult, setShowResult] = useState(false);
+  // const [showResult, setShowResult] = useState(false);
   const [userAnswer, setUserAnswer] = useState("");
   const [questionInfo, setQuestionInfo] = useState([]);
+
+  let navigate = useNavigate();
+
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
+  //   await submitForm(event.target);
+  //   navigate("../success", { replace: true });
+  // }
 
   const testName = useSelector(gatCurrentTesting);
   const dispatch = useDispatch();
@@ -207,9 +215,19 @@ const TestPage = () => {
       return newInfo;
     });
 
-    setCounter((prev) => prev + 1);
+    if (counter !== 11) {
+      setCounter((prev) => prev + 1);
+    }
     // setUserAnswer(questionInfo[counter + 1].userAnswer);
   };
+
+  const sendAnswerObj = () => {
+    if (questionInfo.length === 12) {
+      dispatch(getUserAnswer(questionInfo));
+      navigate("../result", { replace: true });
+    }
+  };
+  sendAnswerObj();
 
   const onInputChange = (e) => {
     const userAnswer = e.target.value;
@@ -234,17 +252,13 @@ const TestPage = () => {
 
   useEffect(() => {
     counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
-
-    if (counter === 11) {
-      setShowResult(true);
-      dispatch(getUserAnswer(questionInfo));
-    }
   }, [counter]);
+
   return (
     <form className={s.test} onSubmit={onFormSubmit}>
       <div className={s.wrapper}>
         <p className={s.heading}>{`[ ${testName}_]`}</p>
-        <Link className={s.finish__btn} to={"/results"} onClick={onFinishTest}>
+        <Link className={s.finish__btn} to={"/"} onClick={onFinishTest}>
           Finish test
         </Link>
       </div>
@@ -290,24 +304,11 @@ const TestPage = () => {
           </svg>
         </button>
 
-        {!showResult ? (
-          <button className={s.btn__right} type="submit" onClick={getAnswerObj}>
-            <svg className={s.btn__rightIcon} width="24px" height="16px">
-              <use xlinkHref={`${Icons}#icon-right-black`} />
-            </svg>
-          </button>
-        ) : (
-          <Link
-            className={s.finishBtn__right}
-            to={"/results"}
-            onClick={getAnswerObj}
-          >
-            Test
-            <svg className={s.btn__rightIcon} width="24px" height="16px">
-              <use xlinkHref={`${Icons}#icon-right-black`} />
-            </svg>
-          </Link>
-        )}
+        <button className={s.btn__right} type="submit" onClick={getAnswerObj}>
+          <svg className={s.btn__rightIcon} width="24px" height="16px">
+            <use xlinkHref={`${Icons}#icon-right-black`} />
+          </svg>
+        </button>
       </div>
     </form>
   );
