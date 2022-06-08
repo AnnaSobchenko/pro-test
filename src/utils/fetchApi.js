@@ -13,9 +13,9 @@ const token = {
 
 export async function signinUserApi(userData) {
   const { data } = await axios.post("/auth/login", userData);
-  token.set(data.accessToken);
-  console.log("loginUserApi :>> ", data);
-  return data;
+  token.set(data.ResponseBody.accessToken);
+  // console.log("loginUserApi :>> ", data.ResponseBody);
+  return data.ResponseBody;
 }
 
 export async function signupUserApi(userData) {
@@ -25,7 +25,7 @@ export async function signupUserApi(userData) {
     email,
     password,
   });
-  console.log("loginUserApi_data :>> ", data);
+  // console.log("signupUserApi_data :>> ", data);
   return data;
 }
 
@@ -38,17 +38,15 @@ export async function logoutUserApi(persistedToken) {
 }
 
 export async function getUserInfo(accessToken) {
-
   if (accessToken) {
     axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem(
-      'accessToken'
+      "accessToken"
     )}`;
   }
-  const userInfo = await axios.get('auth/current');
-  console.log(userInfo)
-  return { email: userInfo.email }
+  const userInfo = await axios.get("auth/current");
+  // console.log(userInfo)
+  return { email: userInfo.email };
 }
-
 
 // export async function refreshUserTokenApi({ refreshToken, _id }) {
 //   token.set(refreshToken);

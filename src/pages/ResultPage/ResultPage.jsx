@@ -1,4 +1,5 @@
 import s from "./ResultPage.module.scss";
+import Chart from './Chart'
 
 import catMob from "../../images/cat@1x-mob-min.png";
 import catMob2x from "../../images/cat@2x-mob-min.png";
@@ -11,8 +12,10 @@ const ResultPage = () => {
 	return (
 		<div className={s.result__body}>
 			<h2 className={s.result__title}>Results</h2>
-			<p className={s.result__testType}>[ testing theory ]</p>
-			<div className={s.result__chartBox}>Chart</div>
+			<p className={s.result__testType}>{`[ testing theory ]`}</p>
+			<div className={s.result__chartBox}>
+				<Chart />
+			</div>
 			<div>
 				<span className={s.result__descriptionLeft}>
 					Correct answers - <span className={s.result__score}>10</span>
