@@ -5,9 +5,12 @@ import { authValidationSchema } from "../../utils/validation/AuthValid";
 import LabelForm from "../_shared/LabelForm/LabelForm";
 import s from "./AuthForm.module.scss";
 import symbol from "./../../images/Google@2x.png";
+import Button from "../Button/Button";
+
 
 const AuthForm = () => {
   const dispatch = useDispatch();
+
 
   return (
     <div>
@@ -25,8 +28,9 @@ const AuthForm = () => {
           isSubmitting,
         }) => (
           <div className={s.authForm}>
-            <h2>You can use your Google Account to authorize:</h2>
-            <button className={s.btnGoogle}>
+            <h2 className={s.authFormTitle} >You can use your Google Account to authorize:</h2>
+           <Button cta="Google" googleAuth />
+            {/* <button className={s.btnGoogle}>
               <img
                 src={symbol}
                 alt="googleSymbol"
@@ -35,8 +39,8 @@ const AuthForm = () => {
                 className={s.img}
               />
               Google
-            </button>
-            <h2>Or login to our app using e-mail and password:</h2>
+            </button> */}
+            <h2 className={s.authFormTitle2} >Or login to our app using e-mail and password:</h2>
             <form onSubmit={handleSubmit} className={s.authFormInput}>
               <LabelForm
                 type="email"
@@ -52,6 +56,7 @@ const AuthForm = () => {
               />
 
               <div className={s.btn}>
+              {/* <Button cta="sign in" signButton /> */}
                 <button
                   type="button"
                   className={`${s.btnSubmit} ${s.btnSubmitSignin} `}
@@ -61,6 +66,7 @@ const AuthForm = () => {
                 >
                   sign in
                 </button>
+                {/* <Button cta="sign up" signButton secondary /> */}
                 <button
                   type="button"
                   className={s.btnSubmit}
