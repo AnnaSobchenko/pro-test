@@ -13,6 +13,7 @@ const LabelForm = ({ type, handleChange, handleBlur, values}) => {
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.type}
+         
         />
         {/* {touched.password && errors.password && alert(errors.password)} */}
         <ErrorMessage
