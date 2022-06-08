@@ -10,7 +10,7 @@ import { logout } from "../../redux/auth/authOperations";
 
 const AppBar = () => {
   const userInfo = useSelector((state) => state.auth.user.email);
-  const isLoggedIn = useSelector(state=> state.auth.isLoggedIn)
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   // console.log(userInfo);
   // const letterInfo = userInfo.slice(0, 1);
   const dispatch = useDispatch();
@@ -26,18 +26,22 @@ const AppBar = () => {
           </NavLink>
         </div>
         <div className={s.header_navLink}>
-         {isLoggedIn&& <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? s.activeStyle : s.link)}
-          >
-            Home
-          </NavLink>}
-         {isLoggedIn &&<NavLink
-            to="/materials"
-            className={({ isActive }) => (isActive ? s.activeStyle : s.link)}
-          >
-            Materials
-          </NavLink>}
+          {isLoggedIn && (
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? s.activeStyle : s.link)}
+            >
+              Home
+            </NavLink>
+          )}
+          {isLoggedIn && (
+            <NavLink
+              to="/materials"
+              className={({ isActive }) => (isActive ? s.activeStyle : s.link)}
+            >
+              Materials
+            </NavLink>
+          )}
           <NavLink
             to="/contacts"
             className={({ isActive }) => (isActive ? s.activeStyle : s.link)}
@@ -45,38 +49,55 @@ const AppBar = () => {
             Contacts
           </NavLink>
         </div>
-       {isLoggedIn&& <>
-          <div className={s.flex}>
-            <div className={s.name_wrapper}>
-              <div className={s.letter_wrapper}>
-                {userInfo.slice(0, 1) && (
-                  <span className={s.firs_letter}>{userInfo.slice(0, 1)}</span>
+        {isLoggedIn && (
+          <>
+            <div className={s.flex}>
+              <div className={s.name_wrapper}>
+                <div className={s.letter_wrapper}>
+                  {userInfo.slice(0, 1) && (
+                    <span className={s.firs_letter}>
+                      {userInfo.slice(0, 1)}
+                    </span>
+                  )}
+                </div>
+
+                {userInfo && (
+                  <div className={s.text_transform}>
+                    {" "}
+                    <span className={`${s.name} ${s.animation__scss}`}>
+                      {userInfo}
+                    </span>
+                  </div>
                 )}
               </div>
-              {userInfo && <span className={s.name}>{userInfo}</span>}
             </div>
-          </div>
 
-          <MediaQuery maxWidth={767}>
-            <NavLink onClick={()=>dispatch(logout())} to="auth">
-              <div className={s.navIconMenu_wrapper}>
-                <svg className={s.navIconMenu} width="20px" height="20px">
-                  <use xlinkHref={`${Icons}#icon-menu`} />
-                </svg>
-              </div>
-            </NavLink>
-          </MediaQuery>
+            <MediaQuery maxWidth={767}>
+              <NavLink onClick={() => dispatch(logout())} to="auth">
+                <div className={s.navIconMenu_wrapper}>
+                  <svg className={s.navIconMenu} width="20px" height="20px">
+                    <use xlinkHref={`${Icons}#icon-menu`} />
+                  </svg>
+                </div>
+              </NavLink>
+            </MediaQuery>
 
-          <MediaQuery minWidth={768}>
-            <NavLink to="auth" onClick={()=>{dispatch(logout())}}>
-              <div className={s.navIconMenu_wrapper}>
-                <svg className={s.navIcon_signOut} width="16px" height="16px">
-                  <use xlinkHref={`${Icons}#icon-sign-out`} />
-                </svg>
-              </div>
-            </NavLink>
-          </MediaQuery>
-        </>}
+            <MediaQuery minWidth={768}>
+              <NavLink
+                to="auth"
+                onClick={() => {
+                  dispatch(logout());
+                }}
+              >
+                <div className={s.navIconMenu_wrapper}>
+                  <svg className={s.navIcon_signOut} width="16px" height="16px">
+                    <use xlinkHref={`${Icons}#icon-sign-out`} />
+                  </svg>
+                </div>
+              </NavLink>
+            </MediaQuery>
+          </>
+        )}
       </header>
       <Outlet className="container" />
     </>
