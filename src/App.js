@@ -17,31 +17,33 @@ import { useSelector } from "react-redux";
 // import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
-  const isLoggedIn = useSelector(state=> state.auth.isLoggedIn)
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
   // const isLoggedIn = true;
 
   return (
     <div>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<AppBar />}>
-            <Route
-              index
-              element={isLoggedIn ? <MainPage /> : <Navigate to="auth" />}
-            />
-            <Route element={<PublicRoute />}>
-              <Route path="auth" element={<AuthPage />} />
+      <div className='content'>
+        <Suspense fallback={<Loader />} >
+          <Routes>
+            <Route path="/" element={<AppBar />}>
+              <Route
+                index
+                element={isLoggedIn ? <MainPage /> : <Navigate to="auth" />}
+              />
+              <Route element={<PublicRoute />}>
+                <Route path="auth" element={<AuthPage />} />
+              </Route>
+              <Route element={<PrivateRoute />}>
+                <Route path="test" element={<TestPage />} />
+                <Route path="result" element={<ResultPage />} />
+                <Route path="materials" element={<MaterialsPage />} />
+                <Route path="contacts" element={<ContactsPage />} />
+              </Route>
+              <Route path="*" element={<RedirectNew to="/" replace />} />
             </Route>
-            <Route element={<PrivateRoute />}>
-            <Route path="test" element={<TestPage />} />
-            <Route path="result" element={<ResultPage />} />
-            <Route path="materials" element={<MaterialsPage />} />
-            <Route path="contacts" element={<ContactsPage />} />
-          </Route>
-          <Route path="*" element={<RedirectNew to="/" replace />} />
-          </Route>
-        </Routes>
-      </Suspense>
+          </Routes>
+        </Suspense>
+      </div>
       <Footer />
     </div>
   );
