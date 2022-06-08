@@ -9,7 +9,7 @@ const questionsSlice = createSlice({
   name: "questions",
   initialState: {
     typeOfTesting: "",
-    questions: [],
+    questionsForUser: [],
     isLoading: false,
     error: null,
     userAnswer: [],
@@ -23,26 +23,25 @@ const questionsSlice = createSlice({
     },
   },
   extraReducers: {
-    [theoryQuestions.pending](state, { payload }) {
+    [theoryQuestions.pending](state) {
       state.isLoading = true;
-      state.error = null;
     },
     [theoryQuestions.fulfilled](state, { payload }) {
       state.isLoading = false;
       state.error = null;
-      state.questions = payload;
+      state.questionsForUser = [...payload];
     },
     [theoryQuestions.rejected](state, { payload }) {
       state.isLoading = false;
       state.error = payload;
     },
-    [technicalQuestions.pending](state, { payload }) {
+    [technicalQuestions.pending](state) {
       state.isLoading = true;
     },
     [technicalQuestions.fulfilled](state, { payload }) {
-      state.isLoading = true;
+      state.isLoading = false;
       state.error = null;
-      state.questions = payload;
+      state.questionsForUser = [...payload];
     },
     [technicalQuestions.rejected](state, { payload }) {
       state.isLoading = false;

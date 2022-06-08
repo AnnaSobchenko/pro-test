@@ -110,6 +110,10 @@
     font-size: 14px;
   }
 }
+// .animation__wrapper {
+//   overflow: hidden;
+//   height: 80px;
+// }
 .question {
   font-family: "Montserrat";
   font-style: normal;
@@ -118,6 +122,9 @@
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.02em;
+
+  display: inline-block;
+  animation: floatText 15s infinite linear;
 
   margin-bottom: 32px;
 
@@ -130,7 +137,14 @@
     margin-bottom: 28px;
   }
 }
-
+// .question:hover {
+//   animation-play-state: paused;
+// }
+// @keyframes floatText {
+//   to {
+//     transform: translateY(-100%);
+//   }
+// }
 .line {
   display: block;
   width: 130px;

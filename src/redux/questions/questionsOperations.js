@@ -21,7 +21,6 @@ export const technicalQuestions = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const getTechnicalQuestion = await technicalQuestionsApi();
-
       return getTechnicalQuestion;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
