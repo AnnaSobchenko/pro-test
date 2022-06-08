@@ -50,5 +50,6 @@ export async function getUserInfo(accessToken) {
 }
 
 export  async function  getContact() {
-  return await axios.get('/contacts/')
+  const result =  await axios.get('/contacts/'); 
+  return result.data.ResponseBody;
 }

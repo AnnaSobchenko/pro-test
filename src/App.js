@@ -14,17 +14,13 @@ import ContactsPage from "./pages/Contacts/ContactsPage";
 import AppBar from "./components/_navigation/AppBar";
 import Footer from "./components/_navigation/Footer";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import {getContacts} from './redux/contacts/contOperations';
+
+
 // import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
-  const dispatch = useDispatch();
+  
   const isLoggedIn = useSelector(state=> state.auth.isLoggedIn)
-  // const isLoggedIn = true;
-  useEffect(() => {
-    dispatch(getContacts())
-  },[dispatch])
   return (
     <div>
       <Suspense fallback={<Loader />}>

@@ -1,20 +1,15 @@
-// import contacts from "../../pages/Contacts/contacts/contacts.json";
 import s from './ContactsItem.module.scss';
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {getContacts} from '../../redux/contacts/contOperations';
-
+import { useEffect, useState } from "react";
+import {getContact} from '../../utils/fetchApi';
 
 const ContactsItem = () => {
-    const dispatch = useDispatch();
-    const contacts = useSelector((state) => state.contacts.items.ResponseBody);
-    useEffect(() => {
-        dispatch(getContacts())
-      },[dispatch])
-    console.log(contacts);
+    const [cont, setCont] = useState([])
+useEffect( () => {
+     getContact().then(data => setCont(data) )
+},[])
     return (<>
-        {contacts.map(cont => 
-            <li className={s.contactItem} key={cont._id} id={cont._id} onClick={() => {
+        {cont.map(cont => 
+            <li className={s.contactItem} key={cont.id} id={cont.id} onClick={() => {
                 
             }}>
                 {/* <img className={s.avatar} src={cont.avatar} alt={cont.name} /> */}
