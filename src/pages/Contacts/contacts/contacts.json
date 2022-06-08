@@ -57,10 +57,10 @@
     },
     {
         "id": "9",
-        "name": "name",
-        "job_title": "Front-End Developer",
-        "comment": "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century.",
-        "avatar": "roman_zeno.jpg"
+        "name": "Yurii Ivashchenko",
+        "job_title": "Full stack developer",
+        "comment": "You can be better than you were in the past.",
+        "avatar": "yurii_ivashchenko.jpg"
     },
     {
         "id": "10",
