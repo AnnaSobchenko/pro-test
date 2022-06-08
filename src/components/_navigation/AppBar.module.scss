@@ -1,9 +1,7 @@
 .header {
-  // margin-left: auto;
-  // margin-right: auto;
   display: flex;
   align-items: center;
-  // justify-content: space-between;
+  justify-content: space-between;
   height: 68px;
   font-family: Montserrat;
   font-weight: 500;
@@ -159,21 +157,8 @@ display: none;
 
 .navIcon_signOut {
   display: flex;
-
 }
 
-// .animation__scss {
-  // -webkit-transition: 2.3s;
-  // -moz-transition: 2.3s;
-  // transition: 2.3s;
-  // transition-timing-function: linear;
-  // -moz-transition-timing-function: linear;
-  // transition-timing-function: cubic-bezier(.06,.09,1,.99);
-
-  // &:hover {
-  //   margin-left: -550px;
-  // }
-// }
 .text_transform{
     text-align: center;
     width: 43px;
@@ -187,6 +172,6 @@ display: none;
    }
   
   100%{
-    transform: translate(-160%, 0);
+    transform: translate(-200%, 0);
   }
 } 
