@@ -13,6 +13,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/authSlice";
 import questionsReducer from "./questions/questionsSlice";
+import contSlice from "./contacts/contSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -41,6 +42,7 @@ const rootPersistConfig = {
 const rootReducer = combineReducers({
   auth: authPersistedReducer,
   questions: questionsPersistedReducer,
+  contacts: contSlice,
 });
 
 const rootPersistedReducer = persistReducer(rootPersistConfig, rootReducer);

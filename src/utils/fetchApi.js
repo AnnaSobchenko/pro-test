@@ -48,3 +48,7 @@ export async function getUserInfo(accessToken) {
   // console.log(userInfo)
   return { email: userInfo.email }
 }
+
+export  async function  getContact() {
+  return await axios.get('/contacts/')
+}
