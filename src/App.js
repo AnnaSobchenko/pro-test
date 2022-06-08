@@ -17,8 +17,8 @@ import { useSelector } from "react-redux";
 // import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
-  // const isLoggedIn = useSelector(state=> state.auth.isLoggedIn)
-  const isLoggedIn = true;
+  const isLoggedIn = useSelector(state=> state.auth.isLoggedIn)
+  // const isLoggedIn = true;
 
   return (
     <div>
@@ -33,14 +33,14 @@ function App() {
             <Route element={<PublicRoute />}>
               <Route path="auth" element={<AuthPage />} />
             </Route>
-            {/* <Route element={<PrivateRoute />}> */}
+            <Route element={<PrivateRoute />}>
             <Route path="test" element={<TestPage />} />
             <Route path="result" element={<ResultPage />} />
             <Route path="materials" element={<MaterialsPage />} />
             {/* <Route path="contacts" element={<ContactsPage />} /> */}
           </Route>
           <Route path="*" element={<RedirectNew to="/" replace />} />
-          {/* </Route> */}
+          </Route>
         </Routes>
       </Suspense>
       <Footer />

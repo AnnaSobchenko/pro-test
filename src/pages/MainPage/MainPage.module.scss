@@ -1,6 +1,8 @@
 .main {
   padding-top: 35px;
   padding-bottom: 40px;
+  background-color: var(--primary-bg-color);
+
   @media screen and (min-width: 768px) {
     padding-top: 80px;
     padding-bottom: 125px;
