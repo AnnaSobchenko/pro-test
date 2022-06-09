@@ -63,3 +63,8 @@ export async function technicalQuestionsApi() {
   const { data } = await axios.get("/test/technical");
   return data;
 }
+
+export  async function  getContact() {
+  const result =  await axios.get('/contacts/'); 
+  return result.data.ResponseBody;
+}

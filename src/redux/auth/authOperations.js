@@ -3,7 +3,7 @@ import {
   signinUserApi,
   logoutUserApi,
   signupUserApi,
-  getUserInfo
+  getUserInfo,
 } from "../../utils/fetchApi";
 
 export const signup = createAsyncThunk(
