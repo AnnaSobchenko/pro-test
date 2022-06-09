@@ -26,7 +26,6 @@ const TestPage = () => {
     setUserAnswer(questionInfo[counter - 1].userAnswer);
     setCounter((prev) => prev - 1);
   };
-  console.log("counter :>> ", counter);
 
   const nextQuestion = (info) => {
     const { questionId } = info;
@@ -72,71 +71,73 @@ const TestPage = () => {
   };
 
   const onFormSubmit = (e) => {
-    counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
     e.preventDefault();
+    counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
   };
 
-  // useEffect(() => {}, [counter]);
-
   return (
-    <form className={s.test} onSubmit={onFormSubmit}>
-      <div className={s.wrapper}>
-        <p className={s.heading}>{`[ ${testName}_]`}</p>
-        <Link className={s.finish__btn} to={"/"} onClick={onFinishTest}>
-          Finish test
-        </Link>
-      </div>
-
-      <div className={s.question__wrapper}>
-        <div className={s.question__list}>
-          <p className={s.question__current}>
-            Question
-            <span className={s.question__list}> {`${counter + 1}`}</span> / 12
-          </p>
-          <div className={s.animation__wrapper}>
-            <p className={s.question}>{`${testQuestion[counter]?.question}`}</p>
-          </div>
-          <span className={s.line}></span>
-
-          {testQuestion[counter].answers.map((el) => {
-            return (
-              <div className={s.question__item} key={uuid.v4()}>
-                <label className={s.question__itemLabel} key={uuid.v4()}>
-                  <input
-                    type="radio"
-                    checked={userAnswer === `${el}`}
-                    className={s.radio}
-                    name="answer"
-                    value={el}
-                    onChange={onInputChange}
-                  ></input>
-                  <span className={s.question__text}>{`${el}`}</span>
-                </label>
-              </div>
-            );
-          })}
+    testQuestion.length > 0 && (
+      <form className={s.test} onSubmit={onFormSubmit}>
+        <div className={s.wrapper}>
+          <p className={s.heading}>{`[ ${testName}_]`}</p>
+          <Link className={s.finish__btn} to={"/"} onClick={onFinishTest}>
+            Finish test
+          </Link>
         </div>
-      </div>
 
-      <div className={s.btn__wrapper}>
-        <button
-          className={s.btn__left}
-          type="submit"
-          onClick={prevQuestion}
-          disabled={btnDisable}
-        >
-          <svg className={s.btn__leftIcon} width="24px" height="16px">
-            <use xlinkHref={`${Icons}#icon-left-black`} />
-          </svg>
-        </button>
+        <div className={s.question__wrapper}>
+          <div className={s.question__list}>
+            <p className={s.question__current}>
+              Question
+              <span className={s.question__list}> {`${counter + 1}`}</span> / 12
+            </p>
+            <div className={s.animation__wrapper}>
+              <p
+                className={s.question}
+              >{`${testQuestion[counter]?.question}`}</p>
+            </div>
+            <span className={s.line}></span>
 
-        <button className={s.btn__right} type="submit" onClick={getAnswerObj}>
-          <svg className={s.btn__rightIcon} width="24px" height="16px">
-            <use xlinkHref={`${Icons}#icon-right-black`} />
-          </svg>
-        </button>
-      </div>
-    </form>
+            {testQuestion[counter].answers.map((el) => {
+              return (
+                <div className={s.question__item} key={uuid.v4()}>
+                  <label className={s.question__itemLabel} key={uuid.v4()}>
+                    <input
+                      type="radio"
+                      checked={userAnswer === `${el}`}
+                      className={s.radio}
+                      name="answer"
+                      value={el}
+                      onChange={onInputChange}
+                    ></input>
+                    <span className={s.question__text}>{`${el}`}</span>
+                  </label>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className={s.btn__wrapper}>
+          <button
+            className={s.btn__left}
+            type="submit"
+            onClick={prevQuestion}
+            disabled={btnDisable}
+          >
+            <svg className={s.btn__leftIcon} width="24px" height="16px">
+              <use xlinkHref={`${Icons}#icon-left-black`} />
+            </svg>
+          </button>
+
+          <button className={s.btn__right} type="submit" onClick={getAnswerObj}>
+            <svg className={s.btn__rightIcon} width="24px" height="16px">
+              <use xlinkHref={`${Icons}#icon-right-black`} />
+            </svg>
+          </button>
+        </div>
+      </form>
+    )
   );
 };
 
