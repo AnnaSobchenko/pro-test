@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 import s from "./TestPage.module.scss";
-import Icons from "../../images/symbol-defs.svg";
+
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -34,23 +34,25 @@ const TestPage = () => {
   const nextQuestion = (info) => {
     const { questionId } = info;
 
-    // userAnswer === undefined && Notify.failure("Qui timide rogat docet negare");
     setQuestionInfo((prev) => {
       const newInfo = [...prev];
       newInfo[counter] = { questionId, userAnswer };
       return newInfo;
     });
 
-    if (counter !== 11) setCounter((prev) => prev + 1);
-
+    if (userAnswer === "" || userAnswer === undefined) {
+      Notify.failure("Please,choose answer");
+      setCounter((prev) => prev);
+    } else if (counter !== 11) {
+      setCounter((prev) => prev + 1);
+    }
     questionInfo.length === counter
-      ? setUserAnswer(" ")
+      ? setUserAnswer("")
       : setUserAnswer(questionInfo[counter + 1]?.userAnswer);
   };
 
   const onInputChange = (e) => {
     const userAnswer = e.target.value;
-    console.log("e.target :>> ", e.target);
     setUserAnswer(userAnswer);
   };
 
@@ -61,7 +63,6 @@ const TestPage = () => {
 
   const getAnswerObj = (e) => {
     const questionId = testQuestion[counter]._id;
-    // const rightAnswer = testQuestion[counter].rightAnswer;
     nextQuestion({ questionId });
   };
 
@@ -72,7 +73,6 @@ const TestPage = () => {
       dispatch(getUserAnswer(questionInfo));
       navigate("../result", { replace: true });
     }
-
     counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
   };
 
