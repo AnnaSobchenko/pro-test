@@ -1,62 +1,61 @@
 .authForm {
   display: block;
-  padding: 60px 32px 48px 32px;
-  margin-bottom: 100px;
-  margin-top: 100px;
+  margin: auto;
+  padding: 40px 20px ;
+  margin-bottom: 34px;
+  margin-top: 24px;
+  width: 280px;
+  // height: 463px;
  
   // margin: 0 ;
   background-color: white;
   box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
-  // form {
-  //   box-sizing: border-box;
-  //   width: calc( 100%);
-  //   height: 200px;
-  //   padding: 0 20px;
-  //   border: 1px;
-  //   border-color: var(--border-color);
-  // }
-  // &__inputLabel{
-  //     display: block;
-  //     margin: 0 auto 20px;
-  //     width: 85%;
-  //     height: 56px;
-  //     span{
-  //         display: none;
-  //         width: 20%;
-  //         height: 100%;
-  //     }
-  //     input{
-  //         display: block;
-  //         width: 100%;
-  //         height: 100%;
-  //     }
 
-  // }
+  @media screen and (min-width: 768px) {
+    padding: 60px 32px 48px 32px;
+    margin-bottom: 48px;
+    width: 501px;
+      }
+
+      @media screen and (min-width: 1280px) {
+       
+      margin-bottom: 100px;
+  margin-top: 100px;
+  margin-right: 123px;
+          }
+        
 }
+
+.authFormTitle{
+  margin-bottom: 32px;
+}
+
+.authFormTitle2{
+  margin-top: 32px;
+}
+
 .btn {
   display: flex;
   justify-content: space-between;
 }
 .btnSubmit{
-  width: 210px;
+  width: 109px;
   height: 60px;
+  @media screen and (min-width: 768px) {
+    width: 210px;
+  // height: 60px;
+
+      }
 }
 
 .btnSubmit:hover {
   background-color: var(--accent-button-color);
 }
 .btnGoogle{
- display: flex;
- justify-content: center;
- align-items: center;
-  width: 159px;
-  height: 51px;
+ 
   margin-bottom: 32px;
   margin-top: 32px;
-  font-weight: 700;
-font-size: 14px;
-line-height: 17px;
-letter-spacing: 0.02em;
+  
 }
 .authFormInput{
   margin-top: 32px;
