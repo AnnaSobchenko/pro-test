@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 import s from "./TestPage.module.scss";
 import Icons from "../../images/symbol-defs.svg";
 import { useState } from "react";
@@ -14,7 +15,7 @@ const uuid = require("uuid");
 
 const TestPage = () => {
   const [counter, setCounter] = useState(0);
-  // const [btnDisable, setBtnDisable] = useState(true);
+  const [btnDisable, setBtnDisable] = useState(true);
   const [userAnswer, setUserAnswer] = useState("");
   const [questionInfo, setQuestionInfo] = useState([]);
 
@@ -33,6 +34,7 @@ const TestPage = () => {
   const nextQuestion = (info) => {
     const { questionId } = info;
 
+    // userAnswer === undefined && Notify.failure("Qui timide rogat docet negare");
     setQuestionInfo((prev) => {
       const newInfo = [...prev];
       newInfo[counter] = { questionId, userAnswer };
@@ -48,18 +50,19 @@ const TestPage = () => {
 
   const onInputChange = (e) => {
     const userAnswer = e.target.value;
+    console.log("e.target :>> ", e.target);
     setUserAnswer(userAnswer);
   };
 
   const onFinishTest = (e) => {
     navigate("../", { replace: true });
+    Notify.info("Testing are stopped");
   };
 
-  const getAnswerObj = () => {
+  const getAnswerObj = (e) => {
     const questionId = testQuestion[counter]._id;
-    const rightAnswer = testQuestion[counter].rightAnswer;
-
-    nextQuestion({ questionId, rightAnswer });
+    // const rightAnswer = testQuestion[counter].rightAnswer;
+    nextQuestion({ questionId });
   };
 
   const onFormSubmit = (e) => {
@@ -70,7 +73,7 @@ const TestPage = () => {
       navigate("../result", { replace: true });
     }
 
-    // counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
+    counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
   };
 
   return (
@@ -80,9 +83,6 @@ const TestPage = () => {
           <p className={s.heading}>{`[ ${testName}_]`}</p>
 
           <Button cta="Finish test" finish onClick={onFinishTest} />
-          {/* <Link className={s.finish__btn} to={"/"} onClick={onFinishTest}>
-            Finish test
-          </Link> */}
         </div>
 
         <div className={s.question__wrapper}>
@@ -119,24 +119,19 @@ const TestPage = () => {
         </div>
 
         <div className={s.btn__wrapper}>
-          {/* <button
-            className={s.btn__left}
-            type="submit"
-            onClick={prevQuestion}
+          <Button
+            cta="Previous question"
+            arrow
             disabled={btnDisable}
-          >
-            <svg className={s.btn__leftIcon} width="24px" height="16px">
-              <use xlinkHref={`${Icons}#icon-left-black`} />
-            </svg>
-          </button> */}
-          <Button cta="Previous question" arrow onClick={prevQuestion} />
-          {/* 
-          <button className={s.btn__right} type="submit" onClick={getAnswerObj}>
-            <svg className={s.btn__rightIcon} width="24px" height="16px">
-              <use xlinkHref={`${Icons}#icon-right-black`} />
-            </svg>
-          </button> */}
-          <Button cta="Next question" arrow onClick={getAnswerObj} />
+            onClick={prevQuestion}
+          />
+          <Button
+            cta={counter === 11 ? "Finish testing" : "Next question"}
+            arrow
+            type="submit"
+            secondary
+            onClick={getAnswerObj}
+          />
         </div>
       </form>
     )
