@@ -1,33 +1,68 @@
 .authPage {
-display: flex;
-justify-content: center;
-align-items: center;
+
 background: var(--primary-bg-color);
 height: 100vh;
+      @media screen and (min-width: 768px) {
+    
+      }
+
+      @media screen and (min-width: 1280px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+          }
 
 }
 .authPageLeft{
-    margin-right: 112px;
-    width: 420px;
-    height: 187px;
+
+    width: 280px;
+    margin: auto;
+
+    @media screen and (min-width: 768px) {
+        width: 535px;
+           }
+
+    @media screen and (min-width: 1280px) {
+        margin-right: 112px;
+        width: 420px;
+    }
+
 }
 .authPageTitle{
-    padding-bottom: 20px;
+    padding-bottom: 8px;
 
 font-weight: 800;
 font-size: 34px;
-line-height: 41px;
+line-height: 1.2;
 letter-spacing: 0.02em;
 
 color: #000000;
+
+@media screen and (min-width: 768px) {
+    padding-bottom: 20px;
+       }
 }
 .authtext{
+    // margin: auto;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.66;
+    letter-spacing: 0.02em;
     
+    
+
+    @media screen and (min-width: 768px) {
+        width: 535px;
+    
+           }
+
+    @media screen and (min-width: 1280px) {
+       width: 420px;
+    
+
     font-weight: 700;
     font-size: 18px;
     line-height: 2;
-    /* or 200% */
-    
-    letter-spacing: 0.02em;
+          }
 }
 

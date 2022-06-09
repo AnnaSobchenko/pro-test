@@ -9,6 +9,7 @@
   --secondary-text-color: #555555;
   --third-text-color: #ffffff;
   --border-color: #ced2d1;
+  --google-btn-bg: #fafafa;
 }
 
 p,
@@ -45,6 +46,7 @@ aside {
 
 html,
 body {
+  height: 100%;
   width: 100%;
   font-size: 100%;
   line-height: 1;
