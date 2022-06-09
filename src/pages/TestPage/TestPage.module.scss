@@ -3,13 +3,12 @@
   margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 20px;
-
   @media screen and (min-width: 768px) {
     width: 700px;
     padding-top: 40px;
     padding-bottom: 270px;
   }
-  @media screen and (min-width: 1268px) {
+  @media screen and (min-width: 1280px) {
     width: 821px;
 
     padding-top: 40px;
@@ -84,7 +83,7 @@
     height: 453px;
     padding: 40px 70px 60px;
   }
-  @media screen and (min-width: 1268px) {
+  @media screen and (min-width: 1280px) {
     padding: 40px 80px 80px;
   }
 }
@@ -111,6 +110,10 @@
     font-size: 14px;
   }
 }
+// .animation__wrapper {
+//   overflow: hidden;
+//   height: 80px;
+// }
 .question {
   font-family: "Montserrat";
   font-style: normal;
@@ -119,6 +122,9 @@
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.02em;
+
+  display: inline-block;
+  animation: floatText 15s infinite linear;
 
   margin-bottom: 32px;
 
@@ -131,7 +137,14 @@
     margin-bottom: 28px;
   }
 }
-
+// .question:hover {
+//   animation-play-state: paused;
+// }
+// @keyframes floatText {
+//   to {
+//     transform: translateY(-100%);
+//   }
+// }
 .line {
   display: block;
   width: 130px;
@@ -208,7 +221,7 @@
     width: 520px;
     font-size: 16px;
   }
-  @media screen and (min-width: 1268px) {
+  @media screen and (min-width: 1280px) {
     width: 610px;
   }
 }
@@ -281,6 +294,45 @@
 
     &::before {
       content: "Next question";
+      font-family: "Montserrat Medium";
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 0.02em;
+      color: var(--primary-text-color);
+    }
+
+    &:hover::before,
+    &:focus::before {
+      color: #ffffff;
+    }
+  }
+}
+.finishBtn__right {
+  width: 55px;
+  height: 34px;
+
+  background: #ffffff;
+
+  &:hover,
+  &:focus {
+    background: var(--accent-button-color);
+  }
+
+  &:hover .finishBtn__right,
+  &:focus .finishBtn__right {
+    fill: #ffffff;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 210px;
+    height: 34px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &::before {
+      content: "Show result";
       font-family: "Montserrat Medium";
       font-size: 12px;
       line-height: 14px;
