@@ -1,5 +1,5 @@
 .contactItem {
-    width: 288px;
+    width: 280px;
     height: 370px;
     background-color: #FFFFFF;
     margin-left: auto;
@@ -12,12 +12,13 @@
     transition-delay: 0s;
 
     cursor: pointer;
-    @media screen and (max-width: 1279px) {
-       width: 336px;
+    
+    @media screen and (min-width: 768px)  {
+        width: 336px;
     }
-    @media screen and (max-width: 767px)  {
-        width: 280px;
-    }
+    @media screen and (min-width: 1280px) {
+            width: 288px;
+        }
     &:hover,
     &:focus {
         box-sizing: border-box;
@@ -26,30 +27,37 @@
 }
 
 .contactItem:nth-child(9) {
-        margin-right: 8px;
-    @media screen and (max-width: 768px) {
+        
         margin-right: auto; 
+    @media screen and (min-width: 768px) {
+        margin-right: 8px;
      }
+     @media screen and (min-width: 1280px){
+        margin-right: 12px;
+    }
 }
 
 .contactItem:nth-child(10) {
-        margin-left: 8px;  
-    @media screen and (max-width: 767px) {
-        margin-left: auto;
+    margin-right: auto; 
+    @media screen and (min-width: 768px) {
+        margin-left: 8px;
+     }
+     @media screen and (min-width: 1280px){
+         margin-left: 12px;
      }
 }
 
 .avatar {
-    width: 288px;
+    width: 280px;
     height: 244px;
     object-fit: cover;
-    @media screen and (max-width: 1279px) {
+    
+     @media screen and (min-width: 768px)  {
         width: 336px;
-     }
-     @media screen and (max-width: 767px)  {
-        width: 280px;
     }
-     
+    @media screen and (min-width: 1280px) {
+        width: 288px;
+     }
 }
 
 .conatcInf {
