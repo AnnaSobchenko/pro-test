@@ -1,18 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
 import s from "./TestPage.module.scss";
 import Icons from "../../images/symbol-defs.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCurrentTestingType,
   getTestingQuestion,
 } from "../../redux/questions/questionsSelector";
 import { getUserAnswer } from "../../redux/questions/questionsSlice";
+import Button from "../../components/Button/Button";
+
 const uuid = require("uuid");
 
 const TestPage = () => {
   const [counter, setCounter] = useState(0);
-  const [btnDisable, setBtnDisable] = useState(true);
+  // const [btnDisable, setBtnDisable] = useState(true);
   const [userAnswer, setUserAnswer] = useState("");
   const [questionInfo, setQuestionInfo] = useState([]);
 
@@ -24,6 +26,7 @@ const TestPage = () => {
 
   const prevQuestion = () => {
     setUserAnswer(questionInfo[counter - 1].userAnswer);
+
     setCounter((prev) => prev - 1);
   };
 
@@ -38,20 +41,10 @@ const TestPage = () => {
 
     if (counter !== 11) setCounter((prev) => prev + 1);
 
-    // if (questionInfo.length !== counter) {
-    //   return setUserAnswer(questionInfo[counter + 1].userAnswer);
-    // } else {
-    //   return setUserAnswer("");
-    // }
+    questionInfo.length === counter
+      ? setUserAnswer(" ")
+      : setUserAnswer(questionInfo[counter + 1]?.userAnswer);
   };
-
-  const sendAnswerObj = () => {
-    if (questionInfo.length === 12) {
-      dispatch(getUserAnswer(questionInfo));
-      navigate("../result", { replace: true });
-    }
-  };
-  sendAnswerObj();
 
   const onInputChange = (e) => {
     const userAnswer = e.target.value;
@@ -59,20 +52,25 @@ const TestPage = () => {
   };
 
   const onFinishTest = (e) => {
-    const test = questionInfo;
-    return test;
+    navigate("../", { replace: true });
   };
 
   const getAnswerObj = () => {
     const questionId = testQuestion[counter]._id;
     const rightAnswer = testQuestion[counter].rightAnswer;
 
-    return nextQuestion({ questionId, rightAnswer });
+    nextQuestion({ questionId, rightAnswer });
   };
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
+
+    if (questionInfo.length === 12) {
+      dispatch(getUserAnswer(questionInfo));
+      navigate("../result", { replace: true });
+    }
+
+    // counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
   };
 
   return (
@@ -80,9 +78,11 @@ const TestPage = () => {
       <form className={s.test} onSubmit={onFormSubmit}>
         <div className={s.wrapper}>
           <p className={s.heading}>{`[ ${testName}_]`}</p>
-          <Link className={s.finish__btn} to={"/"} onClick={onFinishTest}>
+
+          <Button cta="Finish test" finish onClick={onFinishTest} />
+          {/* <Link className={s.finish__btn} to={"/"} onClick={onFinishTest}>
             Finish test
-          </Link>
+          </Link> */}
         </div>
 
         <div className={s.question__wrapper}>
@@ -104,7 +104,7 @@ const TestPage = () => {
                   <label className={s.question__itemLabel} key={uuid.v4()}>
                     <input
                       type="radio"
-                      checked={userAnswer === `${el}`}
+                      checked={userAnswer ? userAnswer === `${el}` : ""}
                       className={s.radio}
                       name="answer"
                       value={el}
@@ -119,7 +119,7 @@ const TestPage = () => {
         </div>
 
         <div className={s.btn__wrapper}>
-          <button
+          {/* <button
             className={s.btn__left}
             type="submit"
             onClick={prevQuestion}
@@ -128,13 +128,15 @@ const TestPage = () => {
             <svg className={s.btn__leftIcon} width="24px" height="16px">
               <use xlinkHref={`${Icons}#icon-left-black`} />
             </svg>
-          </button>
-
+          </button> */}
+          <Button cta="Previous question" arrow onClick={prevQuestion} />
+          {/* 
           <button className={s.btn__right} type="submit" onClick={getAnswerObj}>
             <svg className={s.btn__rightIcon} width="24px" height="16px">
               <use xlinkHref={`${Icons}#icon-right-black`} />
             </svg>
-          </button>
+          </button> */}
+          <Button cta="Next question" arrow onClick={getAnswerObj} />
         </div>
       </form>
     )

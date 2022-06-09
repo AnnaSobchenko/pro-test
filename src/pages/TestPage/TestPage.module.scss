@@ -71,7 +71,7 @@
   }
 }
 .question__wrapper {
-  height: 456px;
+  min-height: 456px;
   margin: 0 auto 20px;
 
   padding: 40px 20px 75px;
@@ -80,7 +80,7 @@
   box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
 
   @media screen and (min-width: 768px) {
-    height: 453px;
+    min-height: 453px;
     padding: 40px 70px 60px;
   }
   @media screen and (min-width: 1280px) {
@@ -110,10 +110,6 @@
     font-size: 14px;
   }
 }
-// .animation__wrapper {
-//   overflow: hidden;
-//   height: 80px;
-// }
 .question {
   font-family: "Montserrat";
   font-style: normal;
@@ -137,14 +133,6 @@
     margin-bottom: 28px;
   }
 }
-// .question:hover {
-//   animation-play-state: paused;
-// }
-// @keyframes floatText {
-//   to {
-//     transform: translateY(-100%);
-//   }
-// }
 .line {
   display: block;
   width: 130px;
