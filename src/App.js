@@ -13,10 +13,13 @@ import MaterialsPage from "./pages/MaterialsPage/MaterialsPage";
 import ContactsPage from "./pages/Contacts/ContactsPage";
 import AppBar from "./components/_navigation/AppBar";
 import Footer from "./components/_navigation/Footer";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+
 // import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
+
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
   // const isLoggedIn = true;
 
@@ -30,6 +33,7 @@ function App() {
                 index
                 element={isLoggedIn ? <MainPage /> : <Navigate to="auth" />}
               />
+              <Route path="contacts" element={<ContactsPage />} />
               <Route element={<PublicRoute />}>
                 <Route path="auth" element={<AuthPage />} />
               </Route>
@@ -37,7 +41,7 @@ function App() {
                 <Route path="test" element={<TestPage />} />
                 <Route path="result" element={<ResultPage />} />
                 <Route path="materials" element={<MaterialsPage />} />
-                <Route path="contacts" element={<ContactsPage />} />
+                {/* <Route path="contacts" element={<ContactsPage />} /> */}
               </Route>
               <Route path="*" element={<RedirectNew to="/" replace />} />
             </Route>
