@@ -3,13 +3,12 @@
   margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 20px;
-
   @media screen and (min-width: 768px) {
     width: 700px;
     padding-top: 40px;
     padding-bottom: 270px;
   }
-  @media screen and (min-width: 1268px) {
+  @media screen and (min-width: 1280px) {
     width: 821px;
 
     padding-top: 40px;
@@ -47,32 +46,8 @@
   }
 }
 
-.finish__btn {
-  width: 130px;
-  height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: "Montserrat Medium";
-  font-size: 10px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-
-  color: var(--third-text-color);
-  background: var(--accent-button-color);
-
-  @media screen and (min-width: 768px) {
-    width: 181px;
-    height: 48px;
-
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: 14px;
-  }
-}
 .question__wrapper {
-  height: 456px;
+  min-height: 456px;
   margin: 0 auto 20px;
 
   padding: 40px 20px 75px;
@@ -81,10 +56,10 @@
   box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
 
   @media screen and (min-width: 768px) {
-    height: 453px;
+    min-height: 453px;
     padding: 40px 70px 60px;
   }
-  @media screen and (min-width: 1268px) {
+  @media screen and (min-width: 1280px) {
     padding: 40px 80px 80px;
   }
 }
@@ -120,6 +95,9 @@
   text-align: center;
   letter-spacing: 0.02em;
 
+  display: inline-block;
+  animation: floatText 15s infinite linear;
+
   margin-bottom: 32px;
 
   color: var(--primary-text-color);
@@ -131,7 +109,6 @@
     margin-bottom: 28px;
   }
 }
-
 .line {
   display: block;
   width: 130px;
@@ -208,7 +185,7 @@
     width: 520px;
     font-size: 16px;
   }
-  @media screen and (min-width: 1268px) {
+  @media screen and (min-width: 1280px) {
     width: 610px;
   }
 }
@@ -216,91 +193,4 @@
 .btn__wrapper {
   display: flex;
   justify-content: space-between;
-}
-.btn__left {
-  width: 55px;
-  height: 34px;
-
-  background: #ffffff;
-
-  &:hover,
-  &:focus {
-    background: var(--accent-button-color);
-  }
-  &:hover .btn__leftIcon,
-  &:focus .btn__leftIcon {
-    fill: #ffffff;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 210px;
-    height: 34px;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    &::after {
-      content: "Previous question";
-      font-family: "Montserrat Medium";
-      font-size: 12px;
-      line-height: 14px;
-      letter-spacing: 0.02em;
-      color: #000000;
-    }
-
-    &:hover::after,
-    &:focus::after {
-      color: #ffffff;
-    }
-  }
-}
-.btn__right {
-  width: 55px;
-  height: 34px;
-
-  background: #ffffff;
-
-  &:hover,
-  &:focus {
-    background: var(--accent-button-color);
-  }
-
-  &:hover .btn__rightIcon,
-  &:focus .btn__rightIcon {
-    fill: #ffffff;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 210px;
-    height: 34px;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    &::before {
-      content: "Next question";
-      font-family: "Montserrat Medium";
-      font-size: 12px;
-      line-height: 14px;
-      letter-spacing: 0.02em;
-      color: var(--primary-text-color);
-    }
-
-    &:hover::before,
-    &:focus::before {
-      color: #ffffff;
-    }
-  }
-}
-
-.btn__leftIcon {
-  border: none;
-  fill: #000000;
-}
-
-.btn__rightIcon {
-  border: none;
-  fill: #000000;
 }

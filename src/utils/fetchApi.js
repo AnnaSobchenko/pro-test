@@ -38,13 +38,33 @@ export async function logoutUserApi(persistedToken) {
 }
 
 export async function getUserInfo(accessToken) {
-
   if (accessToken) {
     axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem(
-      'accessToken'
+      "accessToken"
     )}`;
   }
-  const userInfo = await axios.get('auth/current');
+  const userInfo = await axios.get("auth/current");
   // console.log(userInfo)
-  return { email: userInfo.email }
+  return { email: userInfo.email };
+}
+
+// export async function refreshUserTokenApi({ refreshToken, _id }) {
+//   token.set(refreshToken);
+//   const { data } = await axios.get("/auth/refresh", { _id });
+//   // console.log("refreshUserTokenApi_data :>> ", data);
+//   return data;
+// }
+
+export async function theoryQuestionsApi() {
+  const { data } = await axios.get("/test/theory");
+  return data;
+}
+export async function technicalQuestionsApi() {
+  const { data } = await axios.get("/test/technical");
+  return data;
+}
+
+export  async function  getContact() {
+  const result =  await axios.get('/contacts/'); 
+  return result.data.ResponseBody;
 }
