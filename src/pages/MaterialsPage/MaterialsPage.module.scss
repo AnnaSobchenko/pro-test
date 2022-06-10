@@ -1,23 +1,51 @@
 .materialsPage_bg {
     // margin-left: auto;
     min-height: 100vh;
-    background-image: url("../../images/MaterialsPage/useful_bg_mobile.png");
+    background-image: url("../../images/note@1x-mob-min.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     padding-top: 40px;
 
     @media screen and (min-width: 768px) {
-        background-image: url("../../images/MaterialsPage/useful_bg_tablet.png");
+        background-image: url("../../images/note@1x-tabl-min.png");
         padding-top: 180px;
     }
 
     @media screen and (min-width: 1280px) {
-        background-image: url("../../images/MaterialsPage/useful_bg_desktop.png");
+        background-image: url("../../images/note@1x-desk-min.png");
         padding-top: 100px;
     }
+    
 }
 
+// ================================================
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+  (min-resolution: 192dpi) and (max-width: 767px),
+  (min-resolution: 2dppx) and (max-width: 767px) {
+  .materialsPage_bg {
+    background-image: url("../../images/note@2x-mob-min.png");
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  (min-resolution: 192dpi) and (min-width: 768px),
+  (min-resolution: 2dppx) and (min-width: 768px) {
+  .materialsPage_bg {
+    background-image: url("../../images/note@2x-tabl-min.png");
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
+  (min-resolution: 192dpi) and (min-width: 1200px),
+  (min-resolution: 2dppx) and (min-width: 1200px) {
+  .materialsPage_bg {
+    background-image: url("../../images/note@2x-desk-min.png");
+  }
+}
+
+
+// =================================================
 .materialsPage_wrapper {
     // margin: 0 auto;
     width: 207px;
