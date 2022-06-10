@@ -1,26 +1,53 @@
 .materialsPage_bg {
-    margin-left: auto;
-    min-height: 600px;
-    background-image: url("../../images/MaterialsPage/useful_bg_mobile.png");
+    // margin-left: auto;
+    min-height: 100vh;
+    background-image: url("../../images/note@1x-mob-min.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     padding-top: 40px;
-    // padding-bottom: 40px;
 
     @media screen and (min-width: 768px) {
-        background-image: url("../../images/MaterialsPage/useful_bg_tablet.png");
+        background-image: url("../../images/note@1x-tabl-min.png");
         padding-top: 180px;
     }
 
     @media screen and (min-width: 1280px) {
-        background-image: url("../../images/MaterialsPage/useful_bg_desktop.png");
+        background-image: url("../../images/note@1x-desk-min.png");
         padding-top: 100px;
     }
+    
 }
 
+// ================================================
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+  (min-resolution: 192dpi) and (max-width: 767px),
+  (min-resolution: 2dppx) and (max-width: 767px) {
+  .materialsPage_bg {
+    background-image: url("../../images/note@2x-mob-min.png");
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  (min-resolution: 192dpi) and (min-width: 768px),
+  (min-resolution: 2dppx) and (min-width: 768px) {
+  .materialsPage_bg {
+    background-image: url("../../images/note@2x-tabl-min.png");
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
+  (min-resolution: 192dpi) and (min-width: 1200px),
+  (min-resolution: 2dppx) and (min-width: 1200px) {
+  .materialsPage_bg {
+    background-image: url("../../images/note@2x-desk-min.png");
+  }
+}
+
+
+// =================================================
 .materialsPage_wrapper {
-    margin: 0 auto;
+    // margin: 0 auto;
     width: 207px;
 
     margin-bottom: 32px;
@@ -35,27 +62,34 @@
 }
 
 .subTitle {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.2;
     font-weight: 700;
 
     @media screen and (min-width: 768px) {
-        font-size: 22px;
+        font-size: 24px;
         line-height: 1.3;
     }
 }
 
-.link {
+.text{
     color: #000;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.6;
     font-weight: 500;
-    border-bottom: 150px;
-    border-color: #000;
 
     @media screen and (min-width: 768px) {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.57;
+    };
+}
+
+.link {
+    @extend .text;
+    &:hover,
+    &:focus {
+        color: var(--accent-button-color);
+        border-bottom: 1px solid;
     }
 }
 
