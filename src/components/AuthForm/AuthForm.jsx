@@ -30,16 +30,7 @@ const AuthForm = () => {
           <div className={s.authForm}>
             <h2 className={s.authFormTitle} >You can use your Google Account to authorize:</h2>
            <Button cta="Google" googleAuth />
-            {/* <button className={s.btnGoogle}>
-              <img
-                src={symbol}
-                alt="googleSymbol"
-                width="18px"
-                height="18px"
-                className={s.img}
-              />
-              Google
-            </button> */}
+           
             <h2 className={s.authFormTitle2} >Or login to our app using e-mail and password:</h2>
             <form onSubmit={handleSubmit} className={s.authFormInput}>
               <LabelForm
@@ -56,26 +47,13 @@ const AuthForm = () => {
               />
 
               <div className={s.btn}>
-              {/* <Button cta="sign in" signButton /> */}
-                <button
-                  type="button"
-                  className={`${s.btnSubmit} ${s.btnSubmitSignin} `}
-                  value="signin"
-                  onClick={() =>{ console.log('values', values)
-                   return dispatch(signin(values))}}
-                >
-                  sign in
-                </button>
-                {/* <Button cta="sign up" signButton secondary /> */}
-                <button
-                  type="button"
-                  className={s.btnSubmit}
-                  value="signup"
-                  onClick={() => { console.log('values', values)
-                  return dispatch(signup(values))}}
-                >
-                  sign up
-                </button>
+              <Button cta="sign in" signButton value="signin" onClick={() =>{ console.log('sign in', values)
+                   return dispatch(signin(values))}}/>
+               
+                <Button cta="sign up" signButton secondary  value="signup"
+                  onClick={() => { console.log('sign up', values)
+                  return dispatch(signup(values))}}/>
+                
               </div>
             </form>
           </div>

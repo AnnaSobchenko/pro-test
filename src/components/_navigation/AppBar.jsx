@@ -71,6 +71,7 @@ const AppBar = () => {
                 )}
               </div>
             </div>
+            
 
             <MediaQuery maxWidth={767}>
               <NavLink onClick={() => dispatch(logout())} to="auth">

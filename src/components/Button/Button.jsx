@@ -13,6 +13,8 @@ export default function Button({
   finish = false,
   tryAgain = false,
   arrow = false,
+  disabled = false,
+  type = "",
 }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -54,9 +56,10 @@ export default function Button({
       )}
       {arrow && (
         <Btn
-          type="button"
           secondary={secondary}
           arrow
+          type={type}
+          disabled={disabled}
           onClick={onClick}
           value={value}
         >

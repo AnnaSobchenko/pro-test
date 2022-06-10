@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <footer className={s.footerContainer}>
       <p>
-        © 2022 | All Rights Reserved |&nbsp; Developed with
-        <span className={s.footerHeart}> ❤ </span> &zwnj;
+      © 2022 | All Rights Reserved |&nbsp; Developed with
+           <span className={s.footerHeart}> ❤ </span> &zwnj;
       </p>
       <p> by IT-Creatives</p>
     </footer>
