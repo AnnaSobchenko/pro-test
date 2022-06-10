@@ -1,0 +1,52 @@
+.avatar {
+    margin: 0 auto;
+    width: 280px;
+    height: 244px;
+    object-fit: cover;
+    
+     @media screen and (min-width: 768px)  {
+        width: 336px;
+    }
+    @media screen and (min-width: 1280px) {
+        width: 288px;
+     }
+}
+
+.conatcInf {
+    padding-top: 20px;
+    padding-left: 28px;
+    padding-right: 23px;
+}
+
+
+.name {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+
+
+.jodTitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.02em;
+    color: #555555;
+    margin-bottom: 8px;
+}
+
+.comment {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    color: #000000;
+}

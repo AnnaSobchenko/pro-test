@@ -37,7 +37,7 @@ const ContactsPage = () => {
     </ul>
     </div> 
     </div>
-    {modal.open && <Modal handleClose={closeModal}><ContactCard /></Modal>}
+    {modal.open && <Modal handleClose={closeModal}><ContactCard contact={modal.content}/></Modal>}
     </>);
 }
  
