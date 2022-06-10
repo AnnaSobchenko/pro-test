@@ -44,9 +44,32 @@
     @media screen and (min-width: 768px)  {
         display: flex;
     }
-    .liLogo{
-        list-style: none;
-        margin-left: 166.5px ;
-        margin-right: 166.5px;
+    
+}
+
+.liLogo{
+    list-style: none;
+    margin-left: auto   ;
+    margin-right: auto; 
+    width: 280px;
+    @media screen and (min-width: 768px)  {
+        margin-left: 181px ;
+    margin-right: 181px;
+    width:336px;
+    }
+    @media screen and (min-width: 1280px)  {
+        margin-left: 168px ;
+    margin-right: 168px;
+    width:288px;
+    }
+}
+
+.liLogoImg {
+    width: 280px;
+    @media screen and (min-width: 768px)  {
+        width:336px;
+    }
+    @media screen and (min-width: 1280px)  {
+        width:288px;
     }
 }
