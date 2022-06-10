@@ -12,10 +12,11 @@ const ContactsItem = ({ openModal }) => {
     
     return (<>
         {cont.map(cont =>
-            <li className={s.contactItem} key={cont.id} id={cont.id} onClick={() => {
+            <li className={s.contactItem} key={cont._id}  onClick={() => {
                 openModal(cont)
             }}>
-                <img className={s.avatar} src={require(`./avatar/${cont.avatar}`)} alt={cont.name} />
+                {/* <img className={s.avatar} src={require(`./avatar/${cont.avatar}`)} alt={cont.name} /> */}
+                <img className={s.avatar} src={require(`../../images/avatar/${cont.avatar}`)} alt={cont.name} />
                 <div className={s.conatcInf}>
                     <p className={s.name}>{cont.name}</p>
                     <p className={s.jodTitle}>{cont.job_title}</p>

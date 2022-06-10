@@ -9,7 +9,7 @@ const ContactCard = ({ contact }) => {
 
     return (
         <div>
-            <img className={s.avatar} src={require(`../ContactsItem/avatar/${avatar}`)} alt={name} />
+            <img className={s.avatar} src={require(`../../images/avatar/${avatar}`)} alt={name} />
             <div className={s.conatcInf}>
                 <p className={s.name}>{name}</p>
                 <p className={s.jodTitle}>{job_title}</p>
