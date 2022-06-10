@@ -112,7 +112,7 @@ justify-content: space-between;
 display: none;
 
   @media screen and (min-width: 768px) {
-    width: 41px;
+    width: 45px;
     display: inline-block;
     white-space: nowrap;
 
@@ -172,6 +172,6 @@ display: none;
    }
   
   100%{
-    transform: translate(-200%, 0);
+    transform: translate(-250%, 0);
   }
 } 
