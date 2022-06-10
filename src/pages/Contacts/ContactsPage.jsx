@@ -33,6 +33,9 @@ const ContactsPage = () => {
     <h2 className={s.title}>Our team</h2>
     <div className={s.vector}></div>
     <ul className={s.conatctList}>
+        <li className={s.liLogo}>
+            <img src={require(`../../images/logoNodejs.png`)} alt="logo" width="288px" height="370px" />
+        </li>
         <ContactsItem openModal={openModal}/>
     </ul>
     </div> 
