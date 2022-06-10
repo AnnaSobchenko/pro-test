@@ -1,7 +1,7 @@
 import {Component, useEffect} from "react";
 import { createPortal } from "react-dom";
 
-// import styles from "./modal.module.css";
+import styles from "./Modal.module.scss";
 
 const modalRoot = document.getElementById("modal-root")
 
@@ -31,7 +31,6 @@ const Modal = ({handleClose, children}) => {
             </div>
         </div>
     ), modalRoot)
-}
 };
 
 export default Modal;
