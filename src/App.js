@@ -24,8 +24,8 @@ function App() {
   // const isLoggedIn = true;
 
   return (
-    <div>
-      <div className='content'>
+    <div className='content'>
+      <div >
         <Suspense fallback={<Loader />} >
           <Routes>
             <Route path="/" element={<AppBar />}>
