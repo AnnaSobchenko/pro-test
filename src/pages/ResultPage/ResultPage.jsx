@@ -20,6 +20,7 @@ const ResultPage = () => {
 	const testName = useSelector(getCurrentTestingType);
 	const userAnswer = useSelector(getUserAnswer);
 	const rightAnswers = useSelector(getRightAnswers);
+	// const rightAnswers = 12;
 
 	const totalQuestions = userAnswer.length;
 	const correct = rightAnswers / totalQuestions;
@@ -29,10 +30,23 @@ const ResultPage = () => {
 		navigate("../test", { replace: true });
 	};
 
-	// const checkTestResults = () => {
-	// };
+	const getTestFeedback = (rightAnswers) => {
+		let feedback = "";
+		let feedbackDetails = "";
 
-	// const getTestFeedback = () => {};
+		if (rightAnswers === 12) {
+			feedback = "Perfectly!";
+			feedbackDetails = "You are absolutely right! Cool!";
+		} else if (rightAnswers > 7) {
+			feedback = "Not bad!";
+			feedbackDetails = "But you still need to learn some materials.";
+		} else {
+			feedback = "Badly...";
+			feedbackDetails = "You need to practice more...";
+		}
+
+		return { feedback, feedbackDetails };
+	};
 
 	return (
 		<div className={s.result__body}>
@@ -72,9 +86,11 @@ const ResultPage = () => {
 					/>
 				</picture>
 			</div>
-			<div className={s.result__feedback}>Not bad!</div>
+			<div className={s.result__feedback}>
+        {getTestFeedback(rightAnswers).feedback}
+			</div>
 			<div className={s.result__feedbackDetails}>
-				But you still need to learn some materials.
+        {getTestFeedback(rightAnswers).feedbackDetails}
 			</div>
 			<button type="button" className={s.result__button} onClick={onTryAgain}>
 				Try again
