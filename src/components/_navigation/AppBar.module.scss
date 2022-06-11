@@ -2,24 +2,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: 69px;
   font-family: Montserrat;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   border-bottom: 1px solid rgba(0, 18, 47, 0.15);
   background-color: var(--primary-bg-color);
- padding-left: 20px;
+  padding-left: 20px;
   @media screen and (min-width: 768px) {
-padding-left: 32px;
-justify-content: space-between;
+    padding-left: 32px;
+    justify-content: space-between;
   }
   @media screen and (min-width: 1280px) {
-padding-left: 16px;
-justify-content: space-between;
+    padding-left: 16px;
+    justify-content: space-between;
   }
-
 }
+
 .logo {
   margin-right: 61px;
   @media screen and (min-width: 768px) {
@@ -29,6 +29,7 @@ justify-content: space-between;
     margin-right: 548px;
   }
 }
+
 .header_navLink {
   display: none;
 
@@ -43,7 +44,7 @@ justify-content: space-between;
   font-family: Montserrat;
   font-weight: 500;
   font-size: 14px;
- line-height: 1.14;
+  line-height: 1.14;
 
   @media screen and (min-width: 768px) {
     margin-right: 60px;
@@ -55,6 +56,7 @@ justify-content: space-between;
     margin-right: 80px;
   }
 }
+
 .activeStyle {
   color: var(--primary-text-color);
   cursor: default;
@@ -73,7 +75,6 @@ justify-content: space-between;
   @media screen and (min-width: 1280px) {
     margin-right: 80px;
   }
-  
 }
 
 .name_wrapper {
@@ -83,12 +84,13 @@ justify-content: space-between;
     padding-right: 20px;
   }
 }
+
 .letter_wrapper {
   @media screen and (min-width: 320px) {
     width: 33px;
     height: 33px;
     border-radius: 50%;
-    background-color:  var(--modal-bg-color);
+    background-color: var(--modal-bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,65 +101,60 @@ justify-content: space-between;
     display: flex;
   }
 }
+
 .firs_letter {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 38px;
-  color:  var(--primary-text-color);
+  color: var(--primary-text-color);
   margin-left: 0;
 }
-.name {
-display: none;
 
+.name {
+  display: none;
   @media screen and (min-width: 768px) {
     width: 45px;
     display: inline-block;
     white-space: nowrap;
-
-    animation: text 8s infinite linear; 
+    animation: text 8s infinite linear;
     padding-left: 100%;
-   
-    // overflow: hidden;
     text-overflow: ellipsis;
     font-family: "Montserrat";
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
     margin-left: 10px;
-  
   }
   @media screen and (min-width: 1280px) {
     font-weight: 500;
     font-size: 14px;
     line-height: 2;
-   
   }
 }
+
 .flex {
   display: flex;
- }
+}
 
 .navIconMenu_wrapper {
   display: flex;
   width: 50px;
-  height: 68px;
+  height: 69px;
   background-color: var(--primary-bg-color);
   border-left: 1px solid rgba(0, 18, 47, 0.15);
-  // border-bottom: 1px solid rgba(0, 18, 47, 0.15);
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  // margin-left: 20px;
   @media screen and (min-width: 768px) {
-   margin-left: 0;
+    margin-left: 0;
   }
 }
-.navIcon_btn{
 
+.navIcon_btn {
   width: 60px;
-  height: 68px;
+  height: 69px;
   padding: 0;
   padding-right: 0;
   display: block;
@@ -173,50 +170,18 @@ display: none;
   display: flex;
 }
 
-.text_transform{
-    text-align: center;
-    width: 43px;
-    overflow: hidden;
+.text_transform {
+  text-align: center;
+  width: 43px;
+  overflow: hidden;
 }
 
-
 @keyframes text {
-  0%{
-     transform: translate(0, 0); 
-   }
-  
-  100%{
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
     transform: translate(-250%, 0);
   }
-} 
-
-// .overlay {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: 100vh;
-//   width: 100%;
-//   background-color: rgba(0, 0, 0, 0.3);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   z-index: 1000;
-// }
-
-// .content {
-//   background-color: #fff;
-//   min-width: 300px;
-//   max-width: 700px;
-//   position: relative;
-// }
-
-// .close {
-//   font-size: 24px;
-//   font-weight: bold;
-//   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-//   cursor: pointer;
-//   color: red;
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-// }
+}

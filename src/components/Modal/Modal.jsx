@@ -1,4 +1,4 @@
-import { Component, useEffect } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
 import styles from "./Modal.module.scss";
@@ -24,7 +24,6 @@ const Modal = ({ handleClose, children, checker }) => {
   return createPortal(
     <div onClick={close} className={styles.overlay}>
       <div className={ (!checker) ? styles.content : styles.contentChange}>
-        {/* <span onClick={close} className={styles.close}>X</span> */}
         {children}
       </div>
     </div>,
