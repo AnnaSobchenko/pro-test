@@ -72,9 +72,11 @@ const TestPage = () => {
 
 	const onFormSubmit = (e) => {
 		e.preventDefault();
-		dispatch(getUserAnswer(questionInfo));
-
+    
 		if (questionInfo.length === 12) {
+      
+      dispatch(getUserAnswer(questionInfo));
+
 			if (testName === "QA technical training") {
 				// console.log("questionInfo:", questionInfo);
 
