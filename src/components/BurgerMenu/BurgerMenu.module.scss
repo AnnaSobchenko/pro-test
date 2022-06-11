@@ -1,204 +1,87 @@
-.wrapper{
-    width: 100vw;
-    height: 100vh;
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-bg-color);
+// position: fixed;
+// z-index: 20;
 }
-
 
 .mobileHeader {
-display: flex;
-align-items: center;
-justify-content: center;
-border-bottom: 1px solid #000;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 18, 47, 0.15);
+  height: 66px;
+  padding-right: 0;
+  padding-left: 20px;
 }
-    
-     .logo {
-         display: flex;
-    
-    margin-right: 61px;
- 
-  }
-    
-    
-    
-    
-    
-    
-    
-//     padding: 0;
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     height: 68px;
-//     font-family: Montserrat;
-//     font-weight: 500;
-//     font-size: 12px;
-//     line-height: 16px;
-//     border-bottom: 1px solid rgba(0, 18, 47, 0.15);
-//     background-color: var(--primary-bg-color);
-//    padding-left: 20px;
-//     @media screen and (min-width: 768px) {
-//   padding-left: 32px;
-//   justify-content: space-between;
-//     }
-//     @media screen and (min-width: 1280px) {
-//   padding-left: 16px;
-//   justify-content: space-between;
-//     }
-  
-//   }
-//   .logo {
-//     margin-right: 61px;
-//     @media screen and (min-width: 768px) {
-//       margin-right: 127px;
-//     }
-//     @media screen and (min-width: 1280px) {
-//       margin-right: 548px;
-//     }
-//   }
-//   .header_navLink {
-//     display: none;
-  
-//     @media screen and (min-width: 768px) {
-//       display: flex;
-//       flex-direction: row;
-//     }
-//   }
-  
-//   .link {
-//     color: var(--primary-text-color);
-//     font-family: Montserrat;
-//     font-weight: 500;
-//     font-size: 14px;
-//    line-height: 1.14;
-  
-//     @media screen and (min-width: 768px) {
-//       margin-right: 60px;
-//       &:last-child {
-//         margin-right: 40px;
-//       }
-//     }
-//     @media screen and (min-width: 1280px) {
-//       margin-right: 80px;
+.mobileHeader button{
+padding: 0 0 0 0 ;
+}
+
+
+.mobileHeader_close_btn {
+  height: 66px;
+  width: 66px;
+  padding: 0;
+  display: block;
+  background-color: var(--primary-bg-color);
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 1px solid rgba(0, 18, 47, 0.15);
+  text-decoration: none;
+} 
+.navIconMenu{
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+}
+
+.link {
+  color: var(--primary-text-color);
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  height: 74px;
+}
+
+.header_navLink_item {
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 18, 47, 0.15);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.activeStyle {
+  color: var(--primary-text-color);
+  cursor: default;
+  border-bottom: 1px solid var(--accent-button-color);
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+// .activeStyle {
+//   color: var(--primary-text-color);
+//   cursor: default;
+//   font-family: Montserrat;
+//   font-weight: 500;
+//   font-size: 14px;
+//   line-height: 1.14;
+
+//   @media screen and (min-width: 768px) {
+//     margin-right: 60px;
+//     &:last-child {
+//       margin-right: 40px;
 //     }
 //   }
-//   .activeStyle {
-//     color: var(--primary-text-color);
-//     cursor: default;
-//     border-bottom: 1px solid var(--accent-button-color);
-//     font-family: Montserrat;
-//     font-weight: 500;
-//     font-size: 14px;
-//     line-height: 1.14;
-  
-//     @media screen and (min-width: 768px) {
-//       margin-right: 60px;
-//       &:last-child {
-//         margin-right: 40px;
-//       }
-//     }
-//     @media screen and (min-width: 1280px) {
-//       margin-right: 80px;
-//     }
-    
+//   @media screen and (min-width: 1280px) {
+//     margin-right: 80px;
 //   }
   
-//   .name_wrapper {
-//     @media screen and (min-width: 768px) {
-//       display: flex;
-//       align-items: center;
-//       padding-right: 20px;
-//     }
-//   }
-//   .letter_wrapper {
-//     @media screen and (min-width: 320px) {
-//       width: 33px;
-//       height: 33px;
-//       border-radius: 50%;
-//       background-color:  var(--modal-bg-color);
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//       top: 15px;
-//     }
-  
-//     @media screen and (min-width: 768px) {
-//       display: flex;
-//     }
-//   }
-//   .firs_letter {
-//     font-family: "Montserrat";
-//     font-style: normal;
-//     font-weight: 600;
-//     font-size: 14px;
-//     line-height: 38px;
-//     color:  var(--primary-text-color);
-//     margin-left: 0;
-//   }
-//   .name {
-//   display: none;
-  
-//     @media screen and (min-width: 768px) {
-//       width: 45px;
-//       display: inline-block;
-//       white-space: nowrap;
-  
-//       animation: text 8s infinite linear; 
-//       padding-left: 100%;
-     
-//       // overflow: hidden;
-//       text-overflow: ellipsis;
-//       font-family: "Montserrat";
-//       font-weight: 500;
-//       font-size: 12px;
-//       line-height: 1.33;
-//       margin-left: 10px;
-    
-//     }
-//     @media screen and (min-width: 1280px) {
-//       font-weight: 500;
-//       font-size: 14px;
-//       line-height: 2;
-     
-//     }
-//   }
-//   .flex {
-//     display: flex;
-//    }
-  
-//   .navIconMenu_wrapper {
-//     display: flex;
-//     width: 50px;
-//     height: 69px;
-//     background-color: var(--primary-bg-color);
-//     border-left: 1px solid rgba(0, 18, 47, 0.15);
-//     border-bottom: 1px solid rgba(0, 18, 47, 0.15);
-//     justify-content: center;
-//     align-content: center;
-//     flex-wrap: wrap;
-//     margin-left: 20px;
-//     @media screen and (min-width: 768px) {
-//      margin-left: 0;
-//     }
-//   }
-  
-//   .navIcon_signOut {
-//     display: flex;
-//   }
-  
-//   .text_transform{
-//       text-align: center;
-//       width: 43px;
-//       overflow: hidden;
-//   }
-  
-  
-//   @keyframes text {
-//     0%{
-//        transform: translate(0, 0); 
-//      }
-    
-//     100%{
-//       transform: translate(-250%, 0);
-//     }
-  
+// }

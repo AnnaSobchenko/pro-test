@@ -2,7 +2,7 @@ import AuthForm from "../../components/AuthForm/AuthForm"
 import s from "./AuthPage.module.scss"
 
 const AuthPage = () => {
-    return   <div className={s.authPage}>
+    return   <div className={s.authPage }>
    <div className={s.authPageLeft} >   
     <h1 className={s.authPageTitle}>Pro Test</h1>
      <p className={s.authtext}>[ We will help you find weak points <br></br>

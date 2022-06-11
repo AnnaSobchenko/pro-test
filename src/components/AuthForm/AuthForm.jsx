@@ -28,7 +28,7 @@ const AuthForm = () => {
           isSubmitting,
         }) => (
           <div className={s.authForm}>
-            <h2 className={s.authFormTitle} >You can use your Google Account to authorize:</h2>
+            <h2 className={s.authFormTitle} >You can use your Google Account to authorize</h2>
            <Button cta="Google" googleAuth />
            
             <h2 className={s.authFormTitle2} >Or login to our app using e-mail and password:</h2>

@@ -20,23 +20,22 @@ const AppBar = () => {
 
   const [modal, setModal] = useState({
     open: false,
-    content: null  
-});
-console.log(modal)
+    content: null,
+  });
 
-const openModal = (content) => {
+  const openModal = (content) => {
     setModal({
-        open: true,
-        content
-    })
-}
+      open: true,
+      content,
+    });
+  };
 
-const closeModal = ()=> {
+  const closeModal = () => {
     setModal({
-        open: false,
-        content: null
-    })
-}
+      open: false,
+      content: null,
+    });
+  };
 
   return (
     <>
@@ -72,8 +71,8 @@ const closeModal = ()=> {
             Contacts
           </NavLink>
         </div>
-          <>
-        {isLoggedIn && (
+        <>
+          {isLoggedIn && (
             <div className={s.flex}>
               <div className={s.name_wrapper}>
                 <div className={s.letter_wrapper}>
@@ -94,35 +93,37 @@ const closeModal = ()=> {
                 )}
               </div>
             </div>
-           ) }
+          )}
 
-            <MediaQuery maxWidth={767}>
-              
-              <button onClick={openModal}>
-                <div className={s.navIconMenu_wrapper}>
-                  <svg className={s.navIconMenu} width="20px" height="20px">
-                    <use xlinkHref={`${Icons}#icon-menu`} />
-                  </svg>
-                </div>
-              </button>
-              {modal.open && <Modal handleClose={closeModal}><BurgerMenu closeModal={closeModal}/></Modal>}
-            </MediaQuery>
+          <MediaQuery maxWidth={767}>
+            <button onClick={openModal} className={s.navIcon_btn}>
+              <svg className={s.navIconMenu} width="20px" height="20px">
+                <use xlinkHref={`${Icons}#icon-menu`} />
+              </svg>
+            </button>
+            {modal.open && (
+              <Modal handleClose={closeModal} checker={true}>
+                <BurgerMenu closeModal={closeModal} />
+              </Modal>
+            )}
+          </MediaQuery>
 
-            <MediaQuery minWidth={768}>
-              <NavLink
-                to="auth"
-                onClick={() => {
-                  dispatch(logout());
-                }}
-              >
-                <div className={s.navIconMenu_wrapper}>
-                  <svg className={s.navIcon_signOut} width="16px" height="16px">
-                    <use xlinkHref={`${Icons}#icon-sign-out`} />
-                  </svg>
-                </div>
-              </NavLink>
-            </MediaQuery>
-          </>
+          <MediaQuery minWidth={768}>
+          {isLoggedIn && (
+            <NavLink
+              to="auth"
+              onClick={() => {
+                dispatch(logout());
+              }}
+            >
+              <div className={s.navIconMenu_wrapper}>
+                <svg className={s.navIcon_signOut} width="16px" height="16px">
+                  <use xlinkHref={`${Icons}#icon-sign-out`} />
+                </svg>
+              </div>
+            </NavLink>)}
+          </MediaQuery>
+        </>
         {/* )} */}
       </header>
       <Outlet className="container" />
