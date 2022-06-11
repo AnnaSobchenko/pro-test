@@ -1,6 +1,7 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001";
+// axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL= "https://pro-test-rest-api.herokuapp.com"
 
 const token = {
 	set(token) {
@@ -66,15 +67,15 @@ export async function technicalQuestionsApi() {
 
 export async function theoryQuestionsCheckApi(answersData) {
 	// console.log("run theoryQuestionsCheckApi:", answersData);
-	const { data } = await axios.get("/test/theory/check", answersData);
+  const { data } = await axios.post("/test/theory/check", answersData);
 	// console.log("Result (theoryQuestionsCheckApi)", data);
-	return data;
+	return data.rightAnswers;
 }
 export async function technicalQuestionsCheckApi(answersData) {
 	// console.log("run technicalQuestionsCheckApi:", answersData);
-	const { data } = await axios.get("/test/technical/check", answersData);
+  const { data } = await axios.post("/test/technical/check", answersData);
 	// console.log("Result (technicalQuestionsCheckApi)", data);
-	return data;
+	return data.rightAnswers;
 }
 
 export async function getContact() {

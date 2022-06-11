@@ -2,6 +2,7 @@ import ContactsItem from "../../components/ContactsItem/ContactsItem";
 import Modal from "../../components/Modal/Modal";
 import ContactCard from "../../components/ContactCard"
 import s from './ContactsPage.module.scss';
+// import styles from "../../components/Modal/Modal.module.scss";
 import {  useState } from "react";
 
 
@@ -40,7 +41,7 @@ const ContactsPage = () => {
     </ul>
     </div> 
     </div>
-    {modal.open && <Modal handleClose={closeModal}><ContactCard contact={modal.content}/></Modal>}
+    {modal.open && <Modal handleClose={closeModal}><ContactCard contact={modal.content} /></Modal>}
     </>);
 }
  

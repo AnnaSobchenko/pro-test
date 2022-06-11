@@ -3,59 +3,74 @@ import { PieChart, Pie, Sector, Cell } from "recharts";
 import AutoSizer from "react-virtualized-auto-sizer";
 import "./Chart.module.scss";
 
-const correct = 92;
-const incorrect = 8;
+export default function Chart(props) {
+	const { correct, incorrect } = props;
 
-const data = [
-	{ name: "Correct", value: correct },
-  { name: "Incorrect", value: incorrect },
-];
+	// const correct = 1;
+	// const incorrect = 12 - correct;
 
-const COLORS = ["#FF6B01", "#D7D7D7"];
+	const data = [
+		{ name: "Correct", value: correct },
+		{ name: "Incorrect", value: incorrect },
+	];
 
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-	cx,
-	cy,
-	midAngle,
-	innerRadius,
-	outerRadius,
-	percent,
-	index,
-}) => {
+	const COLORS = ["#FF6B01", "#D7D7D7"];
 
-  const radius = 25 + innerRadius + (outerRadius - innerRadius);
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+	const RADIAN = Math.PI / 180;
 
-	return (
-		<text
-			x={x}
-			y={y}
-			fill="black"
-			textAnchor={x > cx ? "start" : "end"}
-			dominantBaseline="central"
-		>
-      {`${(percent * 100).toFixed(0)}%`} {data[index].name}
-		</text>
-	);
-};
+	const renderCustomizedLabel = ({
+		cx,
+		cy,
+		midAngle,
+		innerRadius,
+		outerRadius,
+		percent,
+		index,
+	}) => {
+		const radius = 25 + innerRadius + (outerRadius - innerRadius);
 
-export default function Chart() {
+		let angle = 0;
+
+		if (midAngle < 180) {
+			angle = 120;
+		} else if (midAngle > 180) {
+			angle = 240;
+		} else if (correct === 0) {
+			angle = 240;
+		} else {
+			angle = 120;
+		}
+
+		const y = cy + radius * (Math.sin(-angle * RADIAN) / 4);
+		const x = cx + radius - 10;
+
+		return (
+			<text
+				x={x}
+				y={y}
+				fill="black"
+				textAnchor={x > cx ? "start" : "end"}
+				dominantBaseline="central"
+			>
+				{`${(percent * 100).toFixed(0)}%`} {data[index].name}
+			</text>
+		);
+	};
+
 	return (
 		<AutoSizer>
 			{({ width, height }) => (
 				<PieChart width={width} height={height}>
 					<Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={true}
-            label={renderCustomizedLabel}
-            outerRadius="100%"
-            fill="#000000"
-            dataKey="value"
-            viewBox={{ width: 10, height: 10 }}
+						data={data}
+						cx="50%"
+						cy="50%"
+						labelLine={false}
+						label={renderCustomizedLabel}
+						outerRadius="100%"
+						fill="#000000"
+						dataKey="value"
+						viewBox={{ width: 10, height: 10 }}
 					>
 						{data.map((entry, index) => (
 							<Cell
