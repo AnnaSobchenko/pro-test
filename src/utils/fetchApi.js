@@ -1,7 +1,7 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL= "https://pro-test-rest-api.herokuapp.com"
+// axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL= "https://pro-test-rest-api.herokuapp.com"
 
 const token = {
 	set(token) {
