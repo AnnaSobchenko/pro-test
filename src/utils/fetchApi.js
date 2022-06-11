@@ -82,3 +82,20 @@ export async function getContact() {
 	const result = await axios.get("/contacts/");
 	return result.data.ResponseBody;
 }
+
+export async function getResume(resume) {
+  const response = await fetch(`http://localhost:3001/contacts/resume/${resume}`);
+	
+  if(response.status === 200) {
+	const blob = await response.blob();
+	const downloadUrl = window.URL.createObjectURL(blob);
+	const link = document.createElement("a");
+	link.href = downloadUrl;
+	link.target = "_blank";
+	// link.download = resume;
+	document.body.appendChild(link)
+	link.click()
+	link.remove()
+	return downloadUrl;
+  }
+}
