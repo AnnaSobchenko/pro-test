@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import {
 	getCurrentTestingType,
 	getUserAnswer,
-	checkTestingQuestion,
+	getRightAnswers,
 } from "../../redux/questions/questionsSelector";
 import { useNavigate } from "react-router-dom";
 
@@ -18,14 +18,16 @@ import catDesk2x from "../../images/cat@2x-desk-min.png";
 const ResultPage = () => {
 	const navigate = useNavigate();
 	const testName = useSelector(getCurrentTestingType);
-  const userAnswer = useSelector(getUserAnswer);
-  const rightAnswers = useSelector(checkTestingQuestion);
+	const userAnswer = useSelector(getUserAnswer);
+	const rightAnswers = useSelector(getRightAnswers);
+
+	const totalQuestions = userAnswer.length;
+	const correct = rightAnswers / totalQuestions;
+	const incorrect = 1 - correct;
 
 	const onTryAgain = (e) => {
 		navigate("../test", { replace: true });
 	};
-
-	const totalQuestions = userAnswer.length;
 
 	// const checkTestResults = () => {
 	// };
@@ -37,7 +39,7 @@ const ResultPage = () => {
 			<h2 className={s.result__title}>Results</h2>
 			<p className={s.result__testType}>{`[ ${testName} ]`}</p>
 			<div className={s.result__chartBox}>
-				<Chart />
+				<Chart correct={correct} incorrect={incorrect} />
 			</div>
 			<div>
 				<span className={s.result__descriptionLeft}>
