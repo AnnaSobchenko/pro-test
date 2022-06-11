@@ -1,5 +1,12 @@
 import s from "./ResultPage.module.scss";
-import Chart from './Chart'
+import Chart from "./Chart";
+import { useSelector } from "react-redux";
+import {
+	getCurrentTestingType,
+	getUserAnswer,
+	checkTestingQuestion,
+} from "../../redux/questions/questionsSelector";
+import { useNavigate } from "react-router-dom";
 
 import catMob from "../../images/cat@1x-mob-min.png";
 import catMob2x from "../../images/cat@2x-mob-min.png";
@@ -9,19 +16,37 @@ import catDesk from "../../images/cat@1x-desk-min.png";
 import catDesk2x from "../../images/cat@2x-desk-min.png";
 
 const ResultPage = () => {
+	const navigate = useNavigate();
+	const testName = useSelector(getCurrentTestingType);
+  const userAnswer = useSelector(getUserAnswer);
+  const rightAnswers = useSelector(checkTestingQuestion);
+
+	const onTryAgain = (e) => {
+		navigate("../test", { replace: true });
+	};
+
+	const totalQuestions = userAnswer.length;
+
+	// const checkTestResults = () => {
+	// };
+
+	// const getTestFeedback = () => {};
+
 	return (
 		<div className={s.result__body}>
 			<h2 className={s.result__title}>Results</h2>
-			<p className={s.result__testType}>{`[ testing theory ]`}</p>
+			<p className={s.result__testType}>{`[ ${testName} ]`}</p>
 			<div className={s.result__chartBox}>
 				<Chart />
 			</div>
 			<div>
 				<span className={s.result__descriptionLeft}>
-					Correct answers - <span className={s.result__score}>10</span>
+					Correct answers -{" "}
+					<span className={s.result__score}>{`${rightAnswers}`}</span>
 				</span>
 				<span className={s.result__descriptionRight}>
-					Total questions - <span className={s.result__score}>12</span>
+					Total questions -{" "}
+					<span className={s.result__score}>{`${totalQuestions}`}</span>
 				</span>
 			</div>
 			<div className={s.result__imageBox}>
@@ -49,7 +74,7 @@ const ResultPage = () => {
 			<div className={s.result__feedbackDetails}>
 				But you still need to learn some materials.
 			</div>
-			<button type="button" className={s.result__button}>
+			<button type="button" className={s.result__button} onClick={onTryAgain}>
 				Try again
 			</button>
 		</div>
