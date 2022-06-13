@@ -43,11 +43,11 @@ const ContactsPage = () => {
             </li>
             <ContactsItem openModal={openModal} />
             {true && <li className={s.adminItem}>
-//             <svg className={s.addSvg}>
-//                 <use href={sprite + "#plus"}></use>
-//             </svg>
-//             <p className={s.adminText}>Create a new contact</p>
-//         </li>}
+             <svg className={s.addSvg}>
+                 <use href={sprite + "#plus"}></use>
+             </svg>
+             <p className={s.adminText}>Create a new contact</p>
+         </li>}
           </ul>
         </div>
       </div>
