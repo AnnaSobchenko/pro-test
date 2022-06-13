@@ -76,6 +76,7 @@
       margin-right: 40px;
     }
   }
+
   @media screen and (min-width: 1280px) {
     margin-right: 80px;
   }
@@ -88,8 +89,6 @@
    margin-right: 20px;
   }
 }
-
-
 
 .letter_wrapper {
   
@@ -133,6 +132,7 @@
     line-height: 1.33;
     margin-left: 10px;
   }
+
   @media screen and (min-width: 1280px) {
     font-weight: 500;
     font-size: 14px;
@@ -178,7 +178,6 @@
 
 .text_transform {
   width: 43px;
-  // margin-left: 20px;
   text-align: center;
   overflow: hidden;
   @media screen and (min-width: 768px) {
