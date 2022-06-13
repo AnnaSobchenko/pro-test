@@ -32,21 +32,21 @@ const questionsPersistedReducer = persistReducer(
   questionsReducer
 );
 
-const rootPersistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["theme"],
-};
+// const rootPersistConfig = {
+//   key: "root",
+//   storage,
+//   whitelist: ["theme"],
+// };
 
 const rootReducer = combineReducers({
   auth: authPersistedReducer,
   questions: questionsPersistedReducer,
 });
 
-const rootPersistedReducer = persistReducer(rootPersistConfig, rootReducer);
+// const rootPersistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
 const store = configureStore({
-  reducer: rootPersistedReducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
