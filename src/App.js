@@ -15,18 +15,16 @@ import AppBar from "./components/_navigation/AppBar";
 import Footer from "./components/_navigation/Footer";
 import { useSelector, useDispatch } from "react-redux";
 
-
 // import QaTestPage from "./pages/TestPage/TestPage";
 
 function App() {
-
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   // const isLoggedIn = true;
 
   return (
-    <div className='content'>
-      <div >
-        <Suspense fallback={<Loader />} >
+    <div className="content">
+      <div>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<AppBar />}>
               <Route
@@ -38,7 +36,7 @@ function App() {
                 <Route path="auth" element={<AuthPage />} />
               </Route>
               <Route element={<PrivateRoute />}>
-                <Route path="test" element={<TestPage />} />
+                <Route path="test/:questionsType" element={<TestPage />} />
                 <Route path="result" element={<ResultPage />} />
                 <Route path="materials" element={<MaterialsPage />} />
                 {/* <Route path="contacts" element={<ContactsPage />} /> */}
