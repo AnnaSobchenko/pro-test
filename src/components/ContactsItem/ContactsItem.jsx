@@ -9,9 +9,9 @@ const ContactsItem = ({ openModal }) => {
     useEffect(() => {
         getContact().then(data => setCont(data))
     }, [])
-    
+    console.log(cont);
     return (<>
-        {cont.map(cont =>
+        {cont.map(cont => cont.name || cont._id || cont.avatar || cont.job_title || cont.comment ? 
             <li className={s.contactItem} key={cont._id}  onClick={() => {
                 openModal(cont)
             }}>
@@ -22,6 +22,11 @@ const ContactsItem = ({ openModal }) => {
                     <p className={s.jodTitle}>{cont.job_title}</p>
                     <p className={s.comment}>{cont.comment}</p>
                 </div>
+            </li>
+            :
+            <li className={s.contactItem}>
+                <p>Contact Not Found</p>
+                <p>404</p>
             </li>
         )
         }
