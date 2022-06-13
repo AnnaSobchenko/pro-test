@@ -1,3 +1,7 @@
+.contactWrapper {
+  max-width: 400px;
+}
+
 .avatar {
     margin: 0 auto;
     width: 280px;
@@ -49,6 +53,7 @@
     line-height: 16px;
     letter-spacing: 0.02em;
     color: #000000;
+    margin-bottom: 15px;
 }
 
 
@@ -70,12 +75,14 @@
     height: 44px;
     border-radius: 50%;
     background-color: #ffffff;
-    // transition: background-color var(--primary-time-duration)
-       ;
-        &:hover,
-        &:focus {
-          background-color: #2196f3;
-          }
+    margin-right: 15px;
+        // &:hover,
+        // &:focus {
+        //   background-color: #2196f3;
+        //   }
+        svg {
+          color: var(--accent-button-color);
+        }
   }
   
   .social_list_item {
