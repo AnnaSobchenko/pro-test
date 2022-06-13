@@ -6,6 +6,7 @@ export const Btn = styled.button`
   justify-content: center;
   align-items: center;
   width: 100%;
+  position: relative;
 
   font-family: ${({ googleAuth, signButton }) =>
     googleAuth || signButton
@@ -20,6 +21,14 @@ export const Btn = styled.button`
   color: ${({ secondary }) =>
     secondary ? "var(--primary-text-color)" : "var(--modal-bg-color)"};
   border: none;
+
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  &:hover {
+    box-shadow: ${({ secondary, googleAuth }) =>
+      secondary || googleAuth
+        ? "0 0 6px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.3)"
+        : "0 0 6px var(--accent-button-color), 0 0 2px var(--accent-button-color)"};
+  }
 
   ${({ googleAuth }) => (googleAuth ? allBtn.googleButton : "")}
   ${({ signButton }) => (signButton ? allBtn.signBtn : "")}
