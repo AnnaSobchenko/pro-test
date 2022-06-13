@@ -1,13 +1,14 @@
 :root {
   --primary-bg-color: #e5e5e5;
   --second-bg-color: #f5f6fb;
-  --footer-bg-color: #b1b5c2;
+  --footer-bg-color: #02172a;
   --modal-bg-color: #ffffff;
   --second-button-color: #02172a;
   --accent-button-color: #ff6b09;
   --primary-text-color: #000000;
   --secondary-text-color: #555555;
   --third-text-color: #ffffff;
+  --footer-text-color:rgba(255, 255, 255, 0.4);
   --border-color: #ced2d1;
   --google-btn-bg: #fafafa;
 }
@@ -46,9 +47,7 @@ aside {
 
 html,
 body {
-  font-family: 'Montserrat';
-  height: 100%;
-  width: 100%;
+  font-family: 'Montserrat', sans-serif;  
   font-size: 100%;
   font-size: 14px;
   -ms-text-size-adjust: 100%;
@@ -56,11 +55,10 @@ body {
   -webkit-text-size-adjust: 100%;
   margin: 0;
   background-color: var(--primary-bg-color);
-  font-family: Montserrat;
-  font-style: 400;
+  font-weight: 400;
   line-height: 1.57;
   letter-spacing: 0.02em;
-  color: #000000;
+  color: var(--primary-text-color);
 }
 
 input,

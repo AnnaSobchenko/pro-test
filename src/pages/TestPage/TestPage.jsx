@@ -72,9 +72,11 @@ const TestPage = () => {
 
 	const onFormSubmit = (e) => {
 		e.preventDefault();
-		dispatch(getUserAnswer(questionInfo));
-
+    
 		if (questionInfo.length === 12) {
+      
+      dispatch(getUserAnswer(questionInfo));
+
 			if (testName === "QA technical training") {
 				// console.log("questionInfo:", questionInfo);
 
@@ -103,7 +105,7 @@ const TestPage = () => {
 					<div className={s.question__list}>
 						<p className={s.question__current}>
 							Question
-							<span className={s.question__list}> {`${counter + 1}`}</span> / 12
+							<span className={s.question__accent}> {`${counter + 1}`}</span> / 12
 						</p>
 						<div className={s.animation__wrapper}>
 							<p

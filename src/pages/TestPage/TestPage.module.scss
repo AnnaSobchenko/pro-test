@@ -108,7 +108,13 @@
 
     margin-bottom: 28px;
   }
+  &__accent{
+color: var(--accent-button-color);
+  }
 }
+
+
+
 .line {
   display: block;
   width: 130px;

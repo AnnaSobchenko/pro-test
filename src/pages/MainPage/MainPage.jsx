@@ -26,7 +26,7 @@ const MainPage = () => {
   };
 
   return (
-    <section className={s.main}>
+    <section className={`container ${s.main}`}>
       <p className={s.main__description}>
         “Regression testing. What is it?
         <br />

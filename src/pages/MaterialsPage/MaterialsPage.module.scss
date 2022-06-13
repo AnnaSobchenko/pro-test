@@ -1,5 +1,6 @@
 .materialsPage_bg {
-    min-height: 69vh;
+    height: calc(100vh - 70px - 56px);
+    box-sizing: border-box;
     background-image: url("../../images/note@1x-mob-min.png");
     background-repeat: no-repeat;
     background-position: center;
