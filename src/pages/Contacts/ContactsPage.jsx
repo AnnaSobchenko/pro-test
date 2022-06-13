@@ -4,7 +4,7 @@ import ContactCard from "../../components/ContactCard"
 import s from './ContactsPage.module.scss';
 // import styles from "../../components/Modal/Modal.module.scss";
 import {  useState } from "react";
-
+import sprite from '../../images/symbol-defs.svg';
 
 const ContactsPage = () => {
     const [modal, setModal] = useState({
@@ -38,6 +38,14 @@ const ContactsPage = () => {
             <img className={s.liLogoImg} src={require(`../../images/logoNodejs.png`)} alt="logo"  />
         </li>
         <ContactsItem openModal={openModal}/>
+
+        {true && <li className={s.adminItem}>
+            <svg className={s.addSvg}>
+                <use href={sprite + "#plus"}></use>
+            </svg>
+            <p className={s.adminText}>Create a new contact</p>
+        </li>}
+        
     </ul>
     </div> 
     </div>
