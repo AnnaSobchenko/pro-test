@@ -3,12 +3,9 @@ import Modal from "../../components/Modal/Modal";
 import ContactCard from "../../components/ContactCard";
 import s from "./ContactsPage.module.scss";
 // import styles from "../../components/Modal/Modal.module.scss";
-<<<<<<< HEAD
 import {  useState } from "react";
 import sprite from '../../images/symbol-defs.svg';
-=======
-import { useState } from "react";
->>>>>>> dev
+
 
 const ContactsPage = () => {
   const [modal, setModal] = useState({
