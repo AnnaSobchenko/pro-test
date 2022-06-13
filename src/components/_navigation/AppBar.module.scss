@@ -7,10 +7,11 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  border-bottom: 1px solid rgba(0, 18, 47, 0.15);
+  border-bottom: 1px solid var(--border-color);
   background-color: var(--primary-bg-color);
   padding-left: 20px;
   @media screen and (min-width: 768px) {
+    height: 67px;
     padding-left: 32px;
     justify-content: space-between;
   }
@@ -32,10 +33,13 @@
 
 .header_navLink {
   display: none;
-
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
+    margin-right: 24px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 64px;
   }
 }
 
@@ -49,7 +53,7 @@
   @media screen and (min-width: 768px) {
     margin-right: 60px;
     &:last-child {
-      margin-right: 40px;
+      margin-right: 16px;
     }
   }
   @media screen and (min-width: 1280px) {
@@ -60,7 +64,7 @@
 .activeStyle {
   color: var(--primary-text-color);
   cursor: default;
-  border-bottom: 1px solid var(--accent-button-color);
+  border-bottom: 1px solid var(--accent-nav-color);
   font-family: Montserrat;
   font-weight: 500;
   font-size: 14px;
@@ -81,12 +85,14 @@
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    padding-right: 20px;
+   margin-right: 20px;
   }
 }
 
+
+
 .letter_wrapper {
-  @media screen and (min-width: 320px) {
+  
     width: 33px;
     height: 33px;
     border-radius: 50%;
@@ -95,7 +101,7 @@
     align-items: center;
     justify-content: center;
     top: 15px;
-  }
+
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -108,7 +114,7 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 38px;
-  color: var(--primary-text-color);
+  color: var(--secondary-text-color);
   margin-left: 0;
 }
 
@@ -140,10 +146,10 @@
 
 .navIconMenu_wrapper {
   display: flex;
-  width: 50px;
+  width: 51px;
   height: 69px;
   background-color: var(--primary-bg-color);
-  border-left: 1px solid rgba(0, 18, 47, 0.15);
+  border-left: 1px solid var(--border-color);
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
@@ -171,9 +177,13 @@
 }
 
 .text_transform {
-  text-align: center;
   width: 43px;
+  // margin-left: 20px;
+  text-align: center;
   overflow: hidden;
+  @media screen and (min-width: 768px) {
+    margin-left: 8px;
+  }
 }
 
 @keyframes text {
