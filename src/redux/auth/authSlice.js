@@ -1,9 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logout, signin, signup, getInfo } from "./authOperations";
+import {
+  logout,
+  signin,
+  signup,
+  getInfo,
+  getNewTokens,
+} from "./authOperations";
 
-const getFromLS = key => {
+const getFromLS = (key) => {
   const valueFromLS = localStorage.getItem(key);
-  return typeof valueFromLS === 'string'
+  return typeof valueFromLS === "string"
+    ? valueFromLS
+    : JSON.parse(valueFromLS);
+};
+
+const getAccessTokenLS = (key) => {
+  const valueFromLS = localStorage.getItem(key);
+  console.log("valueFrom :>> ", valueFromLS);
+  return typeof valueFromLS === "string"
+    ? valueFromLS
+    : JSON.parse(valueFromLS);
+};
+
+const getRefreshTokenLS = (key) => {
+  const valueFromLS = localStorage.getItem(key);
+  return typeof valueFromLS === "string"
     ? valueFromLS
     : JSON.parse(valueFromLS);
 };
@@ -11,9 +32,12 @@ const getFromLS = key => {
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: { email: getFromLS('email') || 'null' },
+    user: { email: getFromLS("email") || "null" },
+    // accessToken: getAccessTokenLS("accessToken") || null,
+    // refreshToken: getRefreshTokenLS("refreshToken") || null,
     accessToken: null,
     refreshToken: null,
+
     _id: null,
     isLoading: false,
     isLoggedIn: false,
@@ -38,7 +62,7 @@ const authSlice = createSlice({
     [signup.fulfilled](state, { payload }) {
       state.user.email = payload.user.email;
       state.accessToken = payload.token;
-      state.refreshToken = payload.verificationToken;
+      state.refreshToken = payload.refreshToken;
       state._id = payload._id;
       state.isLoggedIn = true;
       state.isLoading = false;
@@ -55,7 +79,7 @@ const authSlice = createSlice({
     [signin.fulfilled](state, { payload }) {
       state.user.email = payload.user.email;
       state.accessToken = payload.token;
-      state.refreshToken = payload.verificationToken;
+      state.refreshToken = payload.refreshToken;
       state._id = payload._id;
       state.isLoggedIn = true;
       state.isLoading = false;
@@ -71,14 +95,28 @@ const authSlice = createSlice({
     },
     [getInfo.fulfilled](state, { payload }) {
       state.user.email = payload.email;
-      state.accessToken = payload.accessToken;
-      state.refreshToken = payload.verificationToken;
+      state.accessToken = payload.token;
+      state.refreshToken = payload.refreshToken;
       state.isLoggedIn = true;
       state.isLoading = false;
     },
     [getInfo.rejected](state, { payload }) {
       state.isLoading = false;
       state.isLoggedIn = false;
+      state.error = payload;
+    },
+    [getNewTokens.pending](state) {
+      state.isLoading = true;
+      state.error = null;
+    },
+    [getNewTokens.fulfilled](state, { payload }) {
+      state.isLoggedIn = true;
+      state.isLoading = false;
+      state.accessToken = payload.token;
+      state.refreshToken = payload.refreshToken;
+    },
+    [getNewTokens.rejected](state, { payload }) {
+      state.isLoading = false;
       state.error = payload;
     },
     [logout.pending](state) {
