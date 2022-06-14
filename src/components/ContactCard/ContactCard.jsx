@@ -1,4 +1,5 @@
 import { getResume } from "../../utils/fetchApi"
+import renderCheck from "../_shared/hooks/renderCheck"
 import s from "./ContactCard.module.scss"
 import { AiFillFilePdf } from "react-icons/ai";
 import { AiFillGithub } from "react-icons/ai";
@@ -16,19 +17,11 @@ const ContactCard = ({ contact }) => {
         getResume(links.resume)
     };
 
-    const renderCheck = (data) => {
-        if (data === "" || !data) {
-            return false
-        } else {
-            return true
-        }
-    };
-
     return (
         <div className={s.contactWrapper}>
             <img className={s.avatar} src={require(`../../images/avatar/${avatar}`)} alt={name} />
             <div className={s.conatcInf}>
-                <p className={s.name}>{name}</p>
+                <h3 className={s.name}>{name}</h3>
                 <p className={s.jodTitle}>{job_title}</p>
                 <p className={s.comment}>{comment}</p>
             </div>
@@ -52,7 +45,7 @@ const ContactCard = ({ contact }) => {
 
                 {renderCheck(links.email) &&
                     <li className={s.social_list_item}>
-                        <a href="mailto:{links.email}" className={s.social_list_link} target="_blank" rel="no-referrer">
+                        <a href={`mailto:${links.email}`} className={s.social_list_link} target="_blank" rel="no-referrer">
                             <AiFillMail size="50px" />
                         </a>
                     </li>
