@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import {
-  questions,
-  technicalQuestionsCheck,
-  theoryQuestionsCheck,
-} from "../questions/questionsOperations";
+import { questions, questionsCheck } from "../questions/questionsOperations";
 
 const questionsSlice = createSlice({
   name: "questions",
@@ -43,35 +39,35 @@ const questionsSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
-
-    [theoryQuestionsCheck.pending](state) {
+    // [technicalQuestionsCheck.pending](state) {
+    //   state.isLoading = true;
+    // },
+    // [technicalQuestionsCheck.fulfilled](state, { payload }) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.rightAnswers = payload;
+    // },
+    // [technicalQuestionsCheck.rejected](state, { payload }) {
+    //   state.isLoading = false;
+    //   state.error = payload;
+    //   state.rightAnswers = null;
+    // },
+    [questionsCheck.pending](state) {
       state.isLoading = true;
     },
-    [theoryQuestionsCheck.fulfilled](state, { payload }) {
+    [questionsCheck.fulfilled](state, { payload }) {
       state.isLoading = false;
       state.error = null;
       state.rightAnswers = payload;
     },
-    [theoryQuestionsCheck.rejected](state, { payload }) {
-      state.isLoading = false;
-      state.error = payload;
-      state.rightAnswers = null;
-    },
-    [technicalQuestionsCheck.pending](state) {
-      state.isLoading = true;
-    },
-    [technicalQuestionsCheck.fulfilled](state, { payload }) {
-      state.isLoading = false;
-      state.error = null;
-      state.rightAnswers = payload;
-    },
-    [technicalQuestionsCheck.rejected](state, { payload }) {
+    [questionsCheck.rejected](state, { payload }) {
       state.isLoading = false;
       state.error = payload;
       state.rightAnswers = null;
     },
   },
 });
+
 export const { getUserAnswer, testingType, setQuestionsForUser } =
   questionsSlice.actions;
 export default questionsSlice.reducer;

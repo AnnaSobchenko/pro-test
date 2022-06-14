@@ -10,8 +10,9 @@ import {
 } from "../../redux/questions/questionsSelector";
 import {
   questions,
-  technicalQuestionsCheck,
-  theoryQuestionsCheck,
+  // technicalQuestionsCheck,
+  // theoryQuestionsCheck,
+  questionsCheck,
 } from "../../redux/questions/questionsOperations";
 import {
   getUserAnswer,
@@ -84,19 +85,33 @@ const TestPage = () => {
       dispatch(getUserAnswer(questionInfo));
 
       dispatch(setQuestionsForUser());
-
-      if (testName === "QA technical training") {
-        // console.log("questionInfo:", questionInfo);
-
-        dispatch(technicalQuestionsCheck(questionInfo));
-      }
-      if (testName === "Testing theory") {
-        // console.log("questionInfo:", questionInfo);
-
-        dispatch(theoryQuestionsCheck(questionInfo));
-      }
-      navigate("../result", { replace: true });
     }
+
+    // console.log("questionInfo:", questionInfo);
+    // if (testName === "QA technical training") {
+    // 	console.log("questionInfo:", questionInfo);
+
+    // 	dispatch(technicalQuestionsCheck(questionInfo));
+    // }
+    // if (testName === "Testing theory") {
+    // 	console.log("questionInfo:", questionInfo);
+
+    // 	dispatch(theoryQuestionsCheck(questionInfo));
+    // }
+
+    let testType;
+
+    if (testName === "Testing theory") {
+      testType = "theory";
+    }
+    if (testName === "QA technical training") {
+      testType = "technical";
+    }
+
+    dispatch(questionsCheck(testType, questionInfo));
+
+    navigate("../result", { replace: true });
+
     counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
   };
 

@@ -61,15 +61,23 @@ export async function questionsApi(testingType) {
   return data;
 }
 
-export async function theoryQuestionsCheckApi(answersData) {
-  // console.log("run theoryQuestionsCheckApi:", answersData);
-  const { data } = await axios.post("/test/theory/check", answersData);
-  // console.log("Result (theoryQuestionsCheckApi)", data);
-  return data.rightAnswers;
-}
-export async function technicalQuestionsCheckApi(answersData) {
+// export async function theoryQuestionsCheckApi(answersData) {
+//   console.log("run theoryQuestionsCheckApi:", answersData);
+//   const { data } = await axios.post("/test/theory/check", answersData);
+//   console.log("Result (theoryQuestionsCheckApi)", data);
+//   return data.rightAnswers;
+// }
+
+// export async function technicalQuestionsCheckApi(answersData) {
+//   console.log("run technicalQuestionsCheckApi:", answersData);
+//   const { data } = await axios.post("/test/technical/check", answersData);
+//   console.log("Result (technicalQuestionsCheckApi)", data);
+//   return data.rightAnswers;
+// }
+
+export async function questionsCheckApi(type, answersData) {
   // console.log("run technicalQuestionsCheckApi:", answersData);
-  const { data } = await axios.post("/test/technical/check", answersData);
+  const { data } = await axios.post(`/test/check/${type}`, answersData);
   // console.log("Result (technicalQuestionsCheckApi)", data);
   return data.rightAnswers;
 }
