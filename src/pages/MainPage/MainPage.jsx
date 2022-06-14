@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Icons from "../../images/symbol-defs.svg";
-import { questions } from "../../redux/questions/questionsOperations";
-import { testingType } from "../../redux/questions/questionsSlice";
+import { questions } from "../../redux/answers/answersOperations";
+import { testingType } from "../../redux/answers/answersSlice";
 import s from "./MainPage.module.scss";
 
 const MainPage = () => {

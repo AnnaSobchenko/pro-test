@@ -7,15 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/authOperations";
 import Modal from "../Modal/Modal";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
-
-// import { getInfo } from "../../redux/auth/authOperations";
-// import { getUserInfo } from "../../utils/fetchApi";
+import { getIsLoggedIn, getUserEmail } from "../../redux/auth/authSelector";
 
 const AppBar = () => {
-  const userInfo = useSelector((state) => state.auth.user.email);
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  // console.log(userInfo);
-  // const letterInfo = userInfo.slice(0, 1);
+  const userInfo = useSelector(getUserEmail);
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const dispatch = useDispatch();
 
   const [modal, setModal] = useState({
@@ -85,7 +81,6 @@ const AppBar = () => {
 
                 {userInfo && (
                   <div className={s.text_transform}>
-                    {" "}
                     <span className={`${s.name} ${s.animation__scss}`}>
                       {userInfo}
                     </span>
@@ -109,22 +104,22 @@ const AppBar = () => {
           </MediaQuery>
 
           <MediaQuery minWidth={768}>
-          {isLoggedIn && (
-            <NavLink
-              to="auth"
-              onClick={() => {
-                dispatch(logout());
-              }}
-            >
-              <div className={s.navIconMenu_wrapper}>
-                <svg className={s.navIcon_signOut} width="16px" height="16px">
-                  <use xlinkHref={`${Icons}#icon-sign-out`} />
-                </svg>
-              </div>
-            </NavLink>)}
+            {isLoggedIn && (
+              <NavLink
+                to="auth"
+                onClick={() => {
+                  dispatch(logout());
+                }}
+              >
+                <div className={s.navIconMenu_wrapper}>
+                  <svg className={s.navIcon_signOut} width="16px" height="16px">
+                    <use xlinkHref={`${Icons}#icon-sign-out`} />
+                  </svg>
+                </div>
+              </NavLink>
+            )}
           </MediaQuery>
         </>
-        {/* )} */}
       </header>
       <Outlet className="container" />
     </>
