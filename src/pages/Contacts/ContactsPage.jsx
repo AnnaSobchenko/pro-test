@@ -1,6 +1,6 @@
 import ContactsItem from "../../components/ContactsItem/ContactsItem";
 import Modal from "../../components/Modal/Modal";
-import ContactCard from "../../components/ContactCard";
+import ContactCard from "../../components/ContactCard/ContactCard";
 import s from "./ContactsPage.module.scss";
 // import styles from "../../components/Modal/Modal.module.scss";
 import {  useState } from "react";

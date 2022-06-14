@@ -1,4 +1,5 @@
 import { getResume } from "../../utils/fetchApi"
+import renderCheck from "../_shared/hooks/renderCheck"
 import s from "./ContactCard.module.scss"
 import { AiFillFilePdf } from "react-icons/ai";
 import { AiFillGithub } from "react-icons/ai";
@@ -14,14 +15,6 @@ const ContactCard = ({ contact }) => {
     const downloadClickHandler = (e) => {
         e.preventDefault();
         getResume(links.resume)
-    };
-
-    const renderCheck = (data) => {
-        if (data === "" || !data) {
-            return false
-        } else {
-            return true
-        }
     };
 
     return (
@@ -52,7 +45,7 @@ const ContactCard = ({ contact }) => {
 
                 {renderCheck(links.email) &&
                     <li className={s.social_list_item}>
-                        <a href="mailto:{links.email}" className={s.social_list_link} target="_blank" rel="no-referrer">
+                        <a href={`mailto:${links.email}`} className={s.social_list_link} target="_blank" rel="no-referrer">
                             <AiFillMail size="50px" />
                         </a>
                     </li>
