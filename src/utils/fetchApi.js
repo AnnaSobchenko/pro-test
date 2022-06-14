@@ -26,7 +26,6 @@ export async function signupUserApi(userData) {
     email,
     password,
   });
-  // console.log("signupUserApi_data :>> ", data);
   return data;
 }
 
@@ -34,7 +33,6 @@ export async function logoutUserApi(persistedToken) {
   token.set(persistedToken);
   const { data } = await axios.post("/auth/logout", persistedToken);
   token.unset();
-  // console.log("logoutUserApi :>> ", data);
   return data;
 }
 
@@ -45,7 +43,6 @@ export async function getUserInfo(accessToken) {
     )}`;
   }
   const userInfo = await axios.get("auth/current");
-  // console.log(userInfo)
   return { email: userInfo.email };
 }
 
@@ -61,25 +58,11 @@ export async function questionsApi(testingType) {
   return data;
 }
 
-// export async function theoryQuestionsCheckApi(answersData) {
-//   console.log("run theoryQuestionsCheckApi:", answersData);
-//   const { data } = await axios.post("/test/theory/check", answersData);
-//   console.log("Result (theoryQuestionsCheckApi)", data);
-//   return data.rightAnswers;
-// }
-
-// export async function technicalQuestionsCheckApi(answersData) {
-//   console.log("run technicalQuestionsCheckApi:", answersData);
-//   const { data } = await axios.post("/test/technical/check", answersData);
-//   console.log("Result (technicalQuestionsCheckApi)", data);
-//   return data.rightAnswers;
-// }
-
-export async function questionsCheckApi(type, answersData) {
-  // console.log("run technicalQuestionsCheckApi:", answersData);
-  const { data } = await axios.post(`/test/check/${type}`, answersData);
-  // console.log("Result (technicalQuestionsCheckApi)", data);
-  return data.rightAnswers;
+export async function questionsCheckApi({testType, questionInfo}) {  
+  
+  const { data } = await axios.post(`/test/check/${testType}`, questionInfo);
+  console.log("Result (technicalQuestionsCheckApi)", data);
+  return data.rightAnswers;  
 }
 
 export async function getContact() {
@@ -98,7 +81,6 @@ export async function getResume(resume) {
     const link = document.createElement("a");
     link.href = downloadUrl;
     link.target = "_blank";
-    // link.download = resume;
     document.body.appendChild(link);
     link.click();
     link.remove();

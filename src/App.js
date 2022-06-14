@@ -15,17 +15,18 @@ import AppBar from "./components/_navigation/AppBar";
 import Footer from "./components/_navigation/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewTokens } from "./redux/auth/authOperations";
-import { getIsLoggedIn, getRefreshToken } from "./redux/auth/authSelector";
+import { getAccessToken, getIsLoggedIn, getRefreshToken } from "./redux/auth/authSelector";
 
 function App() {
   const isLoggedIn = useSelector(getIsLoggedIn);
   const stateRefreshToken = useSelector(getRefreshToken);
+  const stateAccessToken = useSelector(getAccessToken);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isLoggedIn && !stateRefreshToken) dispatch(getNewTokens());
-  }, [dispatch, isLoggedIn, stateRefreshToken]);
+    if (stateAccessToken && !stateRefreshToken) dispatch(getNewTokens());
+  }, [dispatch, stateAccessToken, stateRefreshToken]);
 
   return (
     <div className="content">

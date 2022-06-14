@@ -21,7 +21,6 @@ const questionsSlice = createSlice({
     },
     setQuestionsForUser(state) {
       state.questionsForUser = [];
-      state.typeOfTesting = "";
       state.isLoading = false;
       state.error = null;
     },
@@ -39,19 +38,6 @@ const questionsSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
-    // [technicalQuestionsCheck.pending](state) {
-    //   state.isLoading = true;
-    // },
-    // [technicalQuestionsCheck.fulfilled](state, { payload }) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.rightAnswers = payload;
-    // },
-    // [technicalQuestionsCheck.rejected](state, { payload }) {
-    //   state.isLoading = false;
-    //   state.error = payload;
-    //   state.rightAnswers = null;
-    // },
     [questionsCheck.pending](state) {
       state.isLoading = true;
     },

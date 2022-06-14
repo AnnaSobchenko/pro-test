@@ -1,7 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
-  //   technicalQuestionsApi,
-  //   theoryQuestionsApi,
   questionsApi,
   questionsCheckApi,
 } from "../../utils/fetchApi";
@@ -18,38 +16,11 @@ export const questions = createAsyncThunk(
   }
 );
 
-// export const theoryQuestionsCheck = createAsyncThunk(
-// 	"test/theory/check",
-// 	async (questionInfo, thunkApi) => {
-// 		try {
-// 			// console.log("theoryQuestionsCheck:", questionInfo);
-// 			const getTheoryQuestion = await theoryQuestionsCheckApi(questionInfo);
-// 			return getTheoryQuestion;
-//     } catch (error) {
-// 			return thunkApi.rejectWithValue(error);
-// 		}
-// 	}
-// );
-
-// export const technicalQuestionsCheck = createAsyncThunk(
-// 	"test/technical/check",
-// 	async (questionInfo, thunkApi) => {
-// 		try {
-// 			const getTechnicalQuestion = await technicalQuestionsCheckApi(
-// 				questionInfo
-// 			);
-// 			return getTechnicalQuestion;
-//     } catch (error) {
-// 			return thunkApi.rejectWithValue(error);
-// 		}
-// 	}
-// );
-
 export const questionsCheck = createAsyncThunk(
   "test/check/:type",
-  async (type, questionInfo, thunkApi) => {
+  async (data, thunkApi) => {
     try {
-      const getTechnicalQuestion = await questionsCheckApi(type, questionInfo);
+      const getTechnicalQuestion = await questionsCheckApi(data);
       return getTechnicalQuestion;
     } catch (error) {
       return thunkApi.rejectWithValue(error);

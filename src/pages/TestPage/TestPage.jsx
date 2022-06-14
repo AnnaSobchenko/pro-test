@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 import s from "./TestPage.module.scss";
 
@@ -9,9 +9,6 @@ import {
   getTestingQuestion,
 } from "../../redux/questions/questionsSelector";
 import {
-  questions,
-  // technicalQuestionsCheck,
-  // theoryQuestionsCheck,
   questionsCheck,
 } from "../../redux/questions/questionsOperations";
 import {
@@ -85,19 +82,6 @@ const TestPage = () => {
       dispatch(getUserAnswer(questionInfo));
       navigate("../result", { replace: true });
       dispatch(setQuestionsForUser());
-    }
-
-    // console.log("questionInfo:", questionInfo);
-    // if (testName === "QA technical training") {
-    // 	console.log("questionInfo:", questionInfo);
-
-    // 	dispatch(technicalQuestionsCheck(questionInfo));
-    // }
-    // if (testName === "Testing theory") {
-    // 	console.log("questionInfo:", questionInfo);
-
-    // 	dispatch(theoryQuestionsCheck(questionInfo));
-    // }
 
     let testType;
 
@@ -107,8 +91,9 @@ const TestPage = () => {
     if (testName === "QA technical training") {
       testType = "technical";
     }
-    dispatch(questionsCheck(testType, questionInfo));
 
+    dispatch(questionsCheck({testType, questionInfo}));
+  }
     counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
   };
 

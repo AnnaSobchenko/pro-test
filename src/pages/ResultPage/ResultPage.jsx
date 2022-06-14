@@ -32,10 +32,9 @@ import catDesk2xHappy from "../../images/cat-happy-2x.png";
 
 const ResultPage = () => {
 	const navigate = useNavigate();
-	const testName = useSelector(getCurrentTestingType);
+	const testName = useSelector(getCurrentTestingType)
 	const userAnswer = useSelector(getUserAnswer);
 	const rightAnswers = useSelector(getRightAnswers);
-	// const rightAnswers = 12;
 
 	const totalQuestions = userAnswer.length;
 	const correct = rightAnswers / totalQuestions;
