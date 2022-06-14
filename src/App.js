@@ -36,7 +36,7 @@ function App() {
                 <Route path="auth" element={<AuthPage />} />
               </Route>
               <Route element={<PrivateRoute />}>
-                <Route path="test/:questionsType" element={<TestPage />} />
+                <Route path="test/:type" element={<TestPage />} />
                 <Route path="result" element={<ResultPage />} />
                 <Route path="materials" element={<MaterialsPage />} />
                 {/* <Route path="contacts" element={<ContactsPage />} /> */}

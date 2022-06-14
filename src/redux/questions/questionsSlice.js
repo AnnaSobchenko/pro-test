@@ -23,6 +23,12 @@ const questionsSlice = createSlice({
     getUserAnswer(state, { payload }) {
       state.userAnswer = [...payload];
     },
+    setQuestionsForUser(state) {
+      state.questionsForUser = [];
+      state.typeOfTesting = "";
+      state.isLoading = false;
+      state.error = null;
+    },
   },
   extraReducers: {
     [questions.pending](state) {
@@ -37,18 +43,7 @@ const questionsSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
-    // [technicalQuestions.pending](state) {
-    // 	state.isLoading = true;
-    // },
-    // [technicalQuestions.fulfilled](state, { payload }) {
-    // 	state.isLoading = false;
-    // 	state.error = null;
-    // 	state.questionsForUser = [...payload];
-    // },
-    // [technicalQuestions.rejected](state, { payload }) {
-    // 	state.isLoading = false;
-    // 	state.error = payload;
-    // },
+
     [theoryQuestionsCheck.pending](state) {
       state.isLoading = true;
     },
@@ -77,5 +72,6 @@ const questionsSlice = createSlice({
     },
   },
 });
-export const { getUserAnswer, testingType } = questionsSlice.actions;
+export const { getUserAnswer, testingType, setQuestionsForUser } =
+  questionsSlice.actions;
 export default questionsSlice.reducer;

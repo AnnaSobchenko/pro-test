@@ -1,35 +1,17 @@
 import { useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Icons from "../../images/symbol-defs.svg";
-import {
-  questions,
-  // technicalQuestions,
-  // theoryQuestions,
-} from "../../redux/questions/questionsOperations";
+import { questions } from "../../redux/questions/questionsOperations";
 import { testingType } from "../../redux/questions/questionsSlice";
 import s from "./MainPage.module.scss";
 
 const MainPage = () => {
   const dispatch = useDispatch();
-  const params = useParams();
-
-  console.log("params :>> ", params);
 
   const getQuestions = (e) => {
     const btnValue = e.target.innerText;
-
     dispatch(testingType(btnValue));
     dispatch(questions(btnValue));
-    //   if (btnValue === "QA technical training") {
-    //     dispatch(technicalQuestions());
-    //     return dispatch(testingType(btnValue));
-    //   }
-    //   if (btnValue === "Testing theory") {
-    //     dispatch(theoryQuestions());
-
-    //     return dispatch(testingType(btnValue));
-    //   }
-    // };
   };
 
   return (
@@ -47,7 +29,7 @@ const MainPage = () => {
       <div className={s.btn__wrapper}>
         <Link
           className={s.btn__QA}
-          to={"/test/QA-technical-training"}
+          to={"/test/technical"}
           onClick={getQuestions}
         >
           <span className={s.btn__QaDescription}>QA technical training</span>
@@ -58,7 +40,7 @@ const MainPage = () => {
         </Link>
         <Link
           className={s.btn__test}
-          to={"/test/Testing-theory"}
+          to={"/test/theory"}
           onClick={getQuestions}
         >
           <span className={s.btn__testDescription}>Testing theory</span>

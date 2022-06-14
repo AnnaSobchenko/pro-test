@@ -8,7 +8,7 @@ import {
 } from "../../utils/fetchApi";
 
 export const questions = createAsyncThunk(
-  "test/:question",
+  "test/:type",
   async (testingType, thunkApi) => {
     try {
       const getTheoryQuestion = await questionsApi(testingType);
@@ -18,19 +18,6 @@ export const questions = createAsyncThunk(
     }
   }
 );
-
-// export const technicalQuestions = createAsyncThunk(
-// 	"test/technical",
-// 	async (_, thunkApi) => {
-// 		try {
-// 			const getTechnicalQuestion = await technicalQuestionsApi();
-// 			return getTechnicalQuestion;
-// 		} catch (error) {
-// 			return thunkApi.rejectWithValue(error.message);
-// 		}
-// 	}
-// );
-
 export const theoryQuestionsCheck = createAsyncThunk(
   "test/theory/check",
   async (questionInfo, thunkApi) => {

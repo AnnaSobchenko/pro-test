@@ -60,10 +60,6 @@ export async function questionsApi(testingType) {
   const { data } = await axios.get(`/test/${testingType}`);
   return data;
 }
-// export async function technicalQuestionsApi() {
-//   const { data } = await axios.get("/test/technical");
-//   return data;
-// }
 
 export async function theoryQuestionsCheckApi(answersData) {
   // console.log("run theoryQuestionsCheckApi:", answersData);
