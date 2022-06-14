@@ -3,19 +3,21 @@
   align-items: center;
   justify-content: space-between;
   height: 69px;
-  font-family: Montserrat;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
+  // line-height: 1.14;
   border-bottom: 1px solid var(--border-color);
   background-color: var(--primary-bg-color);
   padding-left: 20px;
   @media screen and (min-width: 768px) {
-    height: 67px;
+    // height: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.33;
     padding-left: 32px;
     justify-content: space-between;
   }
   @media screen and (min-width: 1280px) {
+    font-size: 14px;
+    line-height: 1.33;
     padding-left: 16px;
     justify-content: space-between;
   }
@@ -45,10 +47,6 @@
 
 .link {
   color: var(--primary-text-color);
-  font-family: Montserrat;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
 
   @media screen and (min-width: 768px) {
     margin-right: 60px;
@@ -65,15 +63,11 @@
   color: var(--primary-text-color);
   cursor: default;
   border-bottom: 1px solid var(--accent-nav-color);
-  font-family: Montserrat;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
 
   @media screen and (min-width: 768px) {
     margin-right: 60px;
     &:last-child {
-      margin-right: 40px;
+      margin-right: 16px;
     }
   }
 
@@ -108,11 +102,8 @@
 }
 
 .firs_letter {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 38px;
+  font-weight: 700;
+  line-height: 1.33;
   color: var(--secondary-text-color);
   margin-left: 0;
 }
@@ -126,17 +117,7 @@
     animation: text 8s infinite linear;
     padding-left: 100%;
     text-overflow: ellipsis;
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
     margin-left: 10px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 2;
   }
 }
 
@@ -147,7 +128,7 @@
 .navIconMenu_wrapper {
   display: flex;
   width: 51px;
-  height: 69px;
+  height: 67px;
   background-color: var(--primary-bg-color);
   border-left: 1px solid var(--border-color);
   justify-content: center;
@@ -182,6 +163,9 @@
   overflow: hidden;
   @media screen and (min-width: 768px) {
     margin-left: 8px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 20px;
   }
 }
 
