@@ -109,3 +109,9 @@ export async function getResume(resume) {
 		return downloadUrl;
 	}
 }
+
+export async function getAvatar(name) {
+	const result = await axios.post(`/avatars/upload/${name}`);
+	console.log(result.data.avatar);
+	return result;
+}

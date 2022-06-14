@@ -1,6 +1,6 @@
 import s from './ContactsItem.module.scss';
 import { useEffect, useState } from "react";
-import { getContact } from '../../utils/fetchApi';
+import { getContact, getAvatar } from '../../utils/fetchApi';
 import renderCheck from '../_shared/hooks/renderCheck'
 
 
@@ -12,6 +12,9 @@ const ContactsItem = ({ openModal }) => {
         getContact().then(data => setCont(data))
     }, [])
     
+    useEffect(() => {
+        getAvatar("tatiana_tarasovich.jpg")
+    }, [])
     
     console.log(cont);
     return (<>
@@ -20,7 +23,7 @@ const ContactsItem = ({ openModal }) => {
                 openModal(cont)
             }}>
                 {/* <img className={s.avatar} src={require(`./avatar/${cont.avatar}`)} alt={cont.name} /> */}
-                 <img className={s.avatar} src={renderCheck(cont.avatar) ? require(`../../images/avatar/${cont.avatar}`) : 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Avatar-placeholder.jpg/1200px-Avatar-placeholder.jpg'} alt={cont.name} />  
+                 <img className={s.avatar} src={renderCheck(cont.avatar) ? `http://localhost:3001/avatar/${cont.avatar}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Avatar-placeholder.jpg/1200px-Avatar-placeholder.jpg'} alt={cont.name} />  
                 
                 <div className={s.conatcInf}>
                     <p className={s.name}>{renderCheck(cont.name) ? cont.name : 'Name Not Found'}</p>
