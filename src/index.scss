@@ -1,15 +1,16 @@
 :root {
-  --primary-bg-color: #e5e5e5;
+  --primary-bg-color: #f5f6fb;
   --second-bg-color: #f5f6fb;
   --footer-bg-color: #02172a;
   --modal-bg-color: #ffffff;
   --second-button-color: #02172a;
-  --accent-button-color: #ff6b09;
+  --accent-button-color: #FF6B01;
+  --accent-nav-color: #FF6B09;
   --primary-text-color: #000000;
   --secondary-text-color: #555555;
   --third-text-color: #ffffff;
+  --border-color: #E2E3E5;
   --footer-text-color:rgba(255, 255, 255, 0.4);
-  --border-color: #ced2d1;
   --google-btn-bg: #fafafa;
 }
 
@@ -48,7 +49,6 @@ aside {
 html,
 body {
   font-family: 'Montserrat', sans-serif;  
-  font-size: 100%;
   font-size: 14px;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
