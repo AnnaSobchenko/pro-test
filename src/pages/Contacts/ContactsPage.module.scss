@@ -1,5 +1,5 @@
 .bg {
-    background-color: #E5E5E5;
+    background-color: var(--primary-bg-color);
     padding-top: 42px;
     padding-bottom: 40px;
 }
@@ -27,7 +27,7 @@
 .vector {
     width: 130px;
     height: 1px;
-    background-color: #00122F;
+    background-color: var(--contacts-vector);
     opacity: 0.15;
     margin-bottom: 40px;
     margin-left: auto;
@@ -78,7 +78,7 @@
 .adminItem {
     width: 280px;
     height: 370px;
-    background-color: #FFFFFF;
+    background-color: var(--third-text-color);
 
     margin-left: auto;
     margin-right: auto;
@@ -112,7 +112,7 @@
     line-height: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #CCCCCC;
+    color: var(--admin-svg);
 }
 
 .addSvg {
