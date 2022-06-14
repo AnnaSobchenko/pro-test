@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import {
   persistStore,
@@ -17,7 +17,7 @@ import questionsReducer from "./questions/questionsSlice";
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["accessToken", "refreshToken"],
+  whitelist: ["accessToken"],
 };
 
 const questionsPersistConfig = {
@@ -32,21 +32,12 @@ const questionsPersistedReducer = persistReducer(
   questionsReducer
 );
 
-const rootPersistConfig = {
-  key: "root",
-  storage,
-};
-
-const rootReducer = combineReducers({
-  auth: authPersistedReducer,
-  questions: questionsPersistedReducer,
-});
-
-const rootPersistedReducer = persistReducer(rootPersistConfig, rootReducer);
-
 const store = configureStore({
-  reducer: rootPersistedReducer,
-  middleware: (getDefaultMiddleware) =>
+  reducer: {
+    auth: authPersistedReducer,
+    questions: questionsPersistedReducer,
+  },
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
