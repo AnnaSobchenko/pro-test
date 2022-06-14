@@ -21,7 +21,7 @@ const ContactCard = ({ contact }) => {
         <div className={s.contactWrapper}>
             <img className={s.avatar} src={require(`../../images/avatar/${avatar}`)} alt={name} />
             <div className={s.conatcInf}>
-                <p className={s.name}>{name}</p>
+                <h3 className={s.name}>{name}</h3>
                 <p className={s.jodTitle}>{job_title}</p>
                 <p className={s.comment}>{comment}</p>
             </div>

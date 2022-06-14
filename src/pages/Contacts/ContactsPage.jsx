@@ -14,7 +14,6 @@ const ContactsPage = () => {
   });
 
   const openModal = (content) => {
-    // console.log("dsadsa", document.body.style);
     document.body.style.overflow = "hidden";
     setModal({
       open: true,
