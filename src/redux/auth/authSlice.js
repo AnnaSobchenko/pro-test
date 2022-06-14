@@ -7,37 +7,19 @@ import {
   getNewTokens,
 } from "./authOperations";
 
-const getFromLS = (key) => {
-  const valueFromLS = localStorage.getItem(key);
-  return typeof valueFromLS === "string"
-    ? valueFromLS
-    : JSON.parse(valueFromLS);
-};
-
-const getAccessTokenLS = (key) => {
-  const valueFromLS = localStorage.getItem(key);
-  console.log("valueFrom :>> ", valueFromLS);
-  return typeof valueFromLS === "string"
-    ? valueFromLS
-    : JSON.parse(valueFromLS);
-};
-
-const getRefreshTokenLS = (key) => {
-  const valueFromLS = localStorage.getItem(key);
-  return typeof valueFromLS === "string"
-    ? valueFromLS
-    : JSON.parse(valueFromLS);
-};
+// const getFromLS = key => {
+//   const valueFromLS = localStorage.getItem(key);
+//   return typeof valueFromLS === "string"
+//     ? valueFromLS
+//     : JSON.parse(valueFromLS);
+// };
 
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: { email: getFromLS("email") || "null" },
-    // accessToken: getAccessTokenLS("accessToken") || null,
-    // refreshToken: getRefreshTokenLS("refreshToken") || null,
+    user: { email: "" },
     accessToken: null,
     refreshToken: null,
-
     _id: null,
     isLoading: false,
     isLoggedIn: false,
@@ -55,12 +37,13 @@ const authSlice = createSlice({
     },
   },
   extraReducers: {
+    // SIGN UP
     [signup.pending](state) {
       state.isLoading = true;
       state.error = null;
     },
     [signup.fulfilled](state, { payload }) {
-      state.user.email = payload.user.email;
+      state.user.email = payload.email;
       state.accessToken = payload.token;
       state.refreshToken = payload.refreshToken;
       state._id = payload._id;
@@ -72,12 +55,14 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.error = payload;
     },
+
+    // SIGN IN
     [signin.pending](state) {
       state.isLoading = true;
       state.error = null;
     },
     [signin.fulfilled](state, { payload }) {
-      state.user.email = payload.user.email;
+      state.user.email = payload.email;
       state.accessToken = payload.token;
       state.refreshToken = payload.refreshToken;
       state._id = payload._id;
@@ -89,6 +74,8 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.error = payload;
     },
+
+    // GET INFO
     [getInfo.pending](state) {
       state.isLoading = true;
       state.error = null;
@@ -105,6 +92,8 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.error = payload;
     },
+
+    // REFRESH
     [getNewTokens.pending](state) {
       state.isLoading = true;
       state.error = null;
@@ -118,7 +107,10 @@ const authSlice = createSlice({
     [getNewTokens.rejected](state, { payload }) {
       state.isLoading = false;
       state.error = payload;
+      state.isLoggedIn = false;
     },
+
+    // LOGOUT
     [logout.pending](state) {
       state.isLoading = true;
       state.error = null;
