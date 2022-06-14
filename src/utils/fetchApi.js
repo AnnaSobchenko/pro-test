@@ -1,7 +1,7 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL = "https://pro-test-rest-api.herokuapp.com";
+// axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://pro-test-rest-api.herokuapp.com";
 
 const token = {
   set(token) {
@@ -56,24 +56,28 @@ export async function refreshUserTokenApi({ persistedToken }) {
   return data;
 }
 
-export async function theoryQuestionsApi() {
-  const { data } = await axios.get("/test/theory");
-  return data;
-}
-export async function technicalQuestionsApi() {
-  const { data } = await axios.get("/test/technical");
+export async function questionsApi(testingType) {
+  const { data } = await axios.get(`/test/${testingType}`);
   return data;
 }
 
-export async function theoryQuestionsCheckApi(answersData) {
-  // console.log("run theoryQuestionsCheckApi:", answersData);
-  const { data } = await axios.post("/test/theory/check", answersData);
-  // console.log("Result (theoryQuestionsCheckApi)", data);
-  return data.rightAnswers;
-}
-export async function technicalQuestionsCheckApi(answersData) {
+// export async function theoryQuestionsCheckApi(answersData) {
+//   console.log("run theoryQuestionsCheckApi:", answersData);
+//   const { data } = await axios.post("/test/theory/check", answersData);
+//   console.log("Result (theoryQuestionsCheckApi)", data);
+//   return data.rightAnswers;
+// }
+
+// export async function technicalQuestionsCheckApi(answersData) {
+//   console.log("run technicalQuestionsCheckApi:", answersData);
+//   const { data } = await axios.post("/test/technical/check", answersData);
+//   console.log("Result (technicalQuestionsCheckApi)", data);
+//   return data.rightAnswers;
+// }
+
+export async function questionsCheckApi(type, answersData) {
   // console.log("run technicalQuestionsCheckApi:", answersData);
-  const { data } = await axios.post("/test/technical/check", answersData);
+  const { data } = await axios.post(`/test/check/${type}`, answersData);
   // console.log("Result (technicalQuestionsCheckApi)", data);
   return data.rightAnswers;
 }

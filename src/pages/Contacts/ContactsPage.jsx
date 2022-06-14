@@ -1,6 +1,6 @@
 import ContactsItem from "../../components/ContactsItem/ContactsItem";
 import Modal from "../../components/Modal/Modal";
-import ContactCard from "../../components/ContactCard";
+import ContactCard from "../../components/ContactCard/ContactCard";
 import s from "./ContactsPage.module.scss";
 // import styles from "../../components/Modal/Modal.module.scss";
 import {  useState } from "react";
@@ -14,6 +14,7 @@ const ContactsPage = () => {
   });
 
   const openModal = (content) => {
+    document.body.style.overflow = "hidden";
     setModal({
       open: true,
       content,
@@ -21,6 +22,7 @@ const ContactsPage = () => {
   };
 
   const closeModal = () => {
+    document.body.style.overflow = "scroll";
     setModal({
       open: false,
       content: null,
