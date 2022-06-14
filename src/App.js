@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import PublicRoute from "./components/_routs/PublicRoute";
 import PrivateRoute from "./components/_routs/PrivatRoute";
@@ -13,13 +13,19 @@ import MaterialsPage from "./pages/MaterialsPage/MaterialsPage";
 import ContactsPage from "./pages/Contacts/ContactsPage";
 import AppBar from "./components/_navigation/AppBar";
 import Footer from "./components/_navigation/Footer";
-import { useSelector, useDispatch } from "react-redux";
-
-// import QaTestPage from "./pages/TestPage/TestPage";
+import { useDispatch, useSelector } from "react-redux";
+import { getNewTokens } from "./redux/auth/authOperations";
+import { getIsLoggedIn, getRefreshToken } from "./redux/auth/authSelector";
 
 function App() {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  // const isLoggedIn = true;
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  const stateRefreshToken = useSelector(getRefreshToken);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isLoggedIn && !stateRefreshToken) dispatch(getNewTokens());
+  }, [dispatch, isLoggedIn, stateRefreshToken]);
 
   return (
     <div className="content">

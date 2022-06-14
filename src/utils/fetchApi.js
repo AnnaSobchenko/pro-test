@@ -49,9 +49,9 @@ export async function getUserInfo(accessToken) {
   return { email: userInfo.email };
 }
 
-export async function refreshUserTokenApi(accessToken) {
-  token.set(accessToken);
-  const { data } = await axios.post("/auth/refresh", accessToken);
+export async function refreshUserTokenApi({ persistedToken }) {
+  token.set(persistedToken);
+  const { data } = await axios.post("/auth/refresh", persistedToken);
 
   return data;
 }

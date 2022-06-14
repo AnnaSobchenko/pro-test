@@ -11,10 +11,8 @@ export const signup = createAsyncThunk(
   "auth/signup",
   async (userData, thunkApi) => {
     const { confirmPassword, ...rest } = userData;
-    console.log("rest", rest);
     try {
-      const data = await signupUserApi(rest);
-      // console.log("datasignupUserApi", data);
+      const { data } = await signupUserApi(rest);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -27,7 +25,6 @@ export const signin = createAsyncThunk(
   async (userData, thunkApi) => {
     try {
       const data = await signinUserApi(userData);
-      // console.log('data.ResponseBody', data)
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -40,7 +37,6 @@ export const getInfo = createAsyncThunk(
   async (userInfo, thunkApi) => {
     try {
       const data = await getUserInfo(userInfo);
-      // console.log(data)
       return data.user.email;
     } catch (error) {
       return thunkApi.rejectWithValue("No user data :(");
@@ -62,15 +58,11 @@ export const getNewTokens = createAsyncThunk(
   "auth/refresh",
   async (_, thunkApi) => {
     const state = thunkApi.getState();
-    // const refreshToken = state.auth.refreshToken;
     const persistedToken = state.auth.accessToken;
-    // const sid = state.auth.sid;
-    if (!persistedToken) {
-      return thunkApi.rejectWithValue();
-    }
+    if (!persistedToken) thunkApi.rejectWithValue();
+
     try {
-      const data = await refreshUserTokenApi(persistedToken);
-      console.log("data", data);
+      const data = await refreshUserTokenApi({ persistedToken });
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
