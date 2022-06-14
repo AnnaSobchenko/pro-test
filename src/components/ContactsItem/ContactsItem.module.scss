@@ -1,7 +1,7 @@
 .contactItem {
     width: 280px;
     height: 370px;
-    background-color: #FFFFFF;
+    background-color: var(--third-text-color);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -76,7 +76,7 @@
     line-height: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #000000;
+    color: var(--primary-text-color);
     margin-bottom: 8px;
 }
 
@@ -89,7 +89,7 @@
     font-size: 12px;
     line-height: 12px;
     letter-spacing: 0.02em;
-    color: #555555;
+    color: var(--secondary-text-color);
     margin-bottom: 8px;
 }
 
@@ -100,7 +100,7 @@
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.02em;
-    color: #000000;
+    color: var(--primary-text-color);
 }
 
 
