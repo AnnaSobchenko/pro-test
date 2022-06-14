@@ -19,7 +19,7 @@ const BurgerMenu = ({ closeModal }) => {
           onClick={() => closeModal(true)}
           className={s.mobileHeader_close_btn}
         >
-          <svg className={s.navIconMenu} width="20px" height="20px">
+          <svg className={s.navIconMenu} width="16px" height="16px">
             <use xlinkHref={`${Icons}#icon-close`} />
           </svg>
         </button>
