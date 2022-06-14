@@ -2,16 +2,18 @@ import ContactsItem from "../../components/ContactsItem/ContactsItem";
 import Modal from "../../components/Modal/Modal";
 import ContactCard from "../../components/ContactCard/ContactCard";
 import s from "./ContactsPage.module.scss";
-// import styles from "../../components/Modal/Modal.module.scss";
-import {  useState } from "react";
-import sprite from '../../images/symbol-defs.svg';
-
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import sprite from "../../images/symbol-defs.svg";
+import { getIsLoggedIn } from "../../redux/auth/authSelector";
 
 const ContactsPage = () => {
   const [modal, setModal] = useState({
     open: false,
     content: null,
   });
+
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   const openModal = (content) => {
     document.body.style.overflow = "hidden";
@@ -44,12 +46,14 @@ const ContactsPage = () => {
               />
             </li>
             <ContactsItem openModal={openModal} />
-            {true && <li className={s.adminItem}>
-             <svg className={s.addSvg}>
-                 <use href={sprite + "#plus"}></use>
-             </svg>
-             <p className={s.adminText}>Create a new contact</p>
-         </li>}
+            {isLoggedIn && (
+              <li className={s.adminItem}>
+                <svg className={s.addSvg}>
+                  <use href={sprite + "#plus"}></use>
+                </svg>
+                <p className={s.adminText}>Create a new contact</p>
+              </li>
+            )}
           </ul>
         </div>
       </div>

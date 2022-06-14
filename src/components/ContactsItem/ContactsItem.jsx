@@ -16,13 +16,11 @@ const ContactsItem = ({ openModal }) => {
         getAvatar("tatiana_tarasovich.jpg")
     }, [])
     
-    console.log(cont);
     return (<>
         {cont.map(cont => 
             <li className={s.contactItem} key={cont._id}  onClick={() => {
                 openModal(cont)
-            }}>
-                {/* <img className={s.avatar} src={require(`./avatar/${cont.avatar}`)} alt={cont.name} /> */}
+            }}>               
                  <img className={s.avatar} src={renderCheck(cont.avatar) ? `http://localhost:3001/avatar/${cont.avatar}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Avatar-placeholder.jpg/1200px-Avatar-placeholder.jpg'} alt={cont.name} />  
                 
                 <div className={s.conatcInf}>

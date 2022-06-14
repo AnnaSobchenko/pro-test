@@ -58,11 +58,9 @@ export async function questionsApi(testingType) {
   return data;
 }
 
-export async function questionsCheckApi({testType, questionInfo}) {  
-  
+export async function answersCheckApi({ testType, questionInfo }) {
   const { data } = await axios.post(`/test/check/${testType}`, questionInfo);
-  console.log("Result (technicalQuestionsCheckApi)", data);
-  return data.rightAnswers;  
+  return data.rightAnswers;
 }
 
 export async function getContact() {
@@ -72,7 +70,7 @@ export async function getContact() {
 
 export async function getResume(resume) {
   const response = await fetch(
-    `http://localhost:3001/contacts/resume/${resume}`
+    `${axios.defaults.baseURL}contacts/resume/${resume}`
   );
 
   if (response.status === 200) {
@@ -90,6 +88,5 @@ export async function getResume(resume) {
 
 export async function getAvatar(name) {
   const result = await axios.post(`/avatars/upload/${name}`);
-  console.log(result.data.avatar);
   return result;
 }

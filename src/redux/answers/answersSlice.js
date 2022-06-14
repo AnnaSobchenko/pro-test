@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { questions, questionsCheck } from "../questions/questionsOperations";
+import { questions, answersCheck } from "../answers/answersOperations";
 
-const questionsSlice = createSlice({
-  name: "questions",
+const answersSlice = createSlice({
+  name: "answers",
   initialState: {
     typeOfTesting: "",
     questionsForUser: [],
@@ -38,15 +38,15 @@ const questionsSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
-    [questionsCheck.pending](state) {
+    [answersCheck.pending](state) {
       state.isLoading = true;
     },
-    [questionsCheck.fulfilled](state, { payload }) {
+    [answersCheck.fulfilled](state, { payload }) {
       state.isLoading = false;
       state.error = null;
       state.rightAnswers = payload;
     },
-    [questionsCheck.rejected](state, { payload }) {
+    [answersCheck.rejected](state, { payload }) {
       state.isLoading = false;
       state.error = payload;
       state.rightAnswers = null;
@@ -55,5 +55,5 @@ const questionsSlice = createSlice({
 });
 
 export const { getUserAnswer, testingType, setQuestionsForUser } =
-  questionsSlice.actions;
-export default questionsSlice.reducer;
+answersSlice.actions;
+export default answersSlice.reducer;

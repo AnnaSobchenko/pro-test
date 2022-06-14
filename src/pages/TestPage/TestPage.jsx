@@ -7,14 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getCurrentTestingType,
   getTestingQuestion,
-} from "../../redux/questions/questionsSelector";
-import {
-  questionsCheck,
-} from "../../redux/questions/questionsOperations";
+} from "../../redux/answers/answersSelector";
+import { answersCheck } from "../../redux/answers/answersOperations";
 import {
   getUserAnswer,
   setQuestionsForUser,
-} from "../../redux/questions/questionsSlice";
+} from "../../redux/answers/answersSlice";
 import Button from "../../components/Button/Button";
 
 const uuid = require("uuid");
@@ -83,17 +81,17 @@ const TestPage = () => {
       navigate("../result", { replace: true });
       dispatch(setQuestionsForUser());
 
-    let testType;
+      let testType;
 
-    if (testName === "Testing theory") {
-      testType = "theory";
-    }
-    if (testName === "QA technical training") {
-      testType = "technical";
-    }
+      if (testName === "Testing theory") {
+        testType = "theory";
+      }
+      if (testName === "QA technical training") {
+        testType = "technical";
+      }
 
-    dispatch(questionsCheck({testType, questionInfo}));
-  }
+      dispatch(answersCheck({ testType, questionInfo }));
+    }
     counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
   };
 

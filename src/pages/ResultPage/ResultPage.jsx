@@ -5,7 +5,7 @@ import {
 	getCurrentTestingType,
 	getUserAnswer,
 	getRightAnswers,
-} from "../../redux/questions/questionsSelector";
+} from "../../redux/answers/answersSelector";
 import { useNavigate } from "react-router-dom";
 
 import catMobOk from "../../images/cat@1x-mob-min.png";
@@ -41,7 +41,7 @@ const ResultPage = () => {
 	const incorrect = 1 - correct;
 
 	const onTryAgain = (e) => {
-		navigate("../test", { replace: true });
+		navigate("../", { replace: true });
 	};
 
 	const getTestFeedback = (rightAnswers) => {
