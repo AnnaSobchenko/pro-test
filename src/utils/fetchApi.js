@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://pro-test-rest-api.herokuapp.com";
+axios.defaults.baseURL = "http://localhost:3001";
+// axios.defaults.baseURL = "https://pro-test-rest-api.herokuapp.com";
 
 const token = {
   set(token) {
@@ -107,7 +107,7 @@ export async function getResume(resume) {
 }
 
 export async function getAvatar(name) {
-	const result = await axios.post(`/avatars/upload/${name}`);
-	console.log(result.data.avatar);
-	return result;
+  const result = await axios.post(`/avatars/upload/${name}`);
+  console.log(result.data.avatar);
+  return result;
 }

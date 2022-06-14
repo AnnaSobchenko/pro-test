@@ -83,7 +83,7 @@ const TestPage = () => {
 
     if (questionInfo.length === 12) {
       dispatch(getUserAnswer(questionInfo));
-
+      navigate("../result", { replace: true });
       dispatch(setQuestionsForUser());
     }
 
@@ -107,10 +107,7 @@ const TestPage = () => {
     if (testName === "QA technical training") {
       testType = "technical";
     }
-
     dispatch(questionsCheck(testType, questionInfo));
-
-    navigate("../result", { replace: true });
 
     counter !== 0 ? setBtnDisable(false) : setBtnDisable(true);
   };
@@ -150,6 +147,7 @@ const TestPage = () => {
                       value={el}
                       onChange={onInputChange}
                     ></input>
+
                     <span className={s.question__text}>{`${el}`}</span>
                   </label>
                 </div>
