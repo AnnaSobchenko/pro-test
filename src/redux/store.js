@@ -35,7 +35,6 @@ const questionsPersistedReducer = persistReducer(
 const rootPersistConfig = {
   key: "root",
   storage,
-  whitelist: ["theme"],
 };
 
 const rootReducer = combineReducers({
