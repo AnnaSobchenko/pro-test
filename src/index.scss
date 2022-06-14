@@ -4,16 +4,20 @@
   --footer-bg-color: #02172a;
   --modal-bg-color: #ffffff;
   --second-button-color: #02172a;
-  --accent-button-color: #FF6B01;
-  --accent-nav-color: #FF6B09;
+  --accent-button-color: #ff6b01;
+  --accent-nav-color: #ff6b09;
+  --check-color: #ff6b09;
   --primary-text-color: #000000;
   --secondary-text-color: #555555;
   --third-text-color: #ffffff;
-  --border-color: #E2E3E5;
-  --footer-text-color:rgba(255, 255, 255, 0.4);
+  --border-color: #e2e3e5;
+  --border-check-color: #000000;
+  --footer-text-color: rgba(255, 255, 255, 0.4);
   --google-btn-bg: #fafafa;
-  --contacts-vector: #00122F;
-  --admin-svg: #CCCCCC;
+  --contacts-vector: #00122f;
+  --admin-svg: #cccccc;
+  --question-wrapper-color: rgba(2, 23, 42, 0.1);
+  --test-main-pages-line-color: #00122f;
 }
 
 p,
@@ -50,7 +54,7 @@ aside {
 
 html,
 body {
-  font-family: 'Montserrat', sans-serif;  
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
