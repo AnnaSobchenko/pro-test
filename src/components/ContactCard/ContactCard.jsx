@@ -1,6 +1,9 @@
 import { getResume } from "../../utils/fetchApi"
 import s from "./ContactCard.module.scss"
-
+import { AiFillFilePdf } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
+import { AiFillMail } from "react-icons/ai";
 
 
 const ContactCard = ({ contact }) => {
@@ -22,7 +25,7 @@ const ContactCard = ({ contact }) => {
     };
 
     return (
-        <div>
+        <div className={s.contactWrapper}>
             <img className={s.avatar} src={require(`../../images/avatar/${avatar}`)} alt={name} />
             <div className={s.conatcInf}>
                 <p className={s.name}>{name}</p>
@@ -33,33 +36,24 @@ const ContactCard = ({ contact }) => {
             <ul className={s.social_list}>
                 {renderCheck(links.linkedin) &&
                     <li className={s.social_list_item}>
-                        <a href={links.linkedin} className={s.social_list_link}target="_blank" rel="no-referrer">
-                            {/* <svg className={s.social_list_link_img}>
-                                        <use href="./images/sprite.svg#instagram"></use>
-                                    </svg> */}
-                            <span>L</span>
+                        <a href={links.linkedin} className={s.social_list_link} target="_blank" rel="no-referrer">
+                            <AiFillLinkedin size="50px"/>
                         </a>
                     </li>
                 }
 
                 {renderCheck(links.github) &&
                     <li className={s.social_list_item}>
-                        <a href={links.github} className={s.social_list_link}target="_blank" rel="no-referrer">
-                            {/* <svg className={s.social_list_link_img}>
-                                        <use href="./images/sprite.svg#instagram"></use>
-                                    </svg> */}
-                            <span>G</span>
+                        <a href={links.github} className={s.social_list_link} target="_blank" rel="no-referrer">
+                            <AiFillGithub size="50px" />
                         </a>
                     </li>
                 }
 
                 {renderCheck(links.email) &&
                     <li className={s.social_list_item}>
-                        <a href="mailto:{links.email}" className={s.social_list_link}target="_blank" rel="no-referrer">
-                            {/* <svg className={s.social_list_link_img}>
-                                        <use href="./images/sprite.svg#instagram"></use>
-                                    </svg> */}
-                            <span>X</span>
+                        <a href="mailto:{links.email}" className={s.social_list_link} target="_blank" rel="no-referrer">
+                            <AiFillMail size="50px" />
                         </a>
                     </li>
                 }
@@ -67,10 +61,7 @@ const ContactCard = ({ contact }) => {
                 {renderCheck(links.resume) &&
                     <li className={s.social_list_item}>
                         <a href="" className={s.social_list_link} target="_blank" rel="no-referrer" onClick={downloadClickHandler}>
-                            {/* <svg className={s.social_list_link_img}>
-                                        <use href="./images/sprite.svg#instagram"></use>
-                                    </svg> */}
-                            <span>R</span>
+                            <AiFillFilePdf size="50px" />
                         </a>
                     </li>
                 }
