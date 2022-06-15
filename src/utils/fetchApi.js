@@ -76,7 +76,6 @@ export async function getResume(resume) {
     const blob = await response.blob();
     const downloadUrl = window.URL.createObjectURL(blob);
     const link = document.createElement("a");
-    console.log(downloadUrl);
     link.href = downloadUrl;
     link.target = "_blank";
     document.body.appendChild(link);
