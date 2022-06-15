@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import {
   persistStore,
@@ -12,42 +12,32 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/authSlice";
-import questionsReducer from "./questions/questionsSlice";
+import answersReducer from "./answers/answersSlice";
 
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["accessToken", "refreshToken"],
+  whitelist: ["accessToken", "user"],
 };
 
-const questionsPersistConfig = {
-  key: "questions",
+const answersPersistConfig = {
+  key: "answers",
   storage,
   whitelist: ["accessToken", "refreshToken"],
 };
 
 const authPersistedReducer = persistReducer(authPersistConfig, authReducer);
-const questionsPersistedReducer = persistReducer(
-  questionsPersistConfig,
-  questionsReducer
+const answersPersistedReducer = persistReducer(
+  answersPersistConfig,
+  answersReducer
 );
 
-const rootPersistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["theme"],
-};
-
-const rootReducer = combineReducers({
-  auth: authPersistedReducer,
-  questions: questionsPersistedReducer,
-});
-
-const rootPersistedReducer = persistReducer(rootPersistConfig, rootReducer);
-
 const store = configureStore({
-  reducer: rootPersistedReducer,
-  middleware: (getDefaultMiddleware) =>
+  reducer: {
+    auth: authPersistedReducer,
+    answers: answersPersistedReducer,
+  },
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

@@ -1,0 +1,22 @@
+.inputLabel{
+        display: block;
+        margin: 0;
+        margin-bottom: 20px;
+        width: calc(100%);
+        height: 56px;
+        span{
+            display: none;
+            width: 20%;
+            height: 100%;
+        }
+        input{
+            background-color: var(--modal-bg-color);
+            display: block;
+            width: calc( 100% );
+            height: 100%;
+            border: 1px;
+            border: 1px solid var(--border-color);
+            padding-left: 10px;
+        }
+
+    }

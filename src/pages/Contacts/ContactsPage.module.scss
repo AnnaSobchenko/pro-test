@@ -1,0 +1,128 @@
+.bg {
+    background-color: var(--primary-bg-color);
+    padding-top: 42px;
+    padding-bottom: 40px;
+}
+
+.title {
+    width: auto;
+    height: 22px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    @media screen and (min-width: 768px)  {
+        height: 28px;
+        font-size: 22px;
+        line-height: 27px;
+    }
+    // height: 22px;
+    //     font-size: 18px;
+    //     line-height: 22px;
+}
+
+.vector {
+    width: 130px;
+    height: 1px;
+    background-color: var(--contacts-vector);
+    opacity: 0.15;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (min-width: 768px)  {
+        width: 321.5px;
+    }
+    // width: 130px;
+}
+
+.conatctList {
+    display: block;
+    flex-wrap: wrap;
+    @media screen and (min-width: 768px)  {
+        display: flex;
+    }
+    
+}
+
+.liLogo{
+    list-style: none;
+    margin-left: auto   ;
+    margin-right: auto; 
+    width: 280px;
+    @media screen and (min-width: 768px)  {
+        margin-left: 181px ;
+    margin-right: 181px;
+    width:336px;
+    }
+    @media screen and (min-width: 1280px)  {
+        margin-left: 168px ;
+    margin-right: 168px;
+    width:288px;
+    }
+}
+
+.liLogoImg {
+    width: 280px;
+    @media screen and (min-width: 768px)  {
+        width:336px;
+    }
+    @media screen and (min-width: 1280px)  {
+        width:288px;
+    }
+}
+
+
+.adminItem {
+    width: 280px;
+    height: 370px;
+    background-color: var(--third-text-color);
+
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+
+    transition-property:box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    cursor: pointer;
+    
+    @media screen and (min-width: 768px)  {
+        width: 336px;
+    }
+    @media screen and (min-width: 1280px) {
+            width: 288px;
+        }
+    &:hover,
+    &:focus {
+        box-sizing: border-box;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
+}
+
+.adminText {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--admin-svg);
+}
+
+.addSvg {
+    margin-top: 40px;
+    width: 280px;
+    margin-bottom: 10px;
+    @media screen and (min-width: 768px)  {
+        width: 336px;
+    }
+    @media screen and (min-width: 1280px) {
+            width: 288px;
+        }
+}

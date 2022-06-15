@@ -1,6 +1,6 @@
-import "./App.css";
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import "./App.scss";
+import { Suspense, useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import PublicRoute from "./components/_routs/PublicRoute";
 import PrivateRoute from "./components/_routs/PrivatRoute";
 import TestPage from "./pages/TestPage/TestPage";
@@ -13,28 +13,47 @@ import MaterialsPage from "./pages/MaterialsPage/MaterialsPage";
 import ContactsPage from "./pages/Contacts/ContactsPage";
 import AppBar from "./components/_navigation/AppBar";
 import Footer from "./components/_navigation/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getNewTokens } from "./redux/auth/authOperations";
+import { getAccessToken, getIsLoggedIn, getRefreshToken } from "./redux/auth/authSelector";
 
 function App() {
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  const stateRefreshToken = useSelector(getRefreshToken);
+  const stateAccessToken = useSelector(getAccessToken);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (stateAccessToken && !stateRefreshToken) dispatch(getNewTokens());
+  }, [dispatch, stateAccessToken, stateRefreshToken]);
+
   return (
-    <div className="App">
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<AppBar />}>
-            <Route index element={<MainPage />} />
-            <Route element={<PublicRoute />}>
-              <Route path="auth" element={<AuthPage />} />
-            </Route>
-            <Route element={<PrivateRoute />}>
-              <Route path="test" element={<TestPage />} />
-              <Route path="result" element={<ResultPage />} />
-              <Route path="materials" element={<MaterialsPage />} />
+    <div className="content">
+      <div>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<AppBar />}>
+              <Route
+                index
+                element={isLoggedIn ? <MainPage /> : <Navigate to="auth" />}
+              />
               <Route path="contacts" element={<ContactsPage />} />
+              <Route element={<PublicRoute />}>
+                <Route path="auth" element={<AuthPage />} />
+              </Route>
+              <Route element={<PrivateRoute />}>
+                <Route path="test/:type" element={<TestPage />} />
+                <Route path="result" element={<ResultPage />} />
+                <Route path="materials" element={<MaterialsPage />} />
+                {/* <Route path="contacts" element={<ContactsPage />} /> */}
+              </Route>
+              <Route path="*" element={<RedirectNew to="/" replace />} />
             </Route>
-            <Route path="*" element={<RedirectNew to="/" replace />} />
-          </Route>
-        </Routes>
-        <Footer />
-      </Suspense>
+          </Routes>
+        </Suspense>
+      </div>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,83 @@
+.authForm {
+  display: block;
+  margin: 0 auto;
+  padding: 40px 20px ;
+  margin-bottom: 34px;
+  margin-top: 24px;
+  width: 280px;
+  font-size: 10px;
+  background-color: white;
+  box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
+  box-sizing: border-box;
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 32px 48px 32px;
+    margin-bottom: 48px;
+    width: 501px;
+      }
+
+      @media screen and (min-width: 1280px) {
+       
+      margin-bottom: 100px;
+  margin-top: 100px;
+  margin-right: 123px;
+          }
+        
+}
+
+.authFormTitle{
+  font-family: 'Montserrat';
+  margin-bottom: 32px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--primary-text-color);
+  @media screen and (min-width: 768px) {
+     font-size: 14px;
+        }
+
+}
+
+.authFormTitle2{
+  font-family: 'Montserrat';
+  margin-bottom: 32px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  @media screen and (min-width: 768px) {
+     font-size: 14px;
+        }
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+}
+.btnSubmit{
+  width: 109px;
+  height: 60px;
+  @media screen and (min-width: 768px) {
+    width: 210px;
+  // height: 60px;
+
+      }
+}
+
+.btnSubmit:hover {
+  background-color: var(--accent-button-color);
+}
+.btnGoogle{
+ 
+  margin-bottom: 32px;
+  margin-top: 32px;
+  
+}
+.authFormInput{
+  margin-top: 32px;
+}
+.img{
+  margin-right: 10px;
+}
+.btnSubmitSignin {
+  margin-right: 10px;
+}

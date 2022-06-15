@@ -1,0 +1,102 @@
+.contactWrapper {
+  max-width: 400px;
+}
+
+.avatar {
+    margin: 0 auto;
+    width: 280px;
+    height: 244px;
+    object-fit: cover;
+    
+     @media screen and (min-width: 768px)  {
+        width: 336px;
+    }
+    @media screen and (min-width: 1280px) {
+        width: 288px;
+     }
+}
+
+.conatcInf {
+    padding-top: 20px;
+    padding-left: 28px;
+    padding-right: 23px;
+}
+
+
+.name {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+
+
+.jodTitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: #555555;
+    margin-bottom: 8px;
+}
+
+.comment {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+
+
+
+// =====================================
+.social_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: #afb1b8;
+  }
+  
+  .social_list_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffffff;
+        // &:hover,
+        // &:focus {
+        //   background-color: #2196f3;
+        //   }
+        svg {
+          color: var(--accent-button-color);
+        }
+  }
+  
+  .social_list_item {
+    list-style: none;
+
+    &:not(:last-child) {
+        margin-right: 15px;
+      }
+  }
+  
+  .social_list_link_img {
+    fill: #afb1b8;
+    transition: fill var(--primary-time-duration)  ;
+      .social_list_link:hover > &,
+      .social_list_link:focus > & {
+        fill: #2196f3;
+      }
+  }
