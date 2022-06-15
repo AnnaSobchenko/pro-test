@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 import {
   signinUserApi,
   logoutUserApi,
@@ -12,9 +13,11 @@ export const signup = createAsyncThunk(
   async (userData, thunkApi) => {
     const { confirmPassword, ...rest } = userData;
     try {
-      const  data  = await signupUserApi(rest);
+      const data = await signupUserApi(rest);
       return data;
     } catch (error) {
+      Notify.failure("Email or password is incorrect");
+
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -27,6 +30,7 @@ export const signin = createAsyncThunk(
       const data = await signinUserApi(userData);
       return data;
     } catch (error) {
+      Notify.failure("Email or password is incorrect");
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -39,6 +43,7 @@ export const getInfo = createAsyncThunk(
       const data = await getUserInfo(userInfo);
       return data.user.email;
     } catch (error) {
+      Notify.failure("No user data :(");
       return thunkApi.rejectWithValue("No user data :(");
     }
   }
