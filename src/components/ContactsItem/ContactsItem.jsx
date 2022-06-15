@@ -1,12 +1,14 @@
-import s from './ContactsItem.module.scss';
+import s from "./ContactsItem.module.scss";
 import { useEffect, useState } from "react";
-import { getContact, getAvatar } from '../../utils/fetchApi';
-import renderCheck from '../_shared/hooks/renderCheck'
-
+import { getContact, getAvatar } from "../../utils/fetchApi";
+import renderCheck from "../_shared/hooks/renderCheck";
 
 const ContactsItem = ({ openModal }) => {
+  const [cont, setCont] = useState([]);
 
-    const [cont, setCont] = useState([])
+  useEffect(() => {
+    getContact().then((data) => setCont(data));
+  }, []);
 
     useEffect(() => {
         getContact().then(data => setCont(data))
