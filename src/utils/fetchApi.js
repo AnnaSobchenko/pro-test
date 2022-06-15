@@ -1,6 +1,6 @@
 import axios from "axios";
-
-axios.defaults.baseURL = "https://pro-test-rest-api.herokuapp.com";
+const baseUrl = process.env.REACT_APP_BASE_URL;
+axios.defaults.baseURL = baseUrl || "http://localhost:3001/";
 
 const token = {
   set(token) {
@@ -69,7 +69,7 @@ export async function getContact() {
 
 export async function getResume(resume) {
   const response = await fetch(
-    `${axios.defaults.baseURL}/contacts/resume/${resume}`
+    `${baseUrl}/contacts/resume/${resume}`
   );
 
   if (response.status === 200) {
