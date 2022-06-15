@@ -80,21 +80,19 @@
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-   margin-right: 20px;
+    margin-right: 20px;
   }
 }
 
 .letter_wrapper {
-  
-    width: 33px;
-    height: 33px;
-    border-radius: 50%;
-    background-color: var(--modal-bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 15px;
-
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background-color: var(--modal-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 15px;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -140,7 +138,7 @@
 }
 
 .navIcon_btn {
-  width: 60px;
+  width: 66px;
   height: 69px;
   padding: 0;
   padding-right: 0;

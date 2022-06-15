@@ -1,7 +1,7 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL = "https://pro-test-rest-api.herokuapp.com";
+// axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://pro-test-rest-api.herokuapp.com";
 
 const token = {
   set(token) {
@@ -70,7 +70,7 @@ export async function getContact() {
 
 export async function getResume(resume) {
   const response = await fetch(
-    `${axios.defaults.baseURL}contacts/resume/${resume}`
+    `${axios.defaults.baseURL}/contacts/resume/${resume}`
   );
 
   if (response.status === 200) {
