@@ -52,7 +52,10 @@ export default function Chart(props) {
 				textAnchor={x > cx ? "start" : "end"}
 				dominantBaseline="central"
 			>
-				{`${(percent * 100).toFixed(0)}%`} {data[index].name}
+				<tspan>{`${(percent * 100).toFixed(0)}%`}</tspan>
+        <tspan x={x} dy="20">
+					{data[index].name}
+				</tspan>
 			</text>
 		);
 	};
