@@ -75,7 +75,6 @@
     height: 50px;
     border-radius: 50%;
     background-color: #ffffff;
-    margin-right: 15px;
         // &:hover,
         // &:focus {
         //   background-color: #2196f3;
@@ -88,8 +87,8 @@
   .social_list_item {
     list-style: none;
 
-    ::not(:last-child) {
-        margin-right: 10px;
+    &:not(:last-child) {
+        margin-right: 15px;
       }
   }
   
